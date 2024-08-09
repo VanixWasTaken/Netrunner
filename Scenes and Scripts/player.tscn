@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e0i68"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_am13k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_e0i68")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_5nlux")
@@ -16,6 +19,3 @@ mesh = SubResource("CapsuleMesh_5nlux")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457757, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_e0i68")
