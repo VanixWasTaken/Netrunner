@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-
+const speed = 10.0
 const jump_velocity = 4.5
 const sensitivity = 0.003
 
@@ -24,6 +24,7 @@ var sliding_speed_modifier = 1.2
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var label = $ConsoleLayer/Label
+@onready var animation_player = $AnimationPlayer
 
 
 
@@ -31,14 +32,18 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	# label test text
-	label.text = str(is_sliding) + " 
-	" + str(Global.speed)
+	label.text = "is_sliding = " + str(is_sliding) + " 
+	" + str(speed)
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * sensitivity)
 		camera.rotate_x(-event.relative.y * sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+
+func _process(delta):
+	label.text = "is_sliding = " + str(is_sliding) + " 
+			" + str(speed)
 
 
 func _physics_process(delta):
@@ -56,24 +61,24 @@ func _physics_process(delta):
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("slide") and !is_sliding:
+		if Input.is_action_just_pressed("slide"):
 			is_sliding = true
-			Global.speed * sliding_speed_modifier
-			label.text = str(is_sliding) + " 
-			" + str(Global.speed)
+			animation_player.play("slide_animation")
+			speed * sliding_speed_modifier
+			
 		if direction:
-			velocity.x = direction.x * Global.speed / 2
-			velocity.z = direction.z * Global.speed
+			velocity.x = direction.x * speed / 2
+			velocity.z = direction.z * speed
 		else:
-			velocity.x = lerp(velocity.x, direction.x * Global.speed, delta * 8.0)
-			velocity.z = lerp(velocity.z, direction.z * Global.speed, delta * 8.0)
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
 		
 			
 			
 			
 	else:
-		velocity.x = lerp(velocity.x, direction.x * Global.speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * Global.speed, delta * 3.0)
+		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
 	# head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -81,12 +86,13 @@ func _physics_process(delta):
 	
 	
 	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, Global.speed * 2)
+	var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
 	var target_fov = base_fov + fov_change * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
-	is_sliding = false
+	
 	move_and_slide()
+
 
 
 
@@ -100,3 +106,7 @@ func _headbob(time) -> Vector3:
 func _input(event):
 	if event.is_action_pressed("end"):
 		get_tree().quit()
+
+# checks the slide_animation
+func _on_animation_player_animation_finished(anim_name):
+	is_sliding = false

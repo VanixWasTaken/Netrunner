@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=7 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="2_dit42"]
@@ -6,6 +6,39 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gx5ba"]
+
+[sub_resource type="Animation" id="Animation_82jkl"]
+resource_name = "slide_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.457757, 0), Vector3(0, 0.225, 0), Vector3(0, 0.225, 0), Vector3(0, 0.457757, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.0523599), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b45fm"]
+_data = {
+"slide_animation": SubResource("Animation_82jkl")
+}
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_am13k")
@@ -17,7 +50,7 @@ mesh = SubResource("CapsuleMesh_5nlux")
 shape = SubResource("CapsuleShape3D_gx5ba")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457757, 0)
+transform = Transform3D(0.99863, -0.052336, 0, 0.052336, 0.99863, 0, 0, 0, 1, 0, 0.457757, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
@@ -32,3 +65,10 @@ theme_override_fonts/font = ExtResource("2_dit42")
 theme_override_font_sizes/font_size = 32
 text = "Test"
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b45fm")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
