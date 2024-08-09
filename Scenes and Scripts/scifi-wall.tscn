@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://xgpx38byp07v"]
+[gd_scene load_steps=11 format=3 uid="uid://xgpx38byp07v"]
 
 [ext_resource type="Texture2D" uid="uid://cbh68g7rv7ak8" path="res://Assets/Textures/dots_2048x2048.png" id="1_8fmup"]
-[ext_resource type="Shader" uid="uid://c851ilwvw3v5m" path="res://Shader/scifi-wall.tres" id="1_klras"]
+[ext_resource type="Shader" uid="uid://bvs32krkvuvp8" path="res://Shader/scifi-wall-system.tres" id="1_xm578"]
 [ext_resource type="Texture2D" uid="uid://b3xo61b4541ee" path="res://Assets/Textures/noise_2048x2048.png" id="3_v417e"]
+[ext_resource type="Texture2D" uid="uid://co3lmysx2buhe" path="res://Assets/Textures/diagonal_weave_2048x2048.png" id="4_fec11"]
+[ext_resource type="Texture2D" uid="uid://cjbddbhtv6h6d" path="res://Assets/Textures/darker_noise_2048x2048.png" id="5_npfpu"]
 
 [sub_resource type="Environment" id="Environment_a6g52"]
 glow_enabled = true
@@ -11,7 +13,7 @@ glow_bloom = 0.51
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f3xh5"]
 render_priority = 0
-shader = ExtResource("1_klras")
+shader = ExtResource("1_xm578")
 shader_parameter/Vector2Parameter = Vector2(-3, -3)
 shader_parameter/NoiseSpeed = Vector2(0, 0.5)
 shader_parameter/Noise_Strength = 8.32
@@ -25,13 +27,30 @@ color = Color(1.275, 2.51, 5, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3g60m"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4vw1j"]
+render_priority = 0
+shader = ExtResource("1_xm578")
+shader_parameter/Vector2Parameter = Vector2(-2, -2)
+shader_parameter/NoiseSpeed = Vector2(0.645, 0)
+shader_parameter/Noise_Strength = 8.515
+shader_parameter/MaskPower = 0.28
+shader_parameter/MainTex = ExtResource("4_fec11")
+shader_parameter/Noise = ExtResource("5_npfpu")
+
 [node name="Scifi-wall" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a6g52")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="ScifiWall_Dots" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.00386572, 1.04175, 0)
 material_override = SubResource("ShaderMaterial_f3xh5")
+process_material = SubResource("ParticleProcessMaterial_uadnj")
+draw_pass_1 = SubResource("PlaneMesh_3g60m")
+
+[node name="ScifiWall_System" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.6158, 1.06064, -0.0017314)
+visible = false
+material_overlay = SubResource("ShaderMaterial_4vw1j")
 process_material = SubResource("ParticleProcessMaterial_uadnj")
 draw_pass_1 = SubResource("PlaneMesh_3g60m")
