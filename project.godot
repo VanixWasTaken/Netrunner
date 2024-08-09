@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Netrunner"
-config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/name="asdasdasdads"
+run/main_scene="res://Scenes and Scripts/test_level.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://Assets/icon.svg"
 
 [rendering]
 
-renderer/rendering_method="forward_plus"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

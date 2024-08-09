@@ -1,0 +1,37 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhhmb12k8clah"]
+
+[ext_resource type="Texture2D" uid="uid://c2sbl5rhxmplw" path="res://Assets/icon.svg" id="1_7f1ot"]
+[ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="2_61e1u"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n7jw4"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a1ib4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5o3f1"]
+albedo_texture = ExtResource("1_7f1ot")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_878t2"]
+material = SubResource("StandardMaterial3D_5o3f1")
+size = Vector2(100, 100)
+
+[sub_resource type="Environment" id="Environment_m7au2"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_n7jw4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_a1ib4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground/CollisionShape3D"]
+mesh = SubResource("PlaneMesh_878t2")
+skeleton = NodePath("../..")
+
+[node name="Player" parent="." instance=ExtResource("2_61e1u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0707736, 5.7699, -0.00136757)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m7au2")
