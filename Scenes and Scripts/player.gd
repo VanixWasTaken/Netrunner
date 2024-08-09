@@ -13,6 +13,10 @@ var bob_frequency = 2.0
 var bob_amplifier = 0.08
 var t_bob = 0.0
 
+# fov_variation
+var base_fov = 77.0
+var fov_change = 1.2
+
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
@@ -40,18 +44,27 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+	
+	if is_on_floor():
+		if direction:
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
+		else:
+			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
+			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
 	else:
-		velocity.x = 0.0
-		velocity.z = 0.0
-
+		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
 
 	# head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
 	camera.transform.origin = _headbob(t_bob)
 	
+	
+	# FOV
+	var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
+	var target_fov = base_fov + fov_change * velocity_clamped
+	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
 	move_and_slide()
 
