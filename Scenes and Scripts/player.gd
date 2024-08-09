@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const speed = 10.0
+@export var speed = 10.0
 const jump_velocity = 4.5
 const sensitivity = 0.003
 
