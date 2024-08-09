@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bdkdw5ajlyldm"
+path="res://.godot/imported/Decaydence Straight.otf-5f24471f5c9a99ad1e4ff386c2fda848.fontdata"
+
+[deps]
+
+source_file="res://Assets/Fonts/Decaydence Straight.otf"
+dest_files=["res://.godot/imported/Decaydence Straight.otf-5f24471f5c9a99ad1e4ff386c2fda848.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

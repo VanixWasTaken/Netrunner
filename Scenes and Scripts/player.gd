@@ -1,25 +1,24 @@
 extends CharacterBody3D
 
 
-const speed = 10.0
-const jump_velocity = 4.5
-const sensitivity = 0.003
+@export var speed = 10.0
+@export var jump_velocity = 4.5
+@export var sensitivity = 0.003
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
 # bob variables
 var bob_frequency = 2.0
-var bob_amplifier = 0.08
+@export var bob_amplifier = 0.08
 var t_bob = 0.0
 
 # fov_variation
-var base_fov = 77.0
-var fov_change = 1.2
+@export var base_fov = 77.0
+@export var fov_change = 1.2
 
 # slide variables
 var is_sliding = false
-var sliding_speed_modifier = 1.2
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -64,7 +63,6 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("slide"):
 			is_sliding = true
 			animation_player.play("slide_animation")
-			speed * sliding_speed_modifier
 			
 		if direction:
 			velocity.x = direction.x * speed / 2
