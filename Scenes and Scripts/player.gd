@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const speed = 10.0
+
 const jump_velocity = 4.5
 const sensitivity = 0.003
 
@@ -23,10 +23,16 @@ var sliding_speed_modifier = 1.2
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
+@onready var label = $ConsoleLayer/Label
+
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	# label test text
+	label.text = str(is_sliding) + " 
+	" + str(Global.speed)
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -50,16 +56,24 @@ func _physics_process(delta):
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if is_on_floor():
+		if Input.is_action_just_pressed("slide") and !is_sliding:
+			is_sliding = true
+			Global.speed * sliding_speed_modifier
+			label.text = str(is_sliding) + " 
+			" + str(Global.speed)
 		if direction:
-			velocity.x = direction.x * speed / 2
-			velocity.z = direction.z * speed
+			velocity.x = direction.x * Global.speed / 2
+			velocity.z = direction.z * Global.speed
 		else:
-			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
-			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
+			velocity.x = lerp(velocity.x, direction.x * Global.speed, delta * 8.0)
+			velocity.z = lerp(velocity.z, direction.z * Global.speed, delta * 8.0)
 		
+			
+			
+			
 	else:
-		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
-		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
+		velocity.x = lerp(velocity.x, direction.x * Global.speed, delta * 3.0)
+		velocity.z = lerp(velocity.z, direction.z * Global.speed, delta * 3.0)
 
 	# head bob
 	t_bob += delta * velocity.length() * float(is_on_floor())
@@ -67,10 +81,11 @@ func _physics_process(delta):
 	
 	
 	# FOV
-	var velocity_clamped = clamp(velocity.length(), 0.5, speed * 2)
+	var velocity_clamped = clamp(velocity.length(), 0.5, Global.speed * 2)
 	var target_fov = base_fov + fov_change * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
+	is_sliding = false
 	move_and_slide()
 
 
