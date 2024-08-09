@@ -17,6 +17,10 @@ var t_bob = 0.0
 var base_fov = 77.0
 var fov_change = 1.2
 
+# slide variables
+var is_sliding = false
+var sliding_speed_modifier = 1.2
+
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 
@@ -52,6 +56,7 @@ func _physics_process(delta):
 		else:
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
+		
 	else:
 		velocity.x = lerp(velocity.x, direction.x * speed, delta * 3.0)
 		velocity.z = lerp(velocity.z, direction.z * speed, delta * 3.0)
