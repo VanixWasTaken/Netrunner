@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const speed = 10.0
+@export var speed = 10.0
 const jump_velocity = 4.5
 const sensitivity = 0.003
 
@@ -64,6 +64,8 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("slide"):
 			is_sliding = true
 			animation_player.play("slide_animation")
+			#head.position.y += 0.5
+			
 			speed * sliding_speed_modifier
 			
 		if direction:
