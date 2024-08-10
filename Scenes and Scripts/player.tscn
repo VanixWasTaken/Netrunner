@@ -1,13 +1,32 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=28 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="PackedScene" uid="uid://2jpjl22gbo0x" path="res://Assets/Mesh/player-v1-export-i3.glb" id="2_d26a4"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="2_dit42"]
+[ext_resource type="Shader" path="res://Shader/speed_effect.gdshader" id="4_att53"]
 [ext_resource type="AudioStream" uid="uid://dnog1exlwttsj" path="res://Assets/Audio/background_track1.ogg" id="4_ey1aa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gx5ba"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vpfl0"]
+noise_type = 3
+frequency = 0.5515
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cmpw1"]
+noise = SubResource("FastNoiseLite_vpfl0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3sxm"]
+shader = ExtResource("4_att53")
+shader_parameter/line_color = Color(1, 1, 1, 0.45098)
+shader_parameter/line_count = 0.5
+shader_parameter/line_density = 0.5
+shader_parameter/line_faloff = 1.0
+shader_parameter/mask_size = 0.0
+shader_parameter/mask_edge = 0.5
+shader_parameter/animation_speed = 10.0
+shader_parameter/noise = SubResource("NoiseTexture2D_cmpw1")
 
 [sub_resource type="Animation" id="Animation_rnx4j"]
 length = 0.001
@@ -828,12 +847,22 @@ size = Vector3(0.1, 0.1, 0.1)
 [node name="Label" type="Label" parent="ConsoleLayer"]
 offset_left = 16.0
 offset_top = 14.0
-offset_right = 56.0
-offset_bottom = 37.0
+offset_right = 62.0
+offset_bottom = 40.0
 theme_override_fonts/font = ExtResource("2_dit42")
 theme_override_font_sizes/font_size = 32
 text = "Test"
 metadata/_edit_use_anchors_ = true
+
+[node name="SpeedEffect" type="ColorRect" parent="ConsoleLayer"]
+visible = false
+material = SubResource("ShaderMaterial_f3sxm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -41,3 +41,8 @@ func _on_death_area_body_entered(body):
 	SceneTransition.change_scene_to_file("res://Scenes and Scripts/Blockout_level.tscn")
 
 
+
+
+func _on_goal_body_entered(body):
+	Engine.time_scale = 0.2
+	$Goal/WinScreen.show()
