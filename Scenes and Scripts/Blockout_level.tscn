@@ -144,4 +144,6 @@ shape = SubResource("WorldBoundaryShape3D_1irrx")
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ouy7m")]
 
-[connection signal="body_entered" from="DeathArea" to="Player" method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
+
+[editable path="SceneTransition"]

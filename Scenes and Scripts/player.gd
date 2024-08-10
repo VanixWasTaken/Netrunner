@@ -67,7 +67,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	elif is_on_floor() and is_sliding:
-		velocity.y -= 10
+		velocity.y -= 30
 
 	if !is_on_floor():
 		is_jumping = true
@@ -241,8 +241,7 @@ func _on_animation_player_animation_finished(anim_name):
 	is_sliding = false
 
 
-func _on_death_area_body_entered(body):
-	get_tree().reload_current_scene()
+
 
 
 
