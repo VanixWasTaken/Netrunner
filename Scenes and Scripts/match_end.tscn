@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://0f0ef6h8jjlg"]
+[gd_scene load_steps=15 format=3 uid="uid://0f0ef6h8jjlg"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/match_end.gd" id="1_fgeyv"]
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="2_0naf2"]
+[ext_resource type="AudioStream" uid="uid://t6g667yk0lcn" path="res://Assets/Audio/SFX/S.ogg" id="2_5jbw2"]
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_color.gdshader" id="2_sacd1"]
+[ext_resource type="AudioStream" uid="uid://c1lp3cg8ixnwj" path="res://Assets/Audio/SFX/S 2.ogg" id="3_gmchc"]
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="3_na6b8"]
 
 [sub_resource type="Animation" id="Animation_vvk5m"]
@@ -275,6 +277,36 @@ tracks/11/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(1.1, 1.5)
 }
+tracks/12/type = "audio"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("TierSound")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"clips": [{
+"end_offset": 2.47985,
+"start_offset": 0.0,
+"stream": ExtResource("2_5jbw2")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/12/use_blend = true
+tracks/13/type = "audio"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Timer")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_gmchc")
+}],
+"times": PackedFloat32Array(0.8)
+}
+tracks/13/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8euan"]
 _data = {
@@ -411,3 +443,7 @@ material = SubResource("ShaderMaterial_k2xxd")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
+
+[node name="TierSound" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="AudioStreamPlayer" parent="."]
