@@ -76,7 +76,7 @@ shadow_enabled = true
 environment = SubResource("Environment_efjyl")
 
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.6832, -18.6398, -7.51938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42134, 6.44779, 7.95732)
 
 [node name="CSGBoxes" type="Node3D" parent="."]
 
