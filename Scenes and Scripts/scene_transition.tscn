@@ -9,7 +9,7 @@
 shader = ExtResource("1_52vgg")
 shader_parameter/fill = 0.0
 shader_parameter/color = Color(0, 5, 0, 1)
-shader_parameter/heightMap = ExtResource("4_p4xhu")
+shader_parameter/heightMap = ExtResource("2_jr71j")
 
 [sub_resource type="Animation" id="Animation_porrg"]
 length = 0.001
