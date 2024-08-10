@@ -1,0 +1,184 @@
+[gd_scene load_steps=13 format=3 uid="uid://0f0ef6h8jjlg"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/match_end.gd" id="1_fgeyv"]
+[ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="2_0naf2"]
+[ext_resource type="Shader" path="res://Scenes and Scripts/radial_color.gdshader" id="2_sacd1"]
+[ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="3_na6b8"]
+
+[sub_resource type="Animation" id="Animation_86ido"]
+resource_name = "match_end"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1917, -0.25, 0, 0.25, 0, 1917, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, 8.5, 194, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_vvk5m"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1917.01, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(41, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8euan"]
+_data = {
+"RESET": SubResource("Animation_vvk5m"),
+"match_end": SubResource("Animation_86ido")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4fki3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0cqq4"]
+shader = ExtResource("2_sacd1")
+shader_parameter/horizontal_influence = 1.0
+shader_parameter/vertical_influence = 0.0
+
+[sub_resource type="Theme" id="Theme_nkhyj"]
+default_font = ExtResource("3_na6b8")
+default_font_size = 400
+RichTextLabel/colors/default_color = Color(0, 3.76471, 4.32157, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2xxd"]
+shader = ExtResource("2_0naf2")
+shader_parameter/shake_power = 0.01
+shader_parameter/shake_rate = 0.022
+shader_parameter/shake_speed = 1.6
+shader_parameter/shake_block_size = 0.06
+shader_parameter/shake_color_rate = 0.05
+
+[sub_resource type="Environment" id="Environment_uevlj"]
+background_mode = 3
+glow_enabled = true
+glow_hdr_threshold = 2.0
+
+[node name="MatchEnd" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgeyv")
+
+[node name="RankAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8euan")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4fki3")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = 0.426
+anchor_right = 0.999
+anchor_bottom = 0.574
+offset_left = 0.0799999
+offset_top = -28.08
+offset_right = 0.929932
+offset_bottom = -146.92
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(959, 80)
+color = Color(0, 0.485126, 0.32348, 0.498039)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+material = SubResource("ShaderMaterial_0cqq4")
+layout_mode = 0
+offset_left = 116.0
+offset_top = 227.0
+offset_right = 581.0
+offset_bottom = 803.0
+pivot_offset = Vector2(230, 290)
+theme = SubResource("Theme_nkhyj")
+bbcode_enabled = true
+text = "S"
+fit_content = true
+
+[node name="Shading" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_k2xxd")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uevlj")
