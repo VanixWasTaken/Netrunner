@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 var speed = 8.0
 var new_speed = 8.0
-var jump_velocity = 4.5
+var jump_velocity = 5
 var sensitivity = 0.003
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -84,22 +84,22 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	if timing_frames and is_on_floor():
-		if !direction == Vector3.ZERO and speed < 12.0 and !is_sliding:
-			is_sliding = true
-			animation_player.play("slide_animation_2")
-		elif !direction == Vector3.ZERO and speed < 14.0 and !is_sliding:
-			is_sliding = true
-			animation_player.play("slide_animation_3")
-		elif !direction == Vector3.ZERO and speed < 16.0 and !is_sliding:
-			is_sliding = true
-			animation_player.play("slide_animation_4")
-		elif !direction == Vector3.ZERO and speed < 18.0 and !is_sliding:
-			is_sliding = true
-			animation_player.play("slide_animation_5")
-		elif !direction == Vector3.ZERO and speed < 20.0 and !is_sliding:
-			is_sliding = true
-			animation_player.play("slide_animation_5")
+	
+	if !direction == Vector3.ZERO and speed < 12.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_2")
+	elif !direction == Vector3.ZERO and speed < 14.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_3")
+	elif !direction == Vector3.ZERO and speed < 16.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_4")
+	elif !direction == Vector3.ZERO and speed < 18.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_5")
+	elif !direction == Vector3.ZERO and speed < 20.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_5")
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 8.0 and !is_sliding:
