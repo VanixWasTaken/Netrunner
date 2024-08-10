@@ -340,7 +340,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457757, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="Mesh" parent="Head" instance=ExtResource("3_240d8")]
-transform = Transform3D(-1, 4.28851e-08, 1.44778e-07, 0, 0.95882, -0.284015, -1.50996e-07, -0.284015, -0.95882, -0.0190784, -1.68, 0.664)
+transform = Transform3D(-1, 4.28851e-08, 1.44778e-07, 0, 0.95882, -0.284015, -1.50996e-07, -0.284015, -0.95882, -0.0190784, -1.38428, 0.70099)
 
 [node name="Skeleton3D" parent="Head/Mesh/game-rig" index="0"]
 bones/0/position = Vector3(0.000208728, 0.954433, 0.0402284)
