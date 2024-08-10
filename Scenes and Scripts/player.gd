@@ -26,6 +26,7 @@ var is_jumping = false
 @onready var camera = $Head/Camera3D
 @onready var label = $ConsoleLayer/Label
 @onready var animation_player = $AnimationPlayer
+@onready var running_animation = $Head/Mesh/AnimationPlayer
 
 
 
@@ -96,9 +97,11 @@ func _physics_process(delta):
 			animation_player.play("slide_animation_5")
 			
 		if direction:
+			running_animation.play("running-fast_001")
 			velocity.x = direction.x * speed / 2
 			velocity.z = direction.z * speed
 		else:
+			running_animation.play_backwards("running-fast_001")
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
 		
@@ -149,3 +152,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_death_area_body_entered(body):
 	get_tree().reload_current_scene()
+
+
+#func _on_animation_player_animation_finished_arms(anim_name):
+	#running_animation.play_backwards("running-fast_001")
