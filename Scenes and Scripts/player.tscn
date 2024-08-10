@@ -830,7 +830,7 @@ bones/70/rotation = Quaternion(0.109421, -0.714574, 0.0190265, 0.690688)
 bones/70/scale = Vector3(1, 1, 1)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Head/Mesh/game-rig/Skeleton3D" index="1"]
-transform = Transform3D(0.937557, -0.0225475, -0.347099, -0.141222, 0.887272, -0.439095, 0.317872, 0.460695, 0.828684, -0.0370565, 1.39742, 0.329868)
+transform = Transform3D(0.937557, -0.0225474, -0.347101, -0.141223, 0.887272, -0.439095, 0.317873, 0.460695, 0.828683, -0.0370565, 1.39742, 0.329868)
 bone_name = "DEF-spine.006"
 bone_idx = 6
 
