@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://xgpx38byp07v"]
+[gd_scene load_steps=16 format=3 uid="uid://xgpx38byp07v"]
 
 [ext_resource type="Texture2D" uid="uid://cbh68g7rv7ak8" path="res://Assets/Textures/dots_2048x2048.png" id="1_8fmup"]
 [ext_resource type="Shader" uid="uid://c851ilwvw3v5m" path="res://Shader/scifi-wall.tres" id="1_or4os"]
@@ -45,15 +45,11 @@ shader_parameter/MaskPower = 0.0
 shader_parameter/MainTex = ExtResource("5_o0wdk")
 shader_parameter/Noise = ExtResource("5_npfpu")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mmrd1"]
-gravity = Vector3(0, 0, 0)
-color = Color(0, 5, 0.805, 1)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w0xxw"]
 render_priority = 0
 shader = ExtResource("6_uevfv")
-shader_parameter/x_scale = 25.0
-shader_parameter/y_scale = 5.0
+shader_parameter/x_scale = 35.17
+shader_parameter/y_scale = 11.12
 shader_parameter/time = 0.505
 shader_parameter/img = ExtResource("7_y3syh")
 
@@ -71,9 +67,8 @@ process_material = SubResource("ParticleProcessMaterial_uadnj")
 draw_pass_1 = SubResource("PlaneMesh_3g60m")
 
 [node name="ScifiWall_Dots2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.20964, 1.04175, 0.00231004)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.10406, 1.04175, 0.00231004)
 material_override = SubResource("ShaderMaterial_scbv4")
-process_material = SubResource("ParticleProcessMaterial_mmrd1")
 draw_pass_1 = SubResource("PlaneMesh_3g60m")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

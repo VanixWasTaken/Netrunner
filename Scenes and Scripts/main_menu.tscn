@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=6 format=3 uid="uid://bvmxfp2oktjpa"]
 
+[ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
 [ext_resource type="FontFile" uid="uid://du32wmnshdwex" path="res://Assets/Fonts/Decaydence.otf" id="1_rs1mw"]
+[ext_resource type="Shader" path="res://Shader/glitch_shader.gdshader" id="2_fqcy0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_407sh"]
+shader = ExtResource("2_fqcy0")
+shader_parameter/progress = 0.0
+shader_parameter/meltiness = 1.0
 
 [sub_resource type="Theme" id="Theme_hhetr"]
 default_font = ExtResource("1_rs1mw")
 default_font_size = 100
 
 [node name="MainMenu" type="Node3D"]
+script = ExtResource("1_r3j32")
 
 [node name="Node3D" type="CanvasLayer" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Node3D"]
+material = SubResource("ShaderMaterial_407sh")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -27,3 +36,19 @@ size_flags_vertical = 6
 theme = SubResource("Theme_hhetr")
 bbcode_enabled = true
 text = "[center]Netrunner"
+
+[node name="Button" type="Button" parent="Node3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.5
+offset_top = 89.0
+offset_right = 163.5
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START"
+
+[connection signal="pressed" from="Node3D/Button" to="." method="_on_button_pressed"]
