@@ -1,41 +1,40 @@
 extends CharacterBody3D
 
 
-@export var speed = 10.0
-var new_speed = 10
-@export var jump_velocity = 4.5
-@export var sensitivity = 0.003
+var speed = 8.0
+var new_speed = 8.0
+var jump_velocity = 4.5
+var sensitivity = 0.003
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
 
 # bob variables
 var bob_frequency = 2.0
-@export var bob_amplifier = 0.08
+var bob_amplifier = 0.08
 var t_bob = 0.0
 
 # fov_variation
-@export var base_fov = 77.0
-@export var fov_change = 1.2
+var base_fov = 77.0
+var fov_change = 1.2
 
 # slide variables
 var is_sliding = false
 var is_jumping = false
+var timing_frames = false
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
 @onready var label = $ConsoleLayer/Label
 @onready var animation_player = $AnimationPlayer
+@onready var running_animation = $Head/Mesh/AnimationPlayer
 
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	# label test text
-	label.text = "is_sliding = " + str(is_sliding) + " 
-	" + str(speed) + "
-			" + "is_jumping = " + str(is_jumping)
+
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -46,7 +45,9 @@ func _unhandled_input(event):
 func _process(delta):
 	label.text = "is_sliding = " + str(is_sliding) + " 
 			" + str(speed) + "
-			" + "is_jumping = " + str(is_jumping)
+			" + "is_jumping = " + str(is_jumping) + "
+			" + "is_on_floor = " + str(is_on_floor()) + "
+			" + "timing_frames = " + str(timing_frames)
 
 
 func _physics_process(delta):
@@ -54,51 +55,63 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	elif is_on_floor() and is_sliding:
+		velocity.y -= 10
+
+	if !is_on_floor():
+		is_jumping = true
+	else:
+		is_jumping = false
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		is_jumping = true
 		is_sliding = false
 		velocity.y = jump_velocity
 		animation_player.stop()
 		speed = new_speed
-		new_speed = 10
-	elif is_on_floor():
-		is_jumping = false
+		new_speed = 8
 	
 	
 	
-
+	if is_jumping and Input.is_action_just_pressed("slide"):
+		timing_frames = true
+		$TimingTimer.start()
+	
+	
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
-	
-	if is_on_floor():
-		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 10:
-			is_sliding = true
-			animation_player.play("slide_animation")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 15:
+	if timing_frames and is_on_floor():
+		if !direction == Vector3.ZERO and speed < 12.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation_2")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 20:
+		elif !direction == Vector3.ZERO and speed < 14.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation_3")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 25:
+		elif !direction == Vector3.ZERO and speed < 16.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation_4")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 30:
+		elif !direction == Vector3.ZERO and speed < 18.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation_5")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 35:
+		elif !direction == Vector3.ZERO and speed < 20.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation_5")
+	
+	if is_on_floor():
+		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 8.0 and !is_sliding:
+			is_sliding = true
+			animation_player.play("slide_animation")
 			
 		if direction:
+			running_animation.play("running-fast_001")
 			velocity.x = direction.x * speed / 2
 			velocity.z = direction.z * speed
 		else:
+			running_animation.play("running-fast")
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
 		
@@ -122,10 +135,10 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if speed > 10 and is_on_floor() and !is_sliding:
+	if speed > 8.0 and is_on_floor() and !is_sliding and !timing_frames:
 		await get_tree().create_timer(1).timeout
 		if !is_jumping:
-			speed = 10
+			speed = 8.0
 
 
 
@@ -145,3 +158,14 @@ func _input(event):
 # checks the slide_animation
 func _on_animation_player_animation_finished(anim_name):
 	is_sliding = false
+
+
+func _on_death_area_body_entered(body):
+	get_tree().reload_current_scene()
+
+
+
+
+
+func _on_timing_timer_timeout():
+	timing_frames = false
