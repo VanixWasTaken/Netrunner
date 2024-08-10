@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=7 format=3 uid="uid://bvmxfp2oktjpa"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
 [ext_resource type="Shader" path="res://Shader/glitch_shader.gdshader" id="2_fqcy0"]
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="3_53pou"]
+[ext_resource type="AudioStream" uid="uid://c7cjfxrgsgmxh" path="res://Assets/Audio/Music/3 gamejam intro + main.wav" id="4_8was4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_407sh"]
 shader = ExtResource("2_fqcy0")
@@ -51,5 +52,9 @@ offset_bottom = 191.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "START"
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8was4")
+autoplay = true
 
 [connection signal="pressed" from="Node3D/Button" to="." method="_on_button_pressed"]

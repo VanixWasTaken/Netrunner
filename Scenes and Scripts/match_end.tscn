@@ -356,7 +356,6 @@ metadata/_edit_horizontal_guides_ = [581.0]
 libraries = {
 "": SubResource("AnimationLibrary_8euan")
 }
-autoplay = "match_end"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_4fki3")

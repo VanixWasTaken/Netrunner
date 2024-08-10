@@ -366,6 +366,8 @@ theme_override_fonts/font = ExtResource("4_lckte")
 theme_override_font_sizes/font_size = 120
 text = "00:00"
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
 

@@ -92,6 +92,8 @@ func _physics_process(delta):
 		animation_player.stop()
 		speed = new_speed
 		new_speed = 10
+		$JumpSound.play()
+		
 	
 	
 	
