@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
 [ext_resource type="PackedScene" uid="uid://bbcdnjev6jaj" path="res://Scenes and Scripts/scene_transition.tscn" id="3_ouy7m"]
-[ext_resource type="PackedScene" uid="uid://0f0ef6h8jjlg" path="res://Scenes and Scripts/match_end.tscn" id="4_fjml0"]
+[ext_resource type="PackedScene" path="res://Scenes and Scripts/match_end.tscn" id="4_fjml0"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="4_lckte"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
@@ -76,7 +76,7 @@ shadow_enabled = true
 environment = SubResource("Environment_efjyl")
 
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.738195, 4.40829, 9.77988)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26113, 5.13376, 10.2104)
 
 [node name="CSGBoxes" type="Node3D" parent="."]
 
@@ -344,9 +344,9 @@ shape = SubResource("BoxShape3D_1qp3o")
 visible = false
 
 [node name="MatchEnd" parent="Goal/WinScreen" instance=ExtResource("4_fjml0")]
+visible = false
 
 [node name="Label" type="Label" parent="Goal/WinScreen"]
-visible = false
 offset_left = 500.0
 offset_top = 255.0
 offset_right = 1468.0
@@ -354,6 +354,17 @@ offset_bottom = 540.0
 theme_override_fonts/font = ExtResource("4_lckte")
 theme_override_font_sizes/font_size = 360
 text = "YOU WIN"
+
+[node name="Counter" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="Counter"]
+offset_left = 1642.0
+offset_top = 53.0
+offset_right = 1682.0
+offset_bottom = 148.0
+theme_override_fonts/font = ExtResource("4_lckte")
+theme_override_font_sizes/font_size = 120
+text = "00:00"
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
