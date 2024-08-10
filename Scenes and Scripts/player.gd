@@ -254,4 +254,4 @@ func _on_timing_timer_timeout():
 
 func _on_timing_timer_2_timeout():
 	timing_frames2 = false
-	print("2131")
+
