@@ -829,7 +829,7 @@ transform = Transform3D(1, 0, 5.96046e-08, 1.49012e-08, 1, 0, -8.9407e-08, 0, 1,
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.857773)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.991098)
 mesh = SubResource("QuadMesh_pwjy7")
 surface_material_override/0 = ExtResource("3_li041")
 

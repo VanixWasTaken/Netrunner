@@ -6,6 +6,6 @@
 render_priority = 0
 shader = ExtResource("1_2x1yb")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/distance_falloff = 2.3
+shader_parameter/distance_falloff = 1.541
 shader_parameter/smoothing_cutoff = 0.0
-shader_parameter/smoothing_max = 0.08
+shader_parameter/smoothing_max = 0.135

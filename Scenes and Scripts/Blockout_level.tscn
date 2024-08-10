@@ -1,12 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=20 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
 [ext_resource type="PackedScene" uid="uid://bbcdnjev6jaj" path="res://Scenes and Scripts/scene_transition.tscn" id="3_ouy7m"]
 [ext_resource type="PackedScene" uid="uid://mb65c7b720ei" path="res://Assets/Mesh/EnvironmentAssets/level_begin.glb" id="4_4c4gq"]
+[ext_resource type="PackedScene" uid="uid://mh82bsnwgyvn" path="res://Assets/Mesh/EnvironmentAssets/FragmentCube02.glb" id="5_js2df"]
+[ext_resource type="PackedScene" uid="uid://dsf7m8e1kvxub" path="res://Assets/Mesh/EnvironmentAssets/FragmentTowerBig.glb" id="6_ddbr0"]
+[ext_resource type="PackedScene" uid="uid://bgxluurdd8mir" path="res://Assets/Mesh/EnvironmentAssets/PillarMedium.glb" id="7_ebkvd"]
+[ext_resource type="Material" uid="uid://deoiquptpv5u1" path="res://Assets/Materials/EmissionOrange.tres" id="7_se85l"]
+[ext_resource type="PackedScene" uid="uid://c4vktgrwrkcm6" path="res://Assets/Mesh/EnvironmentAssets/MonitorSmall.glb" id="8_pfj0m"]
+[ext_resource type="PackedScene" uid="uid://m0byyaen8v82" path="res://Assets/Mesh/EnvironmentAssets/PipeBig01.glb" id="10_ayokc"]
+[ext_resource type="PackedScene" uid="uid://b5fgxaojdvoub" path="res://Assets/Mesh/EnvironmentAssets/PipeMedium01.glb" id="11_x7hkf"]
+[ext_resource type="PackedScene" uid="uid://bggxb8k5m12pj" path="res://Assets/Mesh/EnvironmentAssets/Bodenplatte_04.glb" id="12_8tuad"]
 
 [sub_resource type="Environment" id="Environment_lxpjl"]
-background_energy_multiplier = 0.05
+background_energy_multiplier = 0.3
+tonemap_mode = 3
 glow_enabled = true
 glow_intensity = 0.35
 glow_strength = 0.65
@@ -15,7 +24,15 @@ glow_blend_mode = 1
 glow_map_strength = 0.85
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.08
-volumetric_fog_albedo = Color(0.235294, 0.282353, 0.278431, 1)
+volumetric_fog_albedo = Color(0.264702, 0.265592, 0.318627, 1)
+
+[sub_resource type="FogMaterial" id="FogMaterial_7t6bq"]
+density = 200.0
+albedo = Color(0.37918, 0.37918, 0.37918, 1)
+emission = Color(1.05888e-06, 0.39404, 0.39404, 1)
+edge_fade = 0.0329877
+
+[sub_resource type="BoxMesh" id="BoxMesh_vhj5c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ec6gb"]
 albedo_color = Color(0.19926, 0.307048, 0.564327, 1)
@@ -34,15 +51,45 @@ script = ExtResource("1_yrhcu")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lxpjl")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.77716, -0.609203, -0.157778, -0.382124, 0.257629, 0.887473, -0.500003, 0.75, -0.43301, 0, 0, 0)
-light_color = Color(0.270588, 0.384314, 0.294118, 1)
-light_energy = 2.0
-light_volumetric_fog_energy = 13.0
+[node name="Lights" type="Node3D" parent="WorldEnvironment"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(-0.768214, -0.592209, -0.24318, -0.135957, -0.220273, 0.965917, -0.62559, 0.775093, 0.0887015, -10.2075, 23.7645, 0)
+light_color = Color(0.197648, 0.294976, 0.256686, 1)
+light_energy = 3.719
+light_volumetric_fog_energy = 9.541
 shadow_enabled = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85053, 7.6611, -7.99286)
+light_color = Color(0.85098, 0.666667, 0.235294, 1)
+light_energy = 5.3
+light_volumetric_fog_energy = 9.0
+omni_range = 7.5
+omni_attenuation = 0.00808801
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.310162, 9.34895, -11.2905)
+light_color = Color(0.85098, 0.666667, 0.235294, 1)
+light_energy = 5.3
+light_volumetric_fog_energy = 9.0
+omni_range = 7.5
+omni_attenuation = 0.00808801
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68667, -7.80674, -85.7316)
+size = Vector3(21.75, 9.9, 250)
+material = SubResource("FogMaterial_7t6bq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/FogVolume"]
+transform = Transform3D(19.51, 0, 0, 0, 5.715, 0, 0, 0, 250, -2.03052, 0.00445557, -1.50362)
+mesh = SubResource("BoxMesh_vhj5c")
+
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2083, 5.6841, 8.33574)
+transform = Transform3D(0.970296, -0.033669, 0.239568, 0, 0.990268, 0.139173, -0.241922, -0.135039, 0.960853, -0.779036, 5.6841, 9.91558)
+
+[node name="MeshInstance3D" parent="Player/Head/Camera3D" index="1"]
+transform = Transform3D(1, -7.45058e-09, 2.98023e-08, 7.45058e-09, 1, 0, 0, -1.49012e-08, 1, -0.0850996, -0.0475011, -0.653104)
 
 [node name="CSGBoxes" type="Node3D" parent="."]
 
@@ -148,7 +195,43 @@ shape = SubResource("WorldBoundaryShape3D_1irrx")
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ouy7m")]
 
-[node name="level_begin" parent="." instance=ExtResource("4_4c4gq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69222, -2.30095, 5.36052)
+[node name="AssetsLevel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68667, -7.02824, -85.7316)
+
+[node name="level_begin" parent="AssetsLevel" instance=ExtResource("4_4c4gq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85912, 4.72729, 91.0921)
+visible = false
+
+[node name="FragmentCube022" parent="AssetsLevel" instance=ExtResource("5_js2df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03682, 4.12949, 82.6049)
+
+[node name="FragmentTowerBig" parent="AssetsLevel" instance=ExtResource("6_ddbr0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.846493, 7.43893, 90.5494)
+
+[node name="Cube_011_RLExtr_002" parent="AssetsLevel/FragmentTowerBig/Cube_011" index="2"]
+surface_material_override/0 = ExtResource("7_se85l")
+
+[node name="PillarMedium2" parent="AssetsLevel" instance=ExtResource("7_ebkvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8505, 8.97329, 86.072)
+
+[node name="MonitorSmall2" parent="AssetsLevel" instance=ExtResource("8_pfj0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67146, 10.4232, 90.5744)
+
+[node name="PipeBig012" parent="AssetsLevel" instance=ExtResource("10_ayokc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10094, 6.16126, 89.6924)
+
+[node name="PipeMedium012" parent="." instance=ExtResource("11_x7hkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8993, -0.676515, -3.38745)
+
+[node name="Bodenplatte_042" parent="." instance=ExtResource("12_8tuad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3743, 0, -5.43464)
+
+[node name="Bodenplatte_04" parent="Bodenplatte_042" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6875, 3.87608, 0)
 
 [connection signal="body_entered" from="DeathArea" to="Player" method="_on_death_area_body_entered"]
+
+[editable path="Player"]
+[editable path="Player/Head/Mesh"]
+[editable path="AssetsLevel/FragmentTowerBig"]
+[editable path="Bodenplatte_042"]
