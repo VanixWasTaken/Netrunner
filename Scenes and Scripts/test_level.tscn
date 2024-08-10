@@ -29,7 +29,7 @@ albedo_color = Color(0.409889, 0.0999968, 0.142314, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ec6gb"]
 albedo_color = Color(0.19926, 0.307048, 0.564327, 1)
 
-[node name="TestLevel" type="Node3D"]
+[node name="TestLevel2" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
