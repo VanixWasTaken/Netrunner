@@ -95,10 +95,10 @@ use_collision = true
 size = Vector3(5, 3, 10)
 
 [node name="Box4" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8531, 2.75124, 12.0771)
+transform = Transform3D(1, 0, 0, 0, 0.977493, -0.210967, 0, 0.210967, 0.977493, -14.8531, 2.60622, 13.6687)
 material_override = SubResource("StandardMaterial3D_pafwi")
 use_collision = true
-size = Vector3(5, 1, 1.92188)
+size = Vector3(5, 1, 5.11829)
 
 [node name="Box5" type="CSGBox3D" parent="CSGBoxes/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9183, 2.47581, 11.9235)
@@ -111,3 +111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1274, 2.10364, 11.9235)
 material_override = SubResource("StandardMaterial3D_pafwi")
 use_collision = true
 size = Vector3(5, 1, 1.61475)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1942, 1.77304, 27.0675)
