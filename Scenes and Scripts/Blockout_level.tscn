@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
 [ext_resource type="PackedScene" uid="uid://bbcdnjev6jaj" path="res://Scenes and Scripts/scene_transition.tscn" id="3_ouy7m"]
-[ext_resource type="PackedScene" uid="uid://c0eq5u7emr67h" path="res://Assets/Mesh/EnvironmentAssets/TestStage02.glb" id="4_nn16b"]
+[ext_resource type="PackedScene" uid="uid://mb65c7b720ei" path="res://Assets/Mesh/EnvironmentAssets/level_begin.glb" id="4_4c4gq"]
 
 [sub_resource type="Environment" id="Environment_lxpjl"]
 background_energy_multiplier = 0.05
@@ -35,7 +35,7 @@ script = ExtResource("1_yrhcu")
 environment = SubResource("Environment_lxpjl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.77716, -0.609203, -0.157778, -0.382124, 0.257629, 0.887473, -0.500003, 0.75, -0.43301, 0, 0, 0)
 light_color = Color(0.270588, 0.384314, 0.294118, 1)
 light_energy = 2.0
 light_volumetric_fog_energy = 13.0
@@ -148,7 +148,7 @@ shape = SubResource("WorldBoundaryShape3D_1irrx")
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ouy7m")]
 
-[node name="TestStage02" parent="." instance=ExtResource("4_nn16b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.20772, 0.832915, 5.24482)
+[node name="level_begin" parent="." instance=ExtResource("4_4c4gq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69222, -2.30095, 5.36052)
 
 [connection signal="body_entered" from="DeathArea" to="Player" method="_on_death_area_body_entered"]
