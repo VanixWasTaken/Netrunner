@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=11 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
+[ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
+[ext_resource type="PackedScene" uid="uid://bbcdnjev6jaj" path="res://Scenes and Scripts/scene_transition.tscn" id="3_ouy7m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -26,6 +28,7 @@ albedo_color = Color(0.933326, 4.81308e-06, 9.62615e-07, 1)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1irrx"]
 
 [node name="TestLevel" type="Node3D"]
+script = ExtResource("1_yrhcu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -43,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2083, 5.6841, 8.33574)
 
 [node name="Boxes" type="Node3D" parent="CSGBoxes"]
 
-[node name="Box3" type="CSGBox3D" parent="CSGBoxes/Boxes"]
+[node name="Box3" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -21.3582)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
@@ -55,7 +58,7 @@ material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 6.60791)
 
-[node name="Box18" type="CSGBox3D" parent="CSGBoxes/Boxes"]
+[node name="Box18" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -4.04001)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
@@ -138,5 +141,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.2284, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
 shape = SubResource("WorldBoundaryShape3D_1irrx")
+
+[node name="SceneTransition" parent="." instance=ExtResource("3_ouy7m")]
 
 [connection signal="body_entered" from="DeathArea" to="Player" method="_on_death_area_body_entered"]
