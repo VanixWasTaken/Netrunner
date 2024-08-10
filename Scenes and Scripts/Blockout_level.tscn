@@ -1,18 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=11 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
+[ext_resource type="PackedScene" uid="uid://mb65c7b720ei" path="res://Assets/Mesh/EnvironmentAssets/level_begin.glb" id="2_4a1gd"]
+[ext_resource type="Shader" path="res://Shader/Outline.gdshader" id="3_yfiup"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_x0cco"]
-sky_material = SubResource("ProceduralSkyMaterial_5c3df")
-
-[sub_resource type="Environment" id="Environment_efjyl"]
-background_mode = 2
-sky = SubResource("Sky_x0cco")
-tonemap_mode = 2
+[sub_resource type="Environment" id="Environment_k7cus"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ec6gb"]
 albedo_color = Color(0.19926, 0.307048, 0.564327, 1)
@@ -25,14 +17,27 @@ albedo_color = Color(0.933326, 4.81308e-06, 9.62615e-07, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1irrx"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_1lj2q"]
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6tqq"]
+render_priority = 0
+shader = ExtResource("3_yfiup")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/distance_falloff = 1.0
+shader_parameter/smoothing_cutoff = 0.1
+shader_parameter/smoothing_max = 0.1
+
 [node name="TestLevel" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_efjyl")
+environment = SubResource("Environment_k7cus")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.790801, -0.599226, -0.124746, -0.35303, 0.280052, 0.892715, -0.500003, 0.749999, -0.43301, -5.58965, 7.83339, 0)
+light_color = Color(0.436146, 0.53012, 0.470656, 1)
+light_energy = 2.57
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2083, 5.6841, 8.33574)
@@ -138,5 +143,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.2284, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
 shape = SubResource("WorldBoundaryShape3D_1irrx")
+
+[node name="level_begin" parent="." instance=ExtResource("2_4a1gd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.81185, -3.90188, 10.8157)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35899, 5.47756, 13.7352)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.11497)
+mesh = SubResource("QuadMesh_1lj2q")
+surface_material_override/0 = SubResource("ShaderMaterial_y6tqq")
 
 [connection signal="body_entered" from="DeathArea" to="Player" method="_on_death_area_body_entered"]
