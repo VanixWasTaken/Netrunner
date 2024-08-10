@@ -111,7 +111,7 @@ func _physics_process(delta):
 			velocity.x = direction.x * speed / 2
 			velocity.z = direction.z * speed
 		else:
-			running_animation.play_backwards("running-fast_001")
+			running_animation.play("running-fast")
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
 		
