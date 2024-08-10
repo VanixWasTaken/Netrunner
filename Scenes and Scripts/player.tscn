@@ -80,10 +80,10 @@ tracks/2/path = NodePath(".:speed")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [15.0, 10.0]
+"values": [10.0, 15.0, 15.0, 10.0]
 }
 
 [sub_resource type="Animation" id="Animation_f0c8r"]
@@ -119,10 +119,10 @@ tracks/2/path = NodePath(".:speed")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [20.0, 10.0]
+"values": [15.0, 20.0, 20.0, 10.0]
 }
 
 [sub_resource type="Animation" id="Animation_xs2fj"]
@@ -158,10 +158,10 @@ tracks/2/path = NodePath(".:speed")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [25.0, 10.0]
+"values": [20.0, 25.0, 25.0, 10.0]
 }
 
 [sub_resource type="Animation" id="Animation_kw6du"]
@@ -197,10 +197,10 @@ tracks/2/path = NodePath(".:speed")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [30.0, 10.0]
+"values": [25.0, 30.0, 30.0, 10.0]
 }
 
 [sub_resource type="Animation" id="Animation_hf0qv"]
@@ -236,10 +236,10 @@ tracks/2/path = NodePath(".:speed")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [35.0, 10.0]
+"values": [30.0, 35.0, 35.0, 10.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b45fm"]
