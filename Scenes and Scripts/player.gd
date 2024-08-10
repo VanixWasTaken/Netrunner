@@ -42,6 +42,8 @@ func _ready():
 	
 func _process(delta):
 	camera.global_position = bone.global_position
+	if is_sliding:
+		timing_frames = false
 	label.text = "is_sliding = " + str(is_sliding) + " 
 			" + str(speed) + "
 			" + "is_jumping = " + str(is_jumping) + "
@@ -150,7 +152,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if speed > 8.0 and is_on_floor() and !is_sliding and !timing_frames:
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.5).timeout
 		if !is_jumping:
 			speed = 8.0
 
