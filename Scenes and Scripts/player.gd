@@ -22,6 +22,7 @@ var fov_change = 1.2
 var is_sliding = false
 var is_jumping = false
 var timing_frames = false
+var timing_frames2 = false
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -45,10 +46,13 @@ func _process(delta):
 	if is_sliding:
 		timing_frames = false
 	label.text = "is_sliding = " + str(is_sliding) + " 
-			" + str(speed) + "
+			" + "speed = " + str(speed) + "
 			" + "is_jumping = " + str(is_jumping) + "
 			" + "is_on_floor = " + str(is_on_floor()) + "
-			" + "timing_frames = " + str(timing_frames)
+			" + "timing_frames = " + str(timing_frames) + "
+			" + "timing_frames2 = " + str(timing_frames2)
+
+
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -98,9 +102,36 @@ func _physics_process(delta):
 	
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 10.0 and !is_sliding:
+		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 10.0 and !is_sliding and !timing_frames:
 			is_sliding = true
 			animation_player.play("slide_animation")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 14.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_2")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 18.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_3")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 20.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_4")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 22.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_5")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 24.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_6")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 26.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_7")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 28.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_8")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 30.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_9")
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed <= 32.0 and !is_sliding and !timing_frames:
+			is_sliding = true
+			animation_player.play("slide_animation_9")
 
 
 
@@ -187,7 +218,7 @@ func _physics_process(delta):
 	
 	if speed > 10.0 and is_on_floor() and !is_sliding and !timing_frames:
 		await get_tree().create_timer(0.5).timeout
-		if !is_jumping:
+		if !is_jumping and !timing_frames2:
 			speed = 10.0
 
 
@@ -204,6 +235,9 @@ func _headbob(time) -> Vector3:
 func _input(event):
 	if event.is_action_pressed("end"):
 		get_tree().quit()
+	if event.is_action_pressed("slide"):
+		$TimingTimer2.start()
+		timing_frames2 = true
 
 # checks the slide_animation
 func _on_animation_player_animation_finished(anim_name):
@@ -219,3 +253,8 @@ func _on_death_area_body_entered(body):
 
 func _on_timing_timer_timeout():
 	timing_frames = false
+
+
+func _on_timing_timer_2_timeout():
+	timing_frames2 = false
+	print("2131")
