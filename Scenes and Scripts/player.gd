@@ -101,7 +101,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 10.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation")
-			#running_animation.play("BAKED_slide")
+	
 
 
 			
@@ -130,7 +130,37 @@ func _physics_process(delta):
 		animation_player.play("slide_animation_5")
 	elif !direction == Vector3.ZERO and speed <= 30.0 and !is_sliding and timing_frames and is_on_floor():
 		is_sliding = true
-		animation_player.play("slide_animation_5")
+		animation_player.play("slide_animation_6")
+	elif !direction == Vector3.ZERO and speed <= 31.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_7")
+	elif !direction == Vector3.ZERO and speed <= 32.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_8")
+	elif !direction == Vector3.ZERO and speed <= 33.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_9")
+	elif !direction == Vector3.ZERO and speed <= 34.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_10")
+	elif !direction == Vector3.ZERO and speed <= 35.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_11")
+	elif !direction == Vector3.ZERO and speed <= 36.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_12")
+	elif !direction == Vector3.ZERO and speed <= 37.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_13")
+	elif !direction == Vector3.ZERO and speed <= 38.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_14")
+	elif !direction == Vector3.ZERO and speed <= 39.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_15")
+	elif !direction == Vector3.ZERO and speed <= 40.0 and !is_sliding and timing_frames and is_on_floor():
+		is_sliding = true
+		animation_player.play("slide_animation_16")
 			
 			
 			
