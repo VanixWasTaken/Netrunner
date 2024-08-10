@@ -40,8 +40,8 @@ render_priority = 0
 shader = ExtResource("4_d8mq7")
 shader_parameter/Vector2Parameter = Vector2(-5, -5)
 shader_parameter/NoiseSpeed = Vector2(0, 0.5)
-shader_parameter/Noise_Strength = 5.975
-shader_parameter/MaskPower = 2.065
+shader_parameter/Noise_Strength = 10.13
+shader_parameter/MaskPower = 0.0
 shader_parameter/MainTex = ExtResource("5_o0wdk")
 shader_parameter/Noise = ExtResource("5_npfpu")
 
