@@ -68,37 +68,37 @@ use_collision = true
 size = Vector3(5, 3, 18.4893)
 
 [node name="Box11" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -121.477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -124.02)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 4.22998)
 
 [node name="Box12" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -141.863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -139.943)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
-size = Vector3(5, 3, 11.1332)
+size = Vector3(5, 3, 11.7429)
 
 [node name="Box14" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.882382, -0.470535, 0, 0.470535, 0.882382, -1.37652, -10.0023, -172.778)
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422619, 0, 0.422619, 0.906308, -1.37652, -10.0023, -171.163)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 9.68823)
 
 [node name="Box15" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.745848, -0.666116, 0, 0.666116, 0.745848, -1.37652, -3.5569, -189.653)
+transform = Transform3D(1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, -1.37652, -3.5569, -188.038)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 9.68823)
 
 [node name="Box16" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.547607, -0.836736, 0, 0.836736, 0.547607, -1.37652, 7.32771, -204.912)
+transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, -1.37652, 0.522555, -205.419)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 9.68823)
 
 [node name="Box6" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, -1.37652, -5.97311, -65.0047)
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, -1.37652, -5.97311, -68.6928)
 material_override = SubResource("StandardMaterial3D_vtw3w")
 use_collision = true
 size = Vector3(5, 3, 10)
@@ -128,7 +128,7 @@ use_collision = true
 size = Vector3(5, 3, 2)
 
 [node name="Box13" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -6.79602, -141.18)
+transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -6.79602, -139.565)
 material_override = SubResource("StandardMaterial3D_if8om")
 use_collision = true
 size = Vector3(5, 3, 2)
