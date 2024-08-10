@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
 [ext_resource type="PackedScene" uid="uid://bbcdnjev6jaj" path="res://Scenes and Scripts/scene_transition.tscn" id="3_ouy7m"]
-[ext_resource type="PackedScene" path="res://Scenes and Scripts/match_end.tscn" id="4_fjml0"]
+[ext_resource type="PackedScene" uid="uid://0f0ef6h8jjlg" path="res://Scenes and Scripts/match_end.tscn" id="4_fjml0"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="4_lckte"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
@@ -253,7 +253,7 @@ use_collision = true
 size = Vector3(1.66937, 8.23291, 4.77283)
 
 [node name="Box22" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, -1.37652, -29.4732, -197.728)
+transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422618, 0, 0.422618, 0.906308, -1.37652, -29.4732, -197.728)
 material_override = SubResource("StandardMaterial3D_tj5pa")
 use_collision = true
 size = Vector3(5, 3, 35)
