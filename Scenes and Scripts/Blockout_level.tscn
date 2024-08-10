@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=24 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
 [ext_resource type="PackedScene" uid="uid://bbcdnjev6jaj" path="res://Scenes and Scripts/scene_transition.tscn" id="3_ouy7m"]
+[ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="4_lckte"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -59,6 +60,9 @@ albedo_color = Color(0.733333, 0, 0, 1)
 albedo_color = Color(0.733333, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1irrx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qp3o"]
+size = Vector3(12.0999, 5.54053, 1)
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_yrhcu")
@@ -328,6 +332,26 @@ shape = SubResource("WorldBoundaryShape3D_1irrx")
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ouy7m")]
 
+[node name="Goal" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.6519, -31.945, 11.7425)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507446, 0.905518, 0)
+shape = SubResource("BoxShape3D_1qp3o")
+
+[node name="WinScreen" type="CanvasLayer" parent="Goal"]
+visible = false
+
+[node name="Label" type="Label" parent="Goal/WinScreen"]
+offset_left = 500.0
+offset_top = 255.0
+offset_right = 1468.0
+offset_bottom = 540.0
+theme_override_fonts/font = ExtResource("4_lckte")
+theme_override_font_sizes/font_size = 360
+text = "YOU WIN"
+
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
 
 [editable path="SceneTransition"]
