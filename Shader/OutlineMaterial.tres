@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clwgpp52f20p4"]
+
+[ext_resource type="Shader" path="res://Shader/Outline.gdshader" id="1_2x1yb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2x1yb")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/distance_falloff = 2.3
+shader_parameter/smoothing_cutoff = 0.0
+shader_parameter/smoothing_max = 0.08
