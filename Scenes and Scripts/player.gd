@@ -32,9 +32,6 @@ var timing_frames = false
 
 
 
-
-
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	running_animation.play("BAKED_running-fast")

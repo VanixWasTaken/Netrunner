@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6stngabn0kl6"]
+
+[ext_resource type="PackedScene" uid="uid://bsdlhncckku8i" path="res://Assets/WallRunTiles.glb" id="1_qroqe"]
+
+[node name="WallRunTiles" instance=ExtResource("1_qroqe")]
+
+[node name="Upgrade2" parent="." index="8"]
+transform = Transform3D(0, 3.2245, 0, -3.2245, 0, 0, 0, 0, 3.2245, -8.17559, 7.43428, 0.314708)
