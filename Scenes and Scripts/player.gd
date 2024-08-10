@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-var speed = 8.0
-var new_speed = 8.0
+var speed = 10.0
+var new_speed = 10.0
 var jump_velocity = 5
 var sensitivity = 0.003
 
@@ -79,7 +79,7 @@ func _physics_process(delta):
 		velocity.y = jump_velocity
 		animation_player.stop()
 		speed = new_speed
-		new_speed = 8
+		new_speed = 10
 	
 	
 	
@@ -98,7 +98,7 @@ func _physics_process(delta):
 	
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 8.0 and !is_sliding:
+		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 10.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation")
 			#running_animation.play("BAKED_slide")
@@ -116,19 +116,19 @@ func _physics_process(delta):
 			running_animation.stop()
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
-	if !direction == Vector3.ZERO and speed <= 10.0 and !is_sliding and timing_frames and is_on_floor():
+	if !direction == Vector3.ZERO and speed <= 14.0 and !is_sliding and timing_frames and is_on_floor():
 		is_sliding = true
 		animation_player.play("slide_animation_2")
-	elif !direction == Vector3.ZERO and speed <= 12.0 and !is_sliding and timing_frames and is_on_floor():
+	elif !direction == Vector3.ZERO and speed <= 18.0 and !is_sliding and timing_frames and is_on_floor():
 		is_sliding = true
 		animation_player.play("slide_animation_3")
-	elif !direction == Vector3.ZERO and speed <= 14.0 and !is_sliding and timing_frames and is_on_floor():
+	elif !direction == Vector3.ZERO and speed <= 22.0 and !is_sliding and timing_frames and is_on_floor():
 		is_sliding = true
 		animation_player.play("slide_animation_4")
-	elif !direction == Vector3.ZERO and speed <= 16.0 and !is_sliding and timing_frames and is_on_floor():
+	elif !direction == Vector3.ZERO and speed <= 26.0 and !is_sliding and timing_frames and is_on_floor():
 		is_sliding = true
 		animation_player.play("slide_animation_5")
-	elif !direction == Vector3.ZERO and speed <= 18.0 and !is_sliding and timing_frames and is_on_floor():
+	elif !direction == Vector3.ZERO and speed <= 30.0 and !is_sliding and timing_frames and is_on_floor():
 		is_sliding = true
 		animation_player.play("slide_animation_5")
 			
@@ -151,10 +151,10 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	if speed > 8.0 and is_on_floor() and !is_sliding and !timing_frames:
+	if speed > 10.0 and is_on_floor() and !is_sliding and !timing_frames:
 		await get_tree().create_timer(0.5).timeout
 		if !is_jumping:
-			speed = 8.0
+			speed = 10.0
 
 
 
