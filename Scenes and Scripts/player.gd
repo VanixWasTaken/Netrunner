@@ -67,7 +67,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	elif is_on_floor() and is_sliding:
-		velocity.y -= 30
+		velocity.y -= 20
 
 	if !is_on_floor():
 		is_jumping = true
