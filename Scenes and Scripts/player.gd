@@ -145,3 +145,7 @@ func _input(event):
 # checks the slide_animation
 func _on_animation_player_animation_finished(anim_name):
 	is_sliding = false
+
+
+func _on_death_area_body_entered(body):
+	get_tree().reload_current_scene()
