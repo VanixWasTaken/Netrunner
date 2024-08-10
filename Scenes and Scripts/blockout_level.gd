@@ -44,5 +44,5 @@ func _on_death_area_body_entered(body):
 
 
 func _on_goal_body_entered(body):
-	Engine.time_scale = 0.2
+	#Engine.time_scale = 0.2
 	$Goal/WinScreen.show()
