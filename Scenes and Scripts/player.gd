@@ -23,6 +23,7 @@ var is_sliding = false
 var is_jumping = false
 var timing_frames = false
 var timing_frames2 = false
+var currently_playing_slide_anim = false
 
 @onready var head = $Head
 @onready var camera = $Head/Camera3D
@@ -33,22 +34,30 @@ var timing_frames2 = false
 
 
 
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	running_animation.play("BAKED_running-fast")
 	
-	
+
+
+
+
+
 func _process(delta):
 	camera.global_position = bone.global_position
 	if is_sliding:
 		timing_frames = false
+	if speed >= 20:
+		$ConsoleLayer/SpeedEffect.show()
+	else:
+		$ConsoleLayer/SpeedEffect.hide()
 	label.text = "is_sliding = " + str(is_sliding) + " 
 			" + "speed = " + str(speed) + "
 			" + "is_jumping = " + str(is_jumping) + "
 			" + "is_on_floor = " + str(is_on_floor()) + "
 			" + "timing_frames = " + str(timing_frames) + "
 			" + "timing_frames2 = " + str(timing_frames2)
-
 
 	
 func _unhandled_input(event):
@@ -134,10 +143,11 @@ func _physics_process(delta):
 
 			
 		if direction:
-			if !is_sliding:
+			if !is_sliding and !currently_playing_slide_anim:
 				running_animation.play("BAKED_running-fast")
 			elif is_sliding:
 				running_animation.play("BAKED_slide")
+				currently_playing_slide_anim = true
 			velocity.x = direction.x * speed / 2
 			velocity.z = direction.z * speed
 		else:
@@ -239,6 +249,8 @@ func _input(event):
 # checks the slide_animation
 func _on_animation_player_animation_finished(anim_name):
 	is_sliding = false
+	if anim_name == "BAKED_slide":
+		currently_playing_slide_anim = false
 
 
 
@@ -253,4 +265,5 @@ func _on_timing_timer_timeout():
 
 func _on_timing_timer_2_timeout():
 	timing_frames2 = false
+
 
