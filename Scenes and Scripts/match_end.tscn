@@ -15,7 +15,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1917.01, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
@@ -26,7 +26,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(41, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
@@ -37,7 +37,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/3/type = "bezier"
@@ -48,7 +48,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/4/type = "bezier"
@@ -70,7 +70,7 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/6/type = "bezier"
@@ -92,7 +92,7 @@ tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/8/type = "bezier"
@@ -114,7 +114,7 @@ tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/10/type = "bezier"
@@ -136,13 +136,13 @@ tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_86ido"]
 resource_name = "match_end"
-length = 3.0
+length = 2.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -325,17 +325,10 @@ autoplay = "match_end"
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_4fki3")
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.699
-offset_left = -1.0
-offset_right = -3.98999
-offset_bottom = -173.92
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 541.0
+offset_bottom = 541.0
 pivot_offset = Vector2(959, 80)
-color = Color(0, 0.485126, 0.32348, 0.498039)
+color = Color(1.56425e-07, 0.196784, 0.121432, 0.498039)
 
 [node name="S Tier" type="RichTextLabel" parent="."]
 material = SubResource("ShaderMaterial_0cqq4")
@@ -344,6 +337,7 @@ offset_left = 116.0
 offset_top = 284.0
 offset_right = 581.0
 offset_bottom = 860.0
+scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(230, 290)
 theme = SubResource("Theme_nkhyj")
 bbcode_enabled = true
@@ -354,81 +348,62 @@ fit_content = true
 environment = SubResource("Environment_uevlj")
 
 [node name="TimeTitle" type="RichTextLabel" parent="."]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -2243.0
-offset_top = 31.0
-offset_right = 2177.0
-offset_bottom = 76.0
-grow_horizontal = 2
-grow_vertical = 2
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 781.0
+offset_top = 571.0
+offset_right = 977.0
+offset_bottom = 615.0
+pivot_offset = Vector2(100, 25)
 theme_override_colors/default_color = Color(1, 1, 1, 0.52549)
 theme_override_fonts/normal_font = ExtResource("3_na6b8")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]Time"
-fit_content = true
+scroll_active = false
 autowrap_mode = 2
 
 [node name="Highspeed" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -597.0
-offset_top = 31.0
-offset_right = 1903.0
-offset_bottom = 132.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 1393.0
+offset_top = 571.0
+offset_right = 1707.0
+offset_bottom = 672.0
 theme_override_colors/default_color = Color(1, 1, 1, 0.52549)
 theme_override_fonts/normal_font = ExtResource("3_na6b8")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]Highspeed"
-fit_content = true
+scroll_active = false
 autowrap_mode = 2
 
 [node name="Time" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -2258.0
-offset_top = 65.0
-offset_right = 2189.0
-offset_bottom = 166.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 562.0
+offset_top = 605.0
+offset_right = 1230.0
+offset_bottom = 706.0
 theme_override_fonts/normal_font = ExtResource("3_na6b8")
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[center]00:00:00"
-fit_content = true
+scroll_active = false
 autowrap_mode = 2
 
 [node name="BPM" type="RichTextLabel" parent="."]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.648
-offset_left = -634.0
-offset_top = 65.0
-offset_right = 1893.0
-offset_bottom = 325.84
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 1283.0
+offset_top = 605.0
+offset_right = 1798.0
+offset_bottom = 731.0
 theme_override_fonts/normal_font = ExtResource("3_na6b8")
 theme_override_font_sizes/normal_font_size = 70
 bbcode_enabled = true
 text = "[center]181 bpm"
-fit_content = true
+scroll_active = false
 autowrap_mode = 2
 
 [node name="Shading" type="ColorRect" parent="."]
