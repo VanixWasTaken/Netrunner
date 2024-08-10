@@ -1,13 +1,18 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=26 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="PackedScene" uid="uid://2jpjl22gbo0x" path="res://Assets/Mesh/player-v1-export-i3.glb" id="2_d26a4"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="2_dit42"]
+[ext_resource type="Material" uid="uid://clwgpp52f20p4" path="res://Shader/OutlineMaterial.tres" id="3_li041"]
 [ext_resource type="AudioStream" uid="uid://dnog1exlwttsj" path="res://Assets/Audio/background_track1.ogg" id="4_ey1aa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gx5ba"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pwjy7"]
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_rnx4j"]
 length = 0.001
@@ -822,6 +827,11 @@ current = true
 [node name="CSGBox3D" type="CSGBox3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 5.96046e-08, 1.49012e-08, 1, 0, -8.9407e-08, 0, 1, 0, 0, 0)
 size = Vector3(0.1, 0.1, 0.1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.991098)
+mesh = SubResource("QuadMesh_pwjy7")
+surface_material_override/0 = ExtResource("3_li041")
 
 [node name="ConsoleLayer" type="CanvasLayer" parent="."]
 

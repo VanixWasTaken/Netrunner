@@ -1,77 +1,95 @@
-[gd_scene load_steps=22 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=20 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
 [ext_resource type="PackedScene" uid="uid://bbcdnjev6jaj" path="res://Scenes and Scripts/scene_transition.tscn" id="3_ouy7m"]
+[ext_resource type="PackedScene" uid="uid://mb65c7b720ei" path="res://Assets/Mesh/EnvironmentAssets/level_begin.glb" id="4_4c4gq"]
+[ext_resource type="PackedScene" uid="uid://mh82bsnwgyvn" path="res://Assets/Mesh/EnvironmentAssets/FragmentCube02.glb" id="5_js2df"]
+[ext_resource type="PackedScene" uid="uid://dsf7m8e1kvxub" path="res://Assets/Mesh/EnvironmentAssets/FragmentTowerBig.glb" id="6_ddbr0"]
+[ext_resource type="PackedScene" uid="uid://bgxluurdd8mir" path="res://Assets/Mesh/EnvironmentAssets/PillarMedium.glb" id="7_ebkvd"]
+[ext_resource type="Material" uid="uid://deoiquptpv5u1" path="res://Assets/Materials/EmissionOrange.tres" id="7_se85l"]
+[ext_resource type="PackedScene" uid="uid://c4vktgrwrkcm6" path="res://Assets/Mesh/EnvironmentAssets/MonitorSmall.glb" id="8_pfj0m"]
+[ext_resource type="PackedScene" uid="uid://m0byyaen8v82" path="res://Assets/Mesh/EnvironmentAssets/PipeBig01.glb" id="10_ayokc"]
+[ext_resource type="PackedScene" uid="uid://b5fgxaojdvoub" path="res://Assets/Mesh/EnvironmentAssets/PipeMedium01.glb" id="11_x7hkf"]
+[ext_resource type="PackedScene" uid="uid://bggxb8k5m12pj" path="res://Assets/Mesh/EnvironmentAssets/Bodenplatte_04.glb" id="12_8tuad"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="Environment" id="Environment_lxpjl"]
+background_energy_multiplier = 0.3
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.35
+glow_strength = 0.65
+glow_bloom = 0.69
+glow_blend_mode = 1
+glow_map_strength = 0.85
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.08
+volumetric_fog_albedo = Color(0.264702, 0.265592, 0.318627, 1)
 
-[sub_resource type="Sky" id="Sky_x0cco"]
-sky_material = SubResource("ProceduralSkyMaterial_5c3df")
+[sub_resource type="FogMaterial" id="FogMaterial_7t6bq"]
+density = 200.0
+albedo = Color(0.37918, 0.37918, 0.37918, 1)
+emission = Color(1.05888e-06, 0.39404, 0.39404, 1)
+edge_fade = 0.0329877
 
-[sub_resource type="Environment" id="Environment_efjyl"]
-background_mode = 2
-sky = SubResource("Sky_x0cco")
-tonemap_mode = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wakjf"]
-albedo_color = Color(0.733002, 1.64848e-06, 3.85046e-07, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_vhj5c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ec6gb"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6feej"]
-albedo_color = Color(0.0574234, 0.263555, 0.618314, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_138g4"]
-albedo_color = Color(0.733333, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnhh7"]
-albedo_color = Color(0.733333, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lng0j"]
-albedo_color = Color(0.733333, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ngei"]
-albedo_color = Color(0.2, 0.305882, 0.564706, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcs1o"]
-albedo_color = Color(0.733333, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5r8r"]
-albedo_color = Color(0.2, 0.305882, 0.564706, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tj5pa"]
-albedo_color = Color(0.2, 0.305882, 0.564706, 1)
+albedo_color = Color(0.19926, 0.307048, 0.564327, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtw3w"]
 albedo_color = Color(0.19926, 0.307048, 0.564327, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if8om"]
-albedo_color = Color(0.180561, 0.435692, 0.358442, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cuefg"]
-albedo_color = Color(0.733333, 0, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5thim"]
-albedo_color = Color(0.733333, 0, 0, 1)
+albedo_color = Color(0.933326, 4.81308e-06, 9.62615e-07, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1irrx"]
 
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_yrhcu")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lxpjl")
+
+[node name="Lights" type="Node3D" parent="WorldEnvironment"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(-0.768214, -0.592209, -0.24318, -0.135957, -0.220273, 0.965917, -0.62559, 0.775093, 0.0887015, -10.2075, 23.7645, 0)
+light_color = Color(0.197648, 0.294976, 0.256686, 1)
+light_energy = 3.719
+light_volumetric_fog_energy = 9.541
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_efjyl")
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.85053, 7.6611, -7.99286)
+light_color = Color(0.85098, 0.666667, 0.235294, 1)
+light_energy = 5.3
+light_volumetric_fog_energy = 9.0
+omni_range = 7.5
+omni_attenuation = 0.00808801
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.310162, 9.34895, -11.2905)
+light_color = Color(0.85098, 0.666667, 0.235294, 1)
+light_energy = 5.3
+light_volumetric_fog_energy = 9.0
+omni_range = 7.5
+omni_attenuation = 0.00808801
+
+[node name="FogVolume" type="FogVolume" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68667, -7.80674, -85.7316)
+size = Vector3(21.75, 9.9, 250)
+material = SubResource("FogMaterial_7t6bq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/FogVolume"]
+transform = Transform3D(19.51, 0, 0, 0, 5.715, 0, 0, 0, 250, -2.03052, 0.00445557, -1.50362)
+mesh = SubResource("BoxMesh_vhj5c")
 
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.866, -32.7416, -88.6395)
+transform = Transform3D(0.970296, -0.033669, 0.239568, 0, 0.990268, 0.139173, -0.241922, -0.135039, 0.960853, -0.779036, 5.6841, 9.91558)
+
+[node name="MeshInstance3D" parent="Player/Head/Camera3D" index="1"]
+transform = Transform3D(1, -7.45058e-09, 2.98023e-08, 7.45058e-09, 1, 0, 0, -1.49012e-08, 1, -0.0850996, -0.0475011, -0.653104)
 
 [node name="CSGBoxes" type="Node3D" parent="."]
 
@@ -80,10 +98,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.866, -32.7416, -88.6395)
 [node name="Boxes" type="Node3D" parent="CSGBoxes"]
 
 [node name="Box3" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -20.7743)
-material_override = SubResource("StandardMaterial3D_wakjf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -21.3582)
+material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
-size = Vector3(5, 3, 7.77576)
+size = Vector3(5, 3, 6.60791)
 
 [node name="Box17" type="CSGBox3D" parent="CSGBoxes/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, 7.98654)
@@ -93,171 +111,51 @@ size = Vector3(5, 3, 6.60791)
 
 [node name="Box18" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -4.04001)
-material_override = SubResource("StandardMaterial3D_6feej")
+material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 6.60791)
 
 [node name="Box8" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -101.201)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -103.094)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 18.4893)
 
 [node name="Box11" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -121.597)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -121.477)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 4.22998)
 
 [node name="Box12" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -137.579)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, -12.4275, -141.863)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
-size = Vector3(5, 3, 11.7429)
-
-[node name="Box38" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.0316, -35.9001, -86.0668)
-material_override = SubResource("StandardMaterial3D_ec6gb")
-use_collision = true
-size = Vector3(5, 3, 11.7429)
-
-[node name="Box39" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.9786, -35.9001, -66.3023)
-material_override = SubResource("StandardMaterial3D_ec6gb")
-use_collision = true
-size = Vector3(5, 3, 11.7429)
-
-[node name="Box40" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.1897, -35.9001, -45.1589)
-material_override = SubResource("StandardMaterial3D_ec6gb")
-use_collision = true
-size = Vector3(5, 3, 11.7429)
-
-[node name="Box41" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.6029, -35.9001, -26.3738)
-material_override = SubResource("StandardMaterial3D_ec6gb")
-use_collision = true
-size = Vector3(5, 3, 11.7429)
-
-[node name="Box42" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.503, -35.9001, -5.0367)
-material_override = SubResource("StandardMaterial3D_ec6gb")
-use_collision = true
-size = Vector3(5, 3, 11.7429)
-
-[node name="Box43" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.8271, -35.9001, 10.6674)
-material_override = SubResource("StandardMaterial3D_ec6gb")
-use_collision = true
-size = Vector3(5, 3, 11.7429)
-
-[node name="Box44" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.8271, -35.9001, 10.6674)
-material_override = SubResource("StandardMaterial3D_ec6gb")
-use_collision = true
-size = Vector3(5, 3, 11.7429)
+size = Vector3(5, 3, 11.1332)
 
 [node name="Box14" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.906308, -0.422619, 0, 0.422619, 0.906308, -1.37652, -10.0023, -163.472)
+transform = Transform3D(1, 0, 0, 0, 0.882382, -0.470535, 0, 0.470535, 0.882382, -1.37652, -10.0023, -172.778)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 9.68823)
 
 [node name="Box15" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.906307, -0.422618, 0, 0.422618, 0.906307, -1.37652, -4.55876, -180.052)
+transform = Transform3D(1, 0, 0, 0, 0.745848, -0.666116, 0, 0.666116, 0.745848, -1.37652, -3.5569, -189.653)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 9.68823)
 
-[node name="Box16" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, -1.37652, -2.40792, -197.728)
-material_override = SubResource("StandardMaterial3D_138g4")
+[node name="Box16" type="CSGBox3D" parent="CSGBoxes/Boxes"]
+transform = Transform3D(1, 0, 0, 0, 0.547607, -0.836736, 0, 0.836736, 0.547607, -1.37652, 7.32771, -204.912)
+material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
 size = Vector3(5, 3, 9.68823)
-
-[node name="Box24" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, -1.37652, -39.5915, -163.608)
-material_override = SubResource("StandardMaterial3D_pnhh7")
-use_collision = true
-size = Vector3(5, 3, 9.68823)
-
-[node name="Box25" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 3.06539, -39.529, -146.7)
-material_override = SubResource("StandardMaterial3D_lng0j")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box26" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, -3.93046, -39.529, -132.378)
-material_override = SubResource("StandardMaterial3D_2ngei")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box35" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 72.628, -38.6562, -112.706)
-material_override = SubResource("StandardMaterial3D_2ngei")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box37" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 63.1966, -36.132, -104.619)
-material_override = SubResource("StandardMaterial3D_2ngei")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box27" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 1.75762, -39.529, -113.148)
-material_override = SubResource("StandardMaterial3D_qcs1o")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box29" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 1.75762, -39.529, -113.148)
-material_override = SubResource("StandardMaterial3D_qcs1o")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box34" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 61.1877, -39.529, -113.148)
-material_override = SubResource("StandardMaterial3D_qcs1o")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box36" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 72.9494, -37.1365, -103.79)
-material_override = SubResource("StandardMaterial3D_qcs1o")
-use_collision = true
-size = Vector3(4.00049, 3, 4.77283)
-
-[node name="Box30" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 17.0484, -39.529, -112.171)
-material_override = SubResource("StandardMaterial3D_b5r8r")
-use_collision = true
-size = Vector3(9.48304, 3, 4.77283)
-
-[node name="Box33" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 41.9712, -39.529, -112.171)
-material_override = SubResource("StandardMaterial3D_b5r8r")
-use_collision = true
-size = Vector3(18.0818, 3, 4.77283)
-
-[node name="Box32" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.999677, 0.0254264, 0, -0.0254264, 0.999677, 26.8151, -36.9134, -112.237)
-material_override = SubResource("StandardMaterial3D_b5r8r")
-use_collision = true
-size = Vector3(1.66937, 8.23291, 4.77283)
-
-[node name="Box22" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.866026, -0.5, 0, 0.5, 0.866026, -1.37652, -29.4732, -197.728)
-material_override = SubResource("StandardMaterial3D_tj5pa")
-use_collision = true
-size = Vector3(5, 3, 35)
 
 [node name="Box6" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -1.37652, -6.41354, -63.2076)
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, -1.37652, -5.97311, -65.0047)
 material_override = SubResource("StandardMaterial3D_vtw3w")
 use_collision = true
-size = Vector3(5, 3, 15.6658)
+size = Vector3(5, 3, 10)
 
 [node name="Box4" type="CSGBox3D" parent="CSGBoxes/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -42.4213)
@@ -272,49 +170,19 @@ use_collision = true
 size = Vector3(5, 3, 2)
 
 [node name="Box10" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -7.73285, -98.291)
+transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -7.73285, -100.184)
 material_override = SubResource("StandardMaterial3D_if8om")
-use_collision = true
-size = Vector3(5, 3, 2)
-
-[node name="Box20" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -10.2099, -98.291)
-material_override = SubResource("StandardMaterial3D_cuefg")
-use_collision = true
-size = Vector3(5, 3, 2)
-
-[node name="Box21" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -10.2099, -104.965)
-material_override = SubResource("StandardMaterial3D_5thim")
 use_collision = true
 size = Vector3(5, 3, 2)
 
 [node name="Box19" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -7.73285, -104.486)
+transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -7.73285, -106.379)
 material_override = SubResource("StandardMaterial3D_if8om")
 use_collision = true
 size = Vector3(5, 3, 2)
-
-[node name="Box28" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
-transform = Transform3D(1, 0, 0, 0, 0.99924, 0.0389807, 0, -0.0389807, 0.99924, 1.90576, -35.5429, -122.506)
-material_override = SubResource("StandardMaterial3D_if8om")
-use_collision = true
-size = Vector3(19.8731, 3, 2)
-
-[node name="Box31" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(-0.0604102, -0.0315869, -0.997674, -0.00426668, 0.999498, -0.0313863, 0.998165, 0.0023607, -0.0605147, 16.3055, -34.8987, -112.4)
-material_override = SubResource("StandardMaterial3D_if8om")
-use_collision = true
-size = Vector3(8.52542, 3, 2)
 
 [node name="Box13" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -6.79602, -137.201)
-material_override = SubResource("StandardMaterial3D_if8om")
-use_collision = true
-size = Vector3(5, 3, 2)
-
-[node name="Box23" type="CSGBox3D" parent="CSGBoxes/Boxes"]
-transform = Transform3D(1, 0, 0, 0, 0.827806, -0.561015, 0, 0.561015, 0.827806, -0.816992, -27.8573, -188.373)
+transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -6.79602, -141.18)
 material_override = SubResource("StandardMaterial3D_if8om")
 use_collision = true
 size = Vector3(5, 3, 2)
@@ -323,11 +191,47 @@ size = Vector3(5, 3, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.2284, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -88.9213, 0)
 shape = SubResource("WorldBoundaryShape3D_1irrx")
 
 [node name="SceneTransition" parent="." instance=ExtResource("3_ouy7m")]
 
-[connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
+[node name="AssetsLevel" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68667, -7.02824, -85.7316)
 
-[editable path="SceneTransition"]
+[node name="level_begin" parent="AssetsLevel" instance=ExtResource("4_4c4gq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85912, 4.72729, 91.0921)
+visible = false
+
+[node name="FragmentCube022" parent="AssetsLevel" instance=ExtResource("5_js2df")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.03682, 4.12949, 82.6049)
+
+[node name="FragmentTowerBig" parent="AssetsLevel" instance=ExtResource("6_ddbr0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.846493, 7.43893, 90.5494)
+
+[node name="Cube_011_RLExtr_002" parent="AssetsLevel/FragmentTowerBig/Cube_011" index="2"]
+surface_material_override/0 = ExtResource("7_se85l")
+
+[node name="PillarMedium2" parent="AssetsLevel" instance=ExtResource("7_ebkvd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8505, 8.97329, 86.072)
+
+[node name="MonitorSmall2" parent="AssetsLevel" instance=ExtResource("8_pfj0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67146, 10.4232, 90.5744)
+
+[node name="PipeBig012" parent="AssetsLevel" instance=ExtResource("10_ayokc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10094, 6.16126, 89.6924)
+
+[node name="PipeMedium012" parent="." instance=ExtResource("11_x7hkf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8993, -0.676515, -3.38745)
+
+[node name="Bodenplatte_042" parent="." instance=ExtResource("12_8tuad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3743, 0, -5.43464)
+
+[node name="Bodenplatte_04" parent="Bodenplatte_042" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6875, 3.87608, 0)
+
+[connection signal="body_entered" from="DeathArea" to="Player" method="_on_death_area_body_entered"]
+
+[editable path="Player"]
+[editable path="Player/Head/Mesh"]
+[editable path="AssetsLevel/FragmentTowerBig"]
+[editable path="Bodenplatte_042"]
