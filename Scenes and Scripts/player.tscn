@@ -95,7 +95,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [8.0, 12.0, 12.0, 8.0]
+"values": [8.0, 10.0, 10.0, 8.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -146,7 +146,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 1, 12),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [12.0, 14.0, 14.0, 12.0, 15.0]
+"values": [10.0, 12.0, 12.0, 10.0, 15.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -197,7 +197,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [14.0, 16.0, 16.0, 14.0]
+"values": [12.0, 14.0, 14.0, 12.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -248,7 +248,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [16.0, 18.0, 18.0, 16.0]
+"values": [14.0, 16.0, 16.0, 14.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -299,7 +299,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [18.0, 20.0, 20.0, 18.0]
+"values": [16.0, 18.0, 18.0, 16.0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
