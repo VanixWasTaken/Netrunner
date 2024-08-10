@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=14 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="PackedScene" uid="uid://2jpjl22gbo0x" path="res://Assets/Mesh/player-v1-export-i3.glb" id="2_d26a4"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="2_dit42"]
+[ext_resource type="AudioStream" uid="uid://dnog1exlwttsj" path="res://Assets/Audio/background_track1.ogg" id="4_ey1aa"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
@@ -440,6 +441,10 @@ libraries = {
 
 [node name="TimingTimer" type="Timer" parent="."]
 wait_time = 0.8
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ey1aa")
+autoplay = true
 
 [connection signal="animation_finished" from="Head/Mesh/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
