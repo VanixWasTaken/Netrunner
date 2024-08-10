@@ -341,6 +341,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.507446, 0.905518, 0)
 shape = SubResource("BoxShape3D_1qp3o")
 
 [node name="WinScreen" type="CanvasLayer" parent="Goal"]
+visible = false
 
 [node name="MatchEnd" parent="Goal/WinScreen" instance=ExtResource("4_fjml0")]
 
