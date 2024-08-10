@@ -28,13 +28,25 @@ var timing_frames = false
 @onready var label = $ConsoleLayer/Label
 @onready var animation_player = $AnimationPlayer
 @onready var running_animation = $Head/Mesh/AnimationPlayer
+@onready var bone = $"Head/Mesh/game-rig/Skeleton3D/BoneAttachment3D"
+
+
+
 
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	running_animation.play("BAKED_running-fast")
 	
-
+	
+func _process(delta):
+	camera.global_position = bone.global_position
+	label.text = "is_sliding = " + str(is_sliding) + " 
+			" + str(speed) + "
+			" + "is_jumping = " + str(is_jumping) + "
+			" + "is_on_floor = " + str(is_on_floor()) + "
+			" + "timing_frames = " + str(timing_frames)
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -42,12 +54,8 @@ func _unhandled_input(event):
 		camera.rotate_x(-event.relative.y * sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 
-func _process(delta):
-	label.text = "is_sliding = " + str(is_sliding) + " 
-			" + str(speed) + "
-			" + "is_jumping = " + str(is_jumping) + "
-			" + "is_on_floor = " + str(is_on_floor()) + "
-			" + "timing_frames = " + str(timing_frames)
+
+		
 
 
 func _physics_process(delta):
@@ -91,13 +99,19 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 8.0 and !is_sliding:
 			is_sliding = true
 			animation_player.play("slide_animation")
+			#running_animation.play("BAKED_slide")
+
+
 			
 		if direction:
-			running_animation.play("running-fast_001")
+			if !is_sliding:
+				running_animation.play("BAKED_running-fast")
+			elif is_sliding:
+				running_animation.play("BAKED_slide")
 			velocity.x = direction.x * speed / 2
 			velocity.z = direction.z * speed
 		else:
-			running_animation.play("running-fast")
+			running_animation.stop()
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
 	if !direction == Vector3.ZERO and speed <= 10.0 and !is_sliding and timing_frames and is_on_floor():
