@@ -85,6 +85,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [8.0, 12.0, 12.0, 8.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_f0c8r"]
 resource_name = "slide_animation_2"
@@ -123,6 +135,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [12.0, 14.0, 14.0, 12.0, 15.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_xs2fj"]
@@ -163,6 +187,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [14.0, 16.0, 16.0, 14.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_kw6du"]
 resource_name = "slide_animation_4"
@@ -201,6 +237,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [16.0, 18.0, 18.0, 16.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hf0qv"]
@@ -241,6 +289,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [18.0, 20.0, 20.0, 18.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b45fm"]
 _data = {
@@ -254,7 +314,6 @@ _data = {
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_am13k")
-speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false
@@ -388,7 +447,11 @@ libraries = {
 "": SubResource("AnimationLibrary_b45fm")
 }
 
+[node name="TimingTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="animation_finished" from="Head/Mesh/AnimationPlayer" to="." method="_on_animation_player_animation_finished_arms"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="TimingTimer" to="." method="_on_timing_timer_timeout"]
 
 [editable path="Head/Mesh"]
