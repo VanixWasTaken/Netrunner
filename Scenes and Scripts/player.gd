@@ -136,7 +136,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	if speed > 8.0 and is_on_floor() and !is_sliding and !timing_frames:
-		await get_tree().create_timer(0.04).timeout
+		await get_tree().create_timer(0.2).timeout
 		if !is_jumping:
 			speed = 8.0
 
