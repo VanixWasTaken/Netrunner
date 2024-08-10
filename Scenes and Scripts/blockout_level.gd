@@ -5,8 +5,6 @@ var level_state = "blue" # can be "blue" or "red"
 @onready var box18 = $CSGBoxes/Boxes/Box18
 
 
-func _ready():
-	$SceneTransition/ColorRect/AnimationPlayer.play("evolvedissolve")
 
 func _input(event):
 	if event.is_action_pressed("mouse_left"):
@@ -37,3 +35,9 @@ func _process(delta):
 			i.use_collision = true
 		for i in get_tree().get_nodes_in_group("red"):
 			i.visible = true
+
+
+func _on_death_area_body_entered(body):
+	SceneTransition.change_scene_to_file("res://Scenes and Scripts/Blockout_level.tscn")
+
+
