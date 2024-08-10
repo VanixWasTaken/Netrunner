@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0f0ef6h8jjlg"]
+[gd_scene load_steps=15 format=3 uid="uid://4insc2kscl3n"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/match_end.gd" id="1_fgeyv"]
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="2_0naf2"]
