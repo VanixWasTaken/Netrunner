@@ -38,7 +38,7 @@ shadow_enabled = true
 environment = SubResource("Environment_efjyl")
 
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24471, -36.1238, -163.296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24471, 5.97055, 9.33046)
 
 [node name="CSGBoxes" type="Node3D" parent="."]
 
@@ -47,10 +47,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24471, -36.1238, -163.296)
 [node name="Boxes" type="Node3D" parent="CSGBoxes"]
 
 [node name="Box3" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -21.3582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, -20.7743)
 material_override = SubResource("StandardMaterial3D_ec6gb")
 use_collision = true
-size = Vector3(5, 3, 6.60791)
+size = Vector3(5, 3, 7.77576)
 
 [node name="Box17" type="CSGBox3D" parent="CSGBoxes/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37652, 2.04194, 7.98654)
