@@ -817,6 +817,7 @@ bone_idx = 6
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0389886, 0)
+current = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 5.96046e-08, 1.49012e-08, 1, 0, -8.9407e-08, 0, 1, 0, 0, 0)
@@ -847,7 +848,6 @@ wait_time = 0.5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ey1aa")
-autoplay = true
 
 [connection signal="animation_finished" from="Head/Mesh/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

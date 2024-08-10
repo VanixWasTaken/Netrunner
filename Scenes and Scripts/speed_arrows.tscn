@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6p0n8h0h488m"]
+
+[ext_resource type="Texture2D" uid="uid://ddbk1vdue35iw" path="res://Assets/Textures/noun-arrow-3134092.png" id="1_012no"]
+
+[sub_resource type="Animation" id="Animation_8ysi6"]
+resource_name = "arrow_speed_animation"
+length = 1.4
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.3, 0.7, 1.1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect3:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.6, 1, 1.4)
+}
+
+[sub_resource type="Animation" id="Animation_7tbus"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect3:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6nr4r"]
+_data = {
+"RESET": SubResource("Animation_7tbus"),
+"arrow_speed_animation": SubResource("Animation_8ysi6")
+}
+
+[node name="Control" type="Control"]
+modulate = Color(0.675285, 0, 0.210363, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 125.0
+offset_top = 77.0
+offset_right = 834.0
+offset_bottom = 475.0
+scale = Vector2(1.415, 1.415)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.227735, 0.808233, 5.77569e-06, 1)
+layout_mode = 0
+offset_right = 700.0
+offset_bottom = 600.0
+scale = Vector2(0.405, 0.405)
+texture = ExtResource("1_012no")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 133.0
+offset_right = 833.0
+offset_bottom = 600.0
+scale = Vector2(0.405, 0.405)
+texture = ExtResource("1_012no")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 266.0
+offset_right = 966.0
+offset_bottom = 600.0
+scale = Vector2(0.405, 0.405)
+texture = ExtResource("1_012no")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6nr4r")
+}
+autoplay = "arrow_speed_animation"

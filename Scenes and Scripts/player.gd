@@ -33,9 +33,6 @@ var timing_frames2 = false
 
 
 
-
-
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	running_animation.play("BAKED_running-fast")
@@ -257,4 +254,4 @@ func _on_timing_timer_timeout():
 
 func _on_timing_timer_2_timeout():
 	timing_frames2 = false
-	print("2131")
+
