@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 
-@export var speed = 10.0
-var new_speed = 10
+@export var speed = 8.0
+var new_speed = 8.0
 @export var jump_velocity = 4.5
 @export var sensitivity = 0.003
 
@@ -77,22 +77,22 @@ func _physics_process(delta):
 	
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 10:
+		if Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed == 8:
 			is_sliding = true
 			animation_player.play("slide_animation")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 15:
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 12:
 			is_sliding = true
 			animation_player.play("slide_animation_2")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 20:
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 14:
 			is_sliding = true
 			animation_player.play("slide_animation_3")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 25:
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 16:
 			is_sliding = true
 			animation_player.play("slide_animation_4")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 30:
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 18:
 			is_sliding = true
 			animation_player.play("slide_animation_5")
-		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 35:
+		elif Input.is_action_just_pressed("slide") and !direction == Vector3.ZERO and speed < 20:
 			is_sliding = true
 			animation_player.play("slide_animation_5")
 			
