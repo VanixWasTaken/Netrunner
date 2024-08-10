@@ -328,7 +328,6 @@ _data = {
 script = ExtResource("1_am13k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
 mesh = SubResource("CapsuleMesh_5nlux")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
