@@ -42,7 +42,6 @@ environment = SubResource("Environment_efjyl")
 
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2083, 2.79773, 8.33574)
-jump_velocity = 5.0
 
 [node name="CSGBoxes" type="Node3D" parent="."]
 
