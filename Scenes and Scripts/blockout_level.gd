@@ -57,8 +57,8 @@ func _on_goal_body_entered(body):
 	
 
 func convert_time(delta):
-	var m = int(total_time_in_sec / 60)
-	var s = total_time_in_sec - m * 60
+	var m = int(total_time_in_sec / 60) * delta
+	var s = (total_time_in_sec - m * 60) * delta
 	$Counter/Label.text = '%02d:%02d' % [m, s]
 	Global.time = total_time_in_sec * delta
 
