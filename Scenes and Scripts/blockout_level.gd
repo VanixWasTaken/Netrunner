@@ -41,7 +41,7 @@ func _process(delta):
 		await get_tree().create_timer(0.01).timeout
 		total_time_in_sec += 1
 		if should_count:
-			convert_time()
+			convert_time(delta)
 
 
 func _on_death_area_body_entered(body):
@@ -51,15 +51,15 @@ func _on_death_area_body_entered(body):
 
 
 func _on_goal_body_entered(body):
-	Engine.time_scale = 0.2
+	Engine.time_scale = 0.4
 	$Goal/WinScreen.show()
 	should_count = false
 	
 
-func convert_time():
+func convert_time(delta):
 	var m = int(total_time_in_sec / 60)
 	var s = total_time_in_sec - m * 60
 	$Counter/Label.text = '%02d:%02d' % [m, s]
-	Global.time = total_time_in_sec
+	Global.time = total_time_in_sec * delta
 
 
