@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-
+var max_speed = 0.0
 var speed = 10.0
 var new_speed = 10.0
 var jump_velocity = 5
@@ -58,7 +58,8 @@ func _process(delta):
 			" + "is_jumping = " + str(is_jumping) + "
 			" + "is_on_floor = " + str(is_on_floor()) + "
 			" + "timing_frames = " + str(timing_frames) + "
-			" + "timing_frames2 = " + str(timing_frames2)
+			" + "timing_frames2 = " + str(timing_frames2) + "
+			" + "max_speed = " + str(Global.global_speed) + " km/h"
 
 	
 func _unhandled_input(event):
@@ -227,6 +228,7 @@ func _physics_process(delta):
 	var target_fov = base_fov + fov_change * velocity_clamped
 	camera.fov = lerp(camera.fov, target_fov, delta * 8.0)
 	
+	Global.global_direction = direction
 	
 	move_and_slide()
 	
@@ -239,6 +241,9 @@ func _physics_process(delta):
 
 func save_local_new_speed():
 	new_speed = speed
+	if max_speed < speed:
+		Global.global_speed = speed * 3
+		max_speed = speed
 
 func _headbob(time) -> Vector3:
 	var pos = Vector3.ZERO

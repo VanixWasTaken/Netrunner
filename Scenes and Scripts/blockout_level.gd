@@ -1,10 +1,9 @@
 extends Node3D
 
 var level_state = "blue" # can be "blue" or "red"
-
-@onready var box18 = $CSGBoxes/Boxes/Box18
-
-
+var first_movement = true
+var total_time_in_sec : int = 0
+var should_count = true
 
 func _input(event):
 	if event.is_action_pressed("mouse_left"):
@@ -35,6 +34,14 @@ func _process(delta):
 			i.use_collision = true
 		for i in get_tree().get_nodes_in_group("red"):
 			i.visible = true
+	
+	if Global.global_direction != Vector3.ZERO and first_movement:
+		first_movement = false
+	if !first_movement:
+		await get_tree().create_timer(0.01).timeout
+		total_time_in_sec += 1
+		if should_count:
+			convert_time()
 
 
 func _on_death_area_body_entered(body):
@@ -44,5 +51,15 @@ func _on_death_area_body_entered(body):
 
 
 func _on_goal_body_entered(body):
-	#Engine.time_scale = 0.2
+	Engine.time_scale = 0.2
 	$Goal/WinScreen.show()
+	should_count = false
+	
+
+func convert_time():
+	var m = int(total_time_in_sec / 60)
+	var s = total_time_in_sec - m * 60
+	$Counter/Label.text = '%02d:%02d' % [m, s]
+	Global.time = total_time_in_sec
+
+
