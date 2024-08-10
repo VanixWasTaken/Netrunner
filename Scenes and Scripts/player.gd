@@ -33,10 +33,7 @@ var is_jumping = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	# label test text
-	label.text = "is_sliding = " + str(is_sliding) + " 
-	" + str(speed) + "
-			" + "is_jumping = " + str(is_jumping)
+
 	
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -47,7 +44,8 @@ func _unhandled_input(event):
 func _process(delta):
 	label.text = "is_sliding = " + str(is_sliding) + " 
 			" + str(speed) + "
-			" + "is_jumping = " + str(is_jumping)
+			" + "is_jumping = " + str(is_jumping) + "
+			" + "is_on_floor = " + str(is_on_floor())
 
 
 func _physics_process(delta):
@@ -55,6 +53,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	elif is_on_floor() and is_sliding:
+		velocity.y -= 10
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
