@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=8 format=3 uid="uid://bvmxfp2oktjpa"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
 [ext_resource type="Shader" path="res://Shader/glitch_shader.gdshader" id="2_fqcy0"]
 [ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="3_uiafy"]
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="4_5tanw"]
+[ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="5_wd20u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_407sh"]
 shader = ExtResource("2_fqcy0")
@@ -68,5 +69,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("4_5tanw")
 text = "Credits"
 
+[node name="HoverClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wd20u")
+
+[connection signal="mouse_entered" from="Node3D/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Node3D/Start" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Node3D/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Node3D/Credits" to="." method="_on_credits_pressed"]
