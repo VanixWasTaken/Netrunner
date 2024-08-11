@@ -42,7 +42,7 @@ ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_material = SubResource("ProceduralSkyMaterial_5c3df")
 
 [sub_resource type="Environment" id="Environment_efjyl"]
-background_energy_multiplier = 0.1
+background_energy_multiplier = 0.05
 sky = SubResource("Sky_x0cco")
 glow_enabled = true
 glow_intensity = 0.35
@@ -114,15 +114,42 @@ script = ExtResource("1_yrhcu")
 environment = SubResource("Environment_efjyl")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.725641, -0.635735, -0.263223, -0.472697, 0.182598, 0.8621, -0.500003, 0.749999, -0.43301, -2.95794, 8.47993, 0)
+transform = Transform3D(-0.725641, -0.635735, -0.263223, -0.472697, 0.182598, 0.8621, -0.500003, 0.749999, -0.43301, -3.69527, 8.47993, 0)
 light_color = Color(0.27451, 0.352941, 0.313726, 1)
 light_energy = 2.0
-light_volumetric_fog_energy = 8.0
+light_volumetric_fog_energy = 9.936
 shadow_enabled = true
 
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0549, 8.99021, 1.90808)
+light_color = Color(0.85098, 0.666667, 0.235294, 1)
+light_energy = 5.0
+light_volumetric_fog_energy = 9.0
+omni_range = 7.5
+omni_attenuation = 0.0228763
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.74628, 7.24754, -19.0505)
+light_color = Color(0.85098, 0.666667, 0.235294, 1)
+light_energy = 5.0
+light_volumetric_fog_energy = 9.0
+omni_range = 7.5
+omni_attenuation = 0.0228763
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38877, -0.677588, -10.2486)
+light_color = Color(0.588235, 0.745098, 0.470588, 1)
+light_energy = 3.0
+light_volumetric_fog_energy = 9.0
+omni_range = 7.5
+omni_attenuation = 0.0228763
+
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42134, 6.44779, 7.95732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40789, 6.44779, 7.95519)
 collision_mask = 3
+
+[node name="Camera3D" parent="Player/Head" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.464, 0)
 
 [node name="CSGBoxes" type="Node3D" parent="."]
 
@@ -985,6 +1012,8 @@ volume_db = -10.0
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
 
+[editable path="Player"]
+[editable path="Player/Head/Mesh"]
 [editable path="SceneTransition"]
 [editable path="Goal/WinScreen/MatchEnd"]
 [editable path="Assets/shell_plattform"]
