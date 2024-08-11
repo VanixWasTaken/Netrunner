@@ -12,6 +12,7 @@ func _input(event):
 			level_state = "red"
 		elif level_state == "red":
 			level_state = "blue"
+		$GogglesSound.play()
 	if event.is_action_pressed("mouse_right"):
 		get_tree().reload_current_scene()
 
@@ -50,6 +51,7 @@ func _process(delta):
 
 
 func _on_death_area_body_entered(body):
+	$DeathSound.play()
 	SceneTransition.change_scene_to_file("res://Scenes and Scripts/Blockout_level.tscn")
 
 
@@ -69,21 +71,29 @@ func convert_time(delta):
 	$Goal/WinScreen/MatchEnd/Time.text = '%02d:%02d:%02d' % [m, s, ms]
 	$Counter/Label.text = '%02d:%02d:%02d' % [m, s, ms]
 	
-	if s > 30:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "S"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	if s < 30:
+		$"Goal/WinScreen/MatchEnd/S Tier".visible = true
+		$"Goal/WinScreen/MatchEnd/A Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/A Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/C Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/ColorRect".color = Color(0, 0.482, 0.482, 0.553) #(0,189,184,55)
 	elif s < 40:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "A"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+		$"Goal/WinScreen/MatchEnd/S Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/A Tier".visible = true
+		$"Goal/WinScreen/MatchEnd/B Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/C Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/ColorRect".color = Color(0.392, 0.455, 0, 0.447)
 	elif s < 50:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "B"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+		$"Goal/WinScreen/MatchEnd/S Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/A Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/B Tier".visible = true
+		$"Goal/WinScreen/MatchEnd/C Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/ColorRect".color = Color(0.879, 0.983, 0.98, 0.447)
 	elif s >= 50:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "C"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+		$"Goal/WinScreen/MatchEnd/S Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/A Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/B Tier".visible = false
+		$"Goal/WinScreen/MatchEnd/C Tier".visible = true
+		$"Goal/WinScreen/MatchEnd/ColorRect".color = Color(0.879, 0.983, 0.98, 0.447)
 
 
