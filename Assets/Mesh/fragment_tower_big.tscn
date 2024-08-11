@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjhr38j5j6gga"]
+
+[ext_resource type="PackedScene" uid="uid://dgtbgm0bn32x4" path="res://Assets/Mesh/FragmentTowerBig.glb" id="1_qm8cg"]
+[ext_resource type="Material" uid="uid://bukiu7ytt72f2" path="res://Shader/Materials/EmissionOrange.tres" id="3_v67hk"]
+
+[node name="FragmentTowerBig" instance=ExtResource("1_qm8cg")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="Cube_011_RLExtr_001" parent="Cube_011" index="1"]
+surface_material_override/0 = ExtResource("3_v67hk")
+
+[node name="Cube_011_RLExtr_002" parent="Cube_011" index="2"]
+surface_material_override/0 = ExtResource("3_v67hk")

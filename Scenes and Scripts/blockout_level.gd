@@ -50,6 +50,7 @@ func _process(delta):
 
 
 func _on_death_area_body_entered(body):
+	$DeathSound.play()
 	SceneTransition.change_scene_to_file("res://Scenes and Scripts/Blockout_level.tscn")
 
 

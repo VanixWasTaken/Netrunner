@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=34 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
@@ -7,9 +7,12 @@
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://Assets/Fonts/m5x7.ttf" id="4_lckte"]
 [ext_resource type="PackedScene" uid="uid://bhlu2hfqkb20a" path="res://Assets/Mesh/GroundTiles/shell_plattform.glb" id="6_recsu"]
 [ext_resource type="PackedScene" uid="uid://dhypbbr4bbi5r" path="res://Assets/Mesh/PortalFrame.glb" id="7_nkja3"]
-[ext_resource type="PackedScene" uid="uid://dgtbgm0bn32x4" path="res://Assets/Mesh/FragmentTowerBig.glb" id="8_h63co"]
 [ext_resource type="PackedScene" uid="uid://cfpucdgs1gjok" path="res://Assets/Mesh/FragmentTower.glb" id="9_ov6y5"]
-[ext_resource type="PackedScene" uid="uid://jtjir84osv40" path="res://Assets/Mesh/FragmentCube01.glb" id="10_xgtph"]
+[ext_resource type="PackedScene" uid="uid://bfhn73k4fhjia" path="res://Assets/Mesh/fragment_cube_01.tscn" id="10_6kh0x"]
+[ext_resource type="PackedScene" uid="uid://cjhr38j5j6gga" path="res://Assets/Mesh/fragment_tower_big.tscn" id="10_hq7em"]
+[ext_resource type="PackedScene" uid="uid://dre766f4rnl1q" path="res://Assets/Mesh/PipeMedium01.glb" id="11_y18g1"]
+[ext_resource type="PackedScene" uid="uid://dtdworl5sxs14" path="res://Assets/Mesh/PipeMedium02.glb" id="12_cbo3b"]
+[ext_resource type="AudioStream" uid="uid://c274ltk5n1wik" path="res://Assets/Audio/Death_sound.wav" id="13_n6v52"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -415,25 +418,56 @@ text = "00:00:00"
 
 [node name="shell_plattform" parent="Assets" instance=ExtResource("6_recsu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.71983, 0.761607, 9.04172)
-visible = false
 
 [node name="PortalFrame2" parent="Assets" instance=ExtResource("7_nkja3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 71.288, -47.0853, -10.548)
 
-[node name="FragmentTowerBig" parent="Assets" instance=ExtResource("8_h63co")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -3.81112, -1.70367, -2.26766)
+[node name="Fragments" type="Node3D" parent="Assets"]
 
-[node name="FragmentTower" parent="Assets" instance=ExtResource("9_ov6y5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.72097, 3.78884, -25.1866)
+[node name="FragmentTower" parent="Assets/Fragments" instance=ExtResource("9_ov6y5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.72097, 3.78884, -28.1741)
 
-[node name="FragmentTower2" parent="Assets" instance=ExtResource("9_ov6y5")]
+[node name="FragmentTower2" parent="Assets/Fragments" instance=ExtResource("9_ov6y5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.72097, 3.78884, -11.5171)
 
-[node name="FragmentCube012" parent="Assets" instance=ExtResource("10_xgtph")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6626, 9.69581, 8.53643)
+[node name="FragmentTowerBig" parent="Assets/Fragments" instance=ExtResource("10_hq7em")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.53993, 0, -4.9212)
 
-[node name="FragmentCube013" parent="Assets" instance=ExtResource("10_xgtph")]
-transform = Transform3D(-0.508272, 0, -0.50996, 0, 0.72, 0, 0.50996, 0, -0.508272, -9.85168, 4.30215, -2.14725)
+[node name="FragmentTower3" parent="Assets/Fragments" instance=ExtResource("9_ov6y5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7425, 3.78884, 3.71486)
+
+[node name="FragmentTower4" parent="Assets/Fragments" instance=ExtResource("9_ov6y5")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -22.913, 16.231, 3.715)
+
+[node name="FragmentTowerBig2" parent="Assets/Fragments" instance=ExtResource("10_hq7em")]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 4.06984, -1.14955, -55.9224)
+
+[node name="FragmentTowerBig3" parent="Assets/Fragments" instance=ExtResource("10_hq7em")]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, -8.45276, -25.3319, -74.2037)
+
+[node name="FragmentTower5" parent="Assets/Fragments" instance=ExtResource("9_ov6y5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 9.72097, 3.78884, -24.0394)
+
+[node name="FragmentCube012" parent="Assets/Fragments" instance=ExtResource("10_6kh0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3753, 8.33237, 8.85083)
+
+[node name="FragmentCube013" parent="Assets/Fragments" instance=ExtResource("10_6kh0x")]
+transform = Transform3D(0.525544, 0, 0.278978, 0, 0.595, 0, -0.278978, 0, 0.525544, -8.27879, 6.28393, 12.806)
+
+[node name="Pipes" type="Node3D" parent="Assets"]
+
+[node name="PipeMedium012" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
+transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, -6.06811, 0.903919, 3.70813)
+
+[node name="PipeMedium013" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
+transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, -6.06811, -2.91303, -15.612)
+
+[node name="PipeMedium022" parent="Assets/Pipes" instance=ExtResource("12_cbo3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07735, -1.77644, 3.11562)
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_n6v52")
+volume_db = -15.0
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
