@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=46 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://t2yuwkaunilr" path="res://Assets/Mesh/HindernisMaybe.glb" id="18_1pq1i"]
 [ext_resource type="PackedScene" uid="uid://byos2hbousu4n" path="res://Assets/Mesh/MeshScenes/pipe_medium_042.tscn" id="20_5c14q"]
 [ext_resource type="PackedScene" uid="uid://ddo7u0tjctj4v" path="res://Assets/Mesh/MeshScenes/pipe_medium_062.tscn" id="21_f0en2"]
+[ext_resource type="AudioStream" uid="uid://co03jh6nveffm" path="res://Assets/Audio/SFX/switch.wav" id="24_ie332"]
+[ext_resource type="AudioStream" uid="uid://c274ltk5n1wik" path="res://Assets/Audio/Death_sound.wav" id="25_wfpra"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -523,9 +525,6 @@ transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -9.46939, -3.28434, -12
 [node name="FragmentCube02" parent="Assets/Fragments/FragmentCube029" index="0"]
 surface_material_override/0 = ExtResource("17_y51xm")
 
-[node name="Cube_022_RLExtr" parent="Assets/Fragments/FragmentCube029/FragmentCube02" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="FragmentCube030" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
 transform = Transform3D(0.343577, 0, 1.56267, 0, 1.6, 0, -1.56268, 0, 0.343576, -12.5143, -15.0113, -125.979)
 
@@ -671,6 +670,13 @@ transform = Transform3D(-1.40956, 0.123941, -5.41761e-09, 0, -6.18516e-08, -1.41
 
 [node name="PipeMedium043" parent="Obstacle" instance=ExtResource("20_5c14q")]
 transform = Transform3D(-6.9064e-08, 0, 1.58, 0, 1.58, 0, -1.58, 0, -6.9064e-08, 1.87403, -15.4786, -104.408)
+
+[node name="GogglesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_ie332")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_wfpra")
+volume_db = -10.0
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
