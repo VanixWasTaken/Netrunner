@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0pjws4yjjdtg"]
+
+[ext_resource type="PackedScene" uid="uid://cfpucdgs1gjok" path="res://Assets/Mesh/FragmentTower.glb" id="1_gvt1b"]
+[ext_resource type="Material" uid="uid://bpnlo6jkhhd2" path="res://Shader/Materials/BaseGreyColor.tres" id="2_grb8y"]
+
+[node name="FragmentTower" instance=ExtResource("1_gvt1b")]
+
+[node name="Cube_023_RLExtr_001" parent="Cube_023" index="1"]
+surface_material_override/0 = ExtResource("2_grb8y")

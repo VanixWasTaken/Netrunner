@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfhn73k4fhjia"]
+
+[ext_resource type="PackedScene" uid="uid://jtjir84osv40" path="res://Assets/Mesh/FragmentCube01.glb" id="1_212nl"]
+[ext_resource type="Material" uid="uid://bukiu7ytt72f2" path="res://Shader/Materials/EmissionOrange.tres" id="2_2ld0k"]
+
+[node name="FragmentCube012" instance=ExtResource("1_212nl")]
+
+[node name="FragmentCube01" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_2ld0k")

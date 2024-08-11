@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwskx1jjybpjt"]
+
+[ext_resource type="PackedScene" uid="uid://dtdworl5sxs14" path="res://Assets/Mesh/PipeMedium02.glb" id="1_860kp"]
+[ext_resource type="Material" uid="uid://cb5ry2b2c4uni" path="res://Shader/Materials/EmissionGreen.tres" id="2_r8d2c"]
+
+[node name="PipeMedium022" instance=ExtResource("1_860kp")]
+
+[node name="PipeMedium02" parent="." index="0"]
+surface_material_override/1 = ExtResource("2_r8d2c")
