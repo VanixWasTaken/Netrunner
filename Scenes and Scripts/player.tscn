@@ -1,11 +1,13 @@
-[gd_scene load_steps=29 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=31 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
-[ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="2_dit42"]
+[ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://Assets/Fonts/m5x7.ttf" id="3_bjfmy"]
 [ext_resource type="PackedScene" uid="uid://oxilb27lhdsd" path="res://Scenes and Scripts/player-v1-export-i10 (1).glb" id="3_ij4gn"]
 [ext_resource type="Shader" path="res://Shader/speed_effect.gdshader" id="4_att53"]
-[ext_resource type="AudioStream" uid="uid://dnog1exlwttsj" path="res://Assets/Audio/background_track1.ogg" id="4_ey1aa"]
-[ext_resource type="AudioStream" uid="uid://dpyn67fpyil6o" path="res://Assets/Audio/SFX/jump.ogg" id="6_puvv3"]
+[ext_resource type="AudioStream" uid="uid://bh8v7wka7nr1e" path="res://Assets/Audio/SFX/running-1-6846.mp3" id="6_s3tcs"]
+[ext_resource type="AudioStream" uid="uid://clvhgt2n3kgbv" path="res://Assets/Audio/SFX/sliding.mp3" id="7_6qler"]
+[ext_resource type="AudioStream" uid="uid://b60gon80j7cdr" path="res://Assets/Audio/wind.ogg" id="8_1io6x"]
+[ext_resource type="AudioStream" uid="uid://kmd01bfy0bx7" path="res://Assets/Audio/SFX/jump.mp3" id="8_020kn"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
@@ -106,6 +108,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_qyfkd"]
 resource_name = "slide_animation_10"
@@ -144,6 +158,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_1r5lf"]
@@ -184,6 +210,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_h88tn"]
 resource_name = "slide_animation_12"
@@ -222,6 +260,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_1bui0"]
@@ -262,6 +312,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_muaxv"]
 resource_name = "slide_animation_14"
@@ -300,6 +362,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_gr8c3"]
@@ -340,6 +414,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_f0c8r"]
 resource_name = "slide_animation_2"
@@ -378,6 +464,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_xs2fj"]
@@ -418,6 +516,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_kw6du"]
 resource_name = "slide_animation_4"
@@ -456,6 +566,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_hf0qv"]
@@ -496,6 +618,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_22t25"]
 resource_name = "slide_animation_6"
@@ -534,6 +668,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_5db6c"]
@@ -574,6 +720,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_0sjev"]
 resource_name = "slide_animation_8"
@@ -613,6 +771,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_pqc54"]
 resource_name = "slide_animation_9"
@@ -651,6 +821,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(0.5, 0.5, 0.5), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SlidingSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b45fm"]
@@ -804,7 +986,7 @@ offset_left = 16.0
 offset_top = 14.0
 offset_right = 62.0
 offset_bottom = 40.0
-theme_override_fonts/font = ExtResource("2_dit42")
+theme_override_fonts/font = ExtResource("3_bjfmy")
 theme_override_font_sizes/font_size = 32
 text = "Test"
 metadata/_edit_use_anchors_ = true
@@ -830,13 +1012,21 @@ wait_time = 0.8
 [node name="TimingTimer2" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ey1aa")
+[node name="RunningSteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_s3tcs")
+volume_db = 15.0
 
-[node name="JumpSound" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("6_puvv3")
-attenuation_model = 1
-pitch_scale = 1.07
+[node name="SlidingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6qler")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_020kn")
+volume_db = 10.0
+
+[node name="SpeedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_1io6x")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="animation_finished" from="Head/Mesh/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

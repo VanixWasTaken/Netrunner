@@ -5,6 +5,8 @@ var speed = 10.0
 var new_speed = 10.0
 var jump_velocity = 5
 var sensitivity = 0.003
+var is_moving = false
+var playing_step_sound = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
@@ -53,13 +55,54 @@ func _process(delta):
 		$ConsoleLayer/SpeedEffect.show()
 	elif speed < 20:
 		$ConsoleLayer/SpeedEffect.hide()
+	
+	if Input.is_action_pressed("forward") or Input.is_action_pressed("backward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		is_moving = true
+	else:
+		is_moving = false
+	
+	if Input.is_action_pressed("forward") or Input.is_action_pressed("backward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		if !playing_step_sound:
+			$RunningSteps.play()
+			playing_step_sound = true
+	if !is_moving or is_jumping or is_sliding:
+		$RunningSteps.stop()
+		playing_step_sound = false
+	
+	if is_jumping:
+		$SlidingSound.stop()
+	
+	if speed <= 10:
+		$SpeedSound.volume_db = -20
+	elif speed <= 14:
+		$SpeedSound.volume_db = -7
+	elif speed <= 18:
+		$SpeedSound.volume_db = -5
+	elif speed <= 20:
+		$SpeedSound.volume_db = -3
+	elif speed <= 22:
+		$SpeedSound.volume_db = -1
+	elif speed <= 24:
+		$SpeedSound.volume_db = 1
+	elif speed <= 26:
+		$SpeedSound.volume_db = 3
+	elif speed <= 28:
+		$SpeedSound.volume_db = 5
+	elif speed <= 30:
+		$SpeedSound.volume_db = 7
+	
+	
+	
+	
+	
 	label.text = "is_sliding = " + str(is_sliding) + " 
 			" + "speed = " + str(speed) + "
 			" + "is_jumping = " + str(is_jumping) + "
 			" + "is_on_floor = " + str(is_on_floor()) + "
 			" + "timing_frames = " + str(timing_frames) + "
 			" + "timing_frames2 = " + str(timing_frames2) + "
-			" + "max_speed = " + str(Global.global_speed) + " km/h"
+			" + "max_speed = " + str(Global.global_speed) + " km/h" + "
+			" + "is_moving = " + str(is_moving)
 
 	
 func _unhandled_input(event):
@@ -111,7 +154,8 @@ func _physics_process(delta):
 	
 	if direction == Vector3.ZERO and !currently_playing_slide_anim:
 		running_animation.play("BAKED_idle-1")
-
+	
+	
 
 	
 	if is_on_floor():
@@ -262,6 +306,9 @@ func _input(event):
 		
 	if event.is_action_pressed("mouse_right"):
 		running_animation.play("BAKED_idle-1")
+	
+	if event.is_action_pressed("jump"):
+		$JumpSound.play()
 
 # checks the slide_animation
 func _on_animation_player_animation_finished(anim_name):
