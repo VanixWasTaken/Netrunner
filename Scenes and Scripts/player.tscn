@@ -1194,6 +1194,7 @@ size = Vector3(0.1, 0.1, 0.1)
 [node name="ConsoleLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="ConsoleLayer"]
+visible = false
 offset_left = 16.0
 offset_top = 14.0
 offset_right = 62.0
