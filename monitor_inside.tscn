@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxmlnyp5gg2hn"]
+[gd_scene load_steps=6 format=3 uid="uid://cxmlnyp5gg2hn"]
 
 [ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="1_vrk67"]
 [ext_resource type="Shader" path="res://monochrome_monitor.gdshader" id="2_l83ep"]
+[ext_resource type="Shader" path="res://dotted_line.gdshader" id="4_s8k84"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_18erq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1tlca"]
+shader = ExtResource("4_s8k84")
+shader_parameter/color = Color(0, 0.337255, 0, 1)
+shader_parameter/inner_stroke_thickness = 2.775
+shader_parameter/inner_stroke_opacity = 3.205
+shader_parameter/inside_opacity = 0.44
+shader_parameter/frequency = 6.64
+shader_parameter/phase_speed = 1.57
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pg5lt"]
 shader = ExtResource("2_l83ep")
@@ -14,20 +22,27 @@ shader_parameter/offsetIntensity = 0.1
 shader_parameter/colorOffsetIntensity = 0.875
 
 [node name="ColorRect" type="ColorRect"]
-material = SubResource("ShaderMaterial_18erq")
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_1tlca")
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 169.0
-offset_top = 315.0
-offset_right = 1821.0
-offset_bottom = 811.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_left = 1830.0
+offset_top = 323.0
+offset_right = 3624.0
+offset_bottom = 819.0
+scale = Vector2(-1, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("1_vrk67")
 theme_override_font_sizes/normal_font_size = 400
-text = "245 KMH"
+text = "00:00:000"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_pg5lt")
