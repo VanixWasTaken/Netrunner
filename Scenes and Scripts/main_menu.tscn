@@ -122,7 +122,7 @@ theme_override_fonts/font = ExtResource("3_uiafy")
 theme_override_font_sizes/font_size = 45
 text = "Sound Volume"
 
-[node name="Label" type="Label" parent="Node3D"]
+[node name="DevLevelLabel" type="Label" parent="Node3D"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -134,6 +134,19 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("3_uiafy")
 theme_override_font_sizes/font_size = 20
 text = "Press \"F7\" for developer test level"
+
+[node name="EndGameLabel" type="Label" parent="Node3D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -83.0
+offset_right = 531.0
+offset_bottom = -50.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 20
+text = "Press \"ESC\" to quit game"
 
 [node name="HoverClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wd20u")
