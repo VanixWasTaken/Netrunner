@@ -69,7 +69,28 @@ func _process(delta):
 		$RunningSteps.stop()
 		playing_step_sound = false
 	
-
+	if is_jumping:
+		$SlidingSound.stop()
+	
+	if speed <= 14:
+		$SpeedSound.volume_db = 0
+	elif speed <= 18:
+		$SpeedSound.volume_db = 3
+	elif speed <= 20:
+		$SpeedSound.volume_db = 6
+	elif speed <= 22:
+		$SpeedSound.volume_db = 9
+	elif speed <= 24:
+		$SpeedSound.volume_db = 10
+	elif speed <= 26:
+		$SpeedSound.volume_db = 11
+	elif speed <= 28:
+		$SpeedSound.volume_db = 12
+	elif speed <= 30:
+		$SpeedSound.volume_db = 13
+	
+	
+	
 	
 	
 	label.text = "is_sliding = " + str(is_sliding) + " 
@@ -281,6 +302,9 @@ func _input(event):
 		
 	if event.is_action_pressed("mouse_right"):
 		running_animation.play("BAKED_idle-1")
+	
+	if event.is_action_pressed("jump"):
+		$JumpSound.play()
 
 # checks the slide_animation
 func _on_animation_player_animation_finished(anim_name):

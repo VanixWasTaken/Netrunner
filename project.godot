@@ -19,6 +19,7 @@ config/icon="res://Assets/icon.svg"
 
 Global="*res://global.gd"
 SceneTransition="*res://Scenes and Scripts/scene_transition.tscn"
+Music="*res://Scenes and Scripts/music.tscn"
 
 [display]
 
