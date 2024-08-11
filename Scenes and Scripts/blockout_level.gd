@@ -43,8 +43,26 @@ func _process(delta):
 		if should_count:
 			convert_time(delta)
 	
+	print(total_time_in_sec / 60)
 	
-		
+	
+	if (total_time_in_sec / 60) < 30:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "S"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	elif (total_time_in_sec / 60) < 40:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "A"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	elif (total_time_in_sec / 60) < 50:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "B"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	elif (total_time_in_sec / 60) >= 50:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "C"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+
 
 
 func _on_death_area_body_entered(body):
@@ -56,6 +74,7 @@ func _on_death_area_body_entered(body):
 func _on_goal_body_entered(body):
 	Engine.time_scale = 0.4
 	$Goal/WinScreen.show()
+	$Goal/WinScreen/MatchEnd/RankAnimation.play("match_end")
 	should_count = false
 	
 

@@ -384,16 +384,6 @@ visible = false
 
 [node name="MatchEnd" parent="Goal/WinScreen" instance=ExtResource("4_fjml0")]
 
-[node name="Label" type="Label" parent="Goal/WinScreen"]
-visible = false
-offset_left = 500.0
-offset_top = 255.0
-offset_right = 1468.0
-offset_bottom = 540.0
-theme_override_fonts/font = ExtResource("4_lckte")
-theme_override_font_sizes/font_size = 360
-text = "YOU WIN"
-
 [node name="Counter" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="Counter"]
