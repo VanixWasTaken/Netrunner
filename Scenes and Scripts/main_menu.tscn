@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=19 format=3 uid="uid://bvmxfp2oktjpa"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
 [ext_resource type="Texture2D" uid="uid://cm7lcd3up6b4o" path="res://Assets/NetRunnerTitle.png" id="2_de7pt"]

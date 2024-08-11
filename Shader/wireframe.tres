@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dq8dyj2ssuvl1"]
+
+[ext_resource type="Shader" path="res://Shader/level_switch.gdshader" id="1_jp46a"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jp46a")
+shader_parameter/outline_threshold = 1.0
+shader_parameter/outline_color = Color(0.12549, 0.568627, 0, 1)
