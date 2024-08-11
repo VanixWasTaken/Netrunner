@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgxnxvmavqcpi"]
+
+[ext_resource type="PackedScene" uid="uid://4bjdrjhq2ene" path="res://Assets/Mesh/FragmentTowerBroken.glb" id="1_kw5n2"]
+[ext_resource type="Material" uid="uid://bukiu7ytt72f2" path="res://Shader/Materials/EmissionOrange.tres" id="2_y5p7t"]
+
+[node name="FragmentTowerBroken" instance=ExtResource("1_kw5n2")]
+
+[node name="BrokenFragment" parent="." index="0"]
+transform = Transform3D(2.0873, 0, 0, 0, 2.0873, 0, 0, 0, 2.0873, 3.96046, 0.581652, -6.97725)
+surface_material_override/1 = ExtResource("2_y5p7t")

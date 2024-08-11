@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cm7lcd3up6b4o" path="res://Assets/NetRunnerTitle.png" id="2_de7pt"]
 [ext_resource type="Shader" path="res://Shader/glitch_shader.gdshader" id="2_fqcy0"]
 [ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="3_uiafy"]
+[ext_resource type="Script" path="res://Scenes and Scripts/h_slider.gd" id="5_s3i11"]
 [ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="5_wd20u"]
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="6_q2e01"]
 [ext_resource type="Shader" uid="uid://c851ilwvw3v5m" path="res://Shader/scifi-wall.tres" id="7_s4xrl"]
@@ -120,6 +121,52 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_hs3jh")
 text = "Credits"
 flat = true
 
+[node name="HSlider" type="HSlider" parent="Node3D"]
+offset_left = 1357.0
+offset_top = 967.0
+offset_right = 1853.0
+offset_bottom = 1038.0
+max_value = 1.0
+step = 0.01
+value = 0.61
+script = ExtResource("5_s3i11")
+
+[node name="Label" type="Label" parent="Node3D/HSlider"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = -32.0
+offset_right = 496.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 45
+text = "Sound Volume"
+
+[node name="DevLevelLabel" type="Label" parent="Node3D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -51.0
+offset_right = 531.0
+offset_bottom = -18.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 20
+text = "Press \"F7\" for developer test level"
+
+[node name="EndGameLabel" type="Label" parent="Node3D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -83.0
+offset_right = 531.0
+offset_bottom = -50.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 20
+text = "Press \"ESC\" to quit game"
+
 [node name="HoverClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wd20u")
 
@@ -144,3 +191,4 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.0
 [connection signal="pressed" from="Node3D/Start" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="Node3D/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Node3D/Credits" to="." method="_on_credits_pressed"]
+[connection signal="value_changed" from="Node3D/HSlider" to="Node3D/HSlider" method="_on_value_changed"]

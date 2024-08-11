@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
-[ext_resource type="PackedScene" uid="uid://bakm63rc228e1" path="res://Scenes and Scripts/Mesh4.0.glb" id="2_rkyhw"]
+[ext_resource type="PackedScene" uid="uid://bakm63rc228e1" path="res://Scenes and Scripts/Mesh4.0.glb" id="2_36d33"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://Assets/Fonts/m5x7.ttf" id="3_bjfmy"]
 [ext_resource type="Shader" path="res://Shader/speed_effect.gdshader" id="4_att53"]
 [ext_resource type="AudioStream" uid="uid://bh8v7wka7nr1e" path="res://Assets/Audio/SFX/running-1-6846.mp3" id="6_s3tcs"]
@@ -1073,8 +1073,8 @@ shape = SubResource("CapsuleShape3D_gx5ba")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.457757, 0)
 
-[node name="Mesh" parent="Head" instance=ExtResource("2_rkyhw")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -0.885, 0.181)
+[node name="Mesh" parent="Head" instance=ExtResource("2_36d33")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.885, 0.18055)
 
 [node name="Skeleton3D" parent="Head/Mesh/game-rig" index="22"]
 bones/0/position = Vector3(-0.000436117, 0.700741, -0.0211645)
@@ -1178,8 +1178,8 @@ bones/68/rotation = Quaternion(0.171972, 0.000335097, 0.00416744, 0.985093)
 bones/69/rotation = Quaternion(0.212024, -0.00113352, -0.0103716, 0.977209)
 bones/70/rotation = Quaternion(-0.00756449, -0.542529, 0.0478076, 0.838642)
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Head/Mesh/game-rig/Skeleton3D" index="53"]
-transform = Transform3D(0.868106, 0.00884234, -0.4963, -0.0261541, 0.999267, -0.027944, 0.495689, 0.0372387, 0.867701, -0.0296192, 1.34899, 0.0442495)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Head/Mesh/game-rig/Skeleton3D" index="34"]
+transform = Transform3D(0.868106, 0.00884221, -0.496299, -0.0261542, 0.999267, -0.0279444, 0.495689, 0.0372391, 0.867701, -0.0296192, 1.34899, 0.0442496)
 bone_name = "DEF-spine.006"
 bone_idx = 6
 
