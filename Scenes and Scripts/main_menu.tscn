@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=12 format=3 uid="uid://bvmxfp2oktjpa"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
+[ext_resource type="Texture2D" uid="uid://cm7lcd3up6b4o" path="res://Assets/NetRunnerTitle.png" id="2_de7pt"]
 [ext_resource type="Shader" path="res://Shader/glitch_shader.gdshader" id="2_fqcy0"]
 [ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="3_uiafy"]
 [ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="5_wd20u"]
@@ -22,9 +23,9 @@ default_font_size = 250
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ttqn6"]
 shader = ExtResource("6_q2e01")
 shader_parameter/shake_power = 0.01
-shader_parameter/shake_rate = 0.002
-shader_parameter/shake_speed = 0.2
-shader_parameter/shake_block_size = 5.0
+shader_parameter/shake_rate = 0.022
+shader_parameter/shake_speed = 1.6
+shader_parameter/shake_block_size = 0.06
 shader_parameter/shake_color_rate = 0.01
 
 [node name="MainMenu" type="CanvasLayer"]
@@ -32,7 +33,16 @@ script = ExtResource("1_r3j32")
 
 [node name="Node3D" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="Node3D"]
+offset_left = 371.0
+offset_top = 54.0
+offset_right = 2291.0
+offset_bottom = 1134.0
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_de7pt")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Node3D"]
+visible = false
 material = SubResource("ShaderMaterial_407sh")
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,9 +68,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.5
-offset_top = 89.0
+offset_top = 189.0
 offset_right = 163.5
-offset_bottom = 191.0
+offset_bottom = 291.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -78,9 +88,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.5
-offset_top = 191.0
+offset_top = 291.0
 offset_right = 163.5
-offset_bottom = 293.0
+offset_bottom = 393.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
