@@ -441,7 +441,7 @@ text = "[center]114 km/h"
 scroll_active = false
 autowrap_mode = 2
 
-[node name="Shading" type="ColorRect" parent="."]
+[node name="RGB_Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_k2xxd")
 layout_mode = 0
 offset_right = 1920.0
