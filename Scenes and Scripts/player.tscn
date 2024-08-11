@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=35 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="PackedScene" uid="uid://bakm63rc228e1" path="res://Scenes and Scripts/Mesh4.0.glb" id="2_36d33"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://b60gon80j7cdr" path="res://Assets/Audio/wind.ogg" id="8_1io6x"]
 [ext_resource type="AudioStream" uid="uid://kmd01bfy0bx7" path="res://Assets/Audio/SFX/jump.mp3" id="8_020kn"]
 [ext_resource type="AudioStream" uid="uid://dqdioh7bmqqmp" path="res://Assets/Audio/SFX/Swooshing-SoundBible.com-1214884243.mp3" id="9_iruaw"]
+[ext_resource type="Shader" path="res://Shader/Outline.gdshader" id="10_t2xgu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
@@ -1060,6 +1061,18 @@ _data = {
 "slide_animation_9": SubResource("Animation_pqc54")
 }
 
+[sub_resource type="QuadMesh" id="QuadMesh_lv15i"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgg1u"]
+render_priority = 0
+shader = ExtResource("10_t2xgu")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/distance_falloff = 2.3
+shader_parameter/smoothing_cutoff = 0.05
+shader_parameter/smoothing_max = 0.08
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_am13k")
 
@@ -1242,6 +1255,11 @@ autoplay = true
 
 [node name="SlideWoosh" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_iruaw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.948352, -0.853718)
+mesh = SubResource("QuadMesh_lv15i")
+surface_material_override/0 = SubResource("ShaderMaterial_mgg1u")
 
 [connection signal="animation_finished" from="Head/Mesh/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
