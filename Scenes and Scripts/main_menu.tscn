@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=18 format=3 uid="uid://bvmxfp2oktjpa"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
 [ext_resource type="Texture2D" uid="uid://cm7lcd3up6b4o" path="res://Assets/NetRunnerTitle.png" id="2_de7pt"]
@@ -6,6 +6,9 @@
 [ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="3_uiafy"]
 [ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="5_wd20u"]
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="6_q2e01"]
+[ext_resource type="Shader" uid="uid://c851ilwvw3v5m" path="res://Shader/scifi-wall.tres" id="7_s4xrl"]
+[ext_resource type="Texture2D" uid="uid://cbh68g7rv7ak8" path="res://Assets/Textures/dots_2048x2048.png" id="8_vvvhp"]
+[ext_resource type="Texture2D" uid="uid://b3xo61b4541ee" path="res://Assets/Textures/noise_2048x2048.png" id="9_8tiri"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_407sh"]
 shader = ExtResource("2_fqcy0")
@@ -27,6 +30,22 @@ shader_parameter/shake_rate = 0.022
 shader_parameter/shake_speed = 1.6
 shader_parameter/shake_block_size = 0.06
 shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sfaxw"]
+render_priority = 0
+shader = ExtResource("7_s4xrl")
+shader_parameter/Vector2Parameter = Vector2(-3, -3)
+shader_parameter/NoiseSpeed = Vector2(0, 0.5)
+shader_parameter/Noise_Strength = 8.32
+shader_parameter/MaskPower = 1.4
+shader_parameter/MainTex = ExtResource("8_vvvhp")
+shader_parameter/Noise = ExtResource("9_8tiri")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hd48d"]
+gravity = Vector3(0, 0, 0)
+color = Color(1.275, 2.51, 5, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d7gf8"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_r3j32")
@@ -109,6 +128,17 @@ material = SubResource("ShaderMaterial_ttqn6")
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="ScifiWall_Dots" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0104737, 1.04175, 0.00231004)
+material_override = SubResource("ShaderMaterial_sfaxw")
+process_material = SubResource("ParticleProcessMaterial_hd48d")
+draw_pass_1 = SubResource("PlaneMesh_d7gf8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.04092, -0.570074)
 
 [connection signal="mouse_entered" from="Node3D/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Node3D/Start" to="." method="_on_button_pressed"]
