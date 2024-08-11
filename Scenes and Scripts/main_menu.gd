@@ -1,4 +1,4 @@
-extends Node3D
+extends CanvasLayer
 
 
 func _on_button_pressed():

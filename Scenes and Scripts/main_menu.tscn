@@ -98,6 +98,7 @@ stream = ExtResource("5_wd20u")
 material = SubResource("ShaderMaterial_ttqn6")
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 
 [connection signal="mouse_entered" from="Node3D/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Node3D/Start" to="." method="_on_button_pressed"]
