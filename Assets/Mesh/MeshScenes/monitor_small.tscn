@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://f8i5x3bvkjfc"]
+
+[ext_resource type="PackedScene" uid="uid://cxc7wsm4056sm" path="res://Assets/Mesh/MonitorSmall.glb" id="1_cfij5"]
+[ext_resource type="Material" uid="uid://cb5ry2b2c4uni" path="res://Shader/Materials/EmissionGreen.tres" id="2_saruj"]
+
+[node name="MonitorSmall2" instance=ExtResource("1_cfij5")]
+
+[node name="MonitorSmall" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.998142, -0.0609267, 0, 0.0609267, 0.998142, -0.195304, 0.330149, 0.687206)
+surface_material_override/1 = ExtResource("2_saruj")

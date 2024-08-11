@@ -31,8 +31,8 @@ var currently_playing_slide_anim = false
 @onready var camera = $Head/Camera3D
 @onready var label = $ConsoleLayer/Label
 @onready var animation_player = $AnimationPlayer
-@onready var running_animation = $Head/Mesh/AnimationPlayer
 @onready var bone = $"Head/Mesh/game-rig/Skeleton3D/BoneAttachment3D"
+@onready var running_animation = $Head/Mesh/AnimationPlayer
 
 
 
