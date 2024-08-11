@@ -13,8 +13,8 @@ dest_files=["res://.godot/imported/Cyberjunkies Italic.ttf-4debe831be32328a7dfe9
 [params]
 
 Rendering=null
-antialiasing=1
-generate_mipmaps=false
+antialiasing=2
+generate_mipmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5niia3no81vi"]
+[gd_scene load_steps=14 format=3 uid="uid://b5niia3no81vi"]
 
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="1_ii8ht"]
 [ext_resource type="Script" path="res://Scenes and Scripts/credits.gd" id="1_m0gfh"]
 [ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="2_b0y28"]
 [ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="3_p7t30"]
+[ext_resource type="Shader" uid="uid://c851ilwvw3v5m" path="res://Shader/scifi-wall.tres" id="5_qyhjy"]
+[ext_resource type="Texture2D" uid="uid://cbh68g7rv7ak8" path="res://Assets/Textures/dots_2048x2048.png" id="6_bsued"]
+[ext_resource type="Texture2D" uid="uid://b3xo61b4541ee" path="res://Assets/Textures/noise_2048x2048.png" id="7_ndetw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01dpy"]
 
@@ -11,6 +14,30 @@
 RichTextLabel/colors/default_color = Color(0.439216, 1, 0.45098, 1)
 RichTextLabel/font_sizes/normal_font_size = 55
 RichTextLabel/fonts/normal_font = ExtResource("2_b0y28")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s07xb"]
+render_priority = 0
+shader = ExtResource("5_qyhjy")
+shader_parameter/Vector2Parameter = Vector2(-15, -15)
+shader_parameter/NoiseSpeed = Vector2(0, 0.5)
+shader_parameter/Noise_Strength = 8.32
+shader_parameter/MaskPower = 1.4
+shader_parameter/MainTex = ExtResource("6_bsued")
+shader_parameter/Noise = ExtResource("7_ndetw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uqvj3"]
+gravity = Vector3(0, 0, 0)
+color = Color(3.29, 5, 3.15, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4djia"]
+
+[sub_resource type="Environment" id="Environment_uathp"]
+background_mode = 1
+background_color = Color(0, 0.195045, 0.0984109, 1)
+glow_enabled = true
+glow_intensity = 4.65
+glow_hdr_threshold = 0.12
+glow_hdr_scale = 0.4
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -195,6 +222,20 @@ theme_override_fonts/normal_font = ExtResource("2_b0y28")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "[center]Dilara köseoglu, lars hoffman, sebastian schweiger"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="ScifiWall_Dots" type="GPUParticles3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0104737, 1.04175, 0.00231004)
+material_override = SubResource("ShaderMaterial_s07xb")
+process_material = SubResource("ParticleProcessMaterial_uqvj3")
+draw_pass_1 = SubResource("PlaneMesh_4djia")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.04092, -0.570074)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_uathp")
 
 [connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
