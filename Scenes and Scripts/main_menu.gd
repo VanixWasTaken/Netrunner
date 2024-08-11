@@ -8,6 +8,10 @@ func _on_button_pressed():
 func _on_credits_pressed():
 	SceneTransition.change_scene_to_file("res://Scenes and Scripts/credits.tscn")
 
+func _input(event):
+	if event.is_action_pressed("f7"):
+		get_tree().change_scene_to_file("res://Scenes and Scripts/test_level.tscn")
+
 
 func _on_start_mouse_entered():
 	$HoverClick.play()
