@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=20 format=3 uid="uid://bvmxfp2oktjpa"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
 [ext_resource type="Texture2D" uid="uid://cm7lcd3up6b4o" path="res://Assets/NetRunnerTitle.png" id="2_de7pt"]
@@ -35,7 +35,7 @@ shader_parameter/shake_color_rate = 0.01
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sfaxw"]
 render_priority = 0
 shader = ExtResource("7_s4xrl")
-shader_parameter/Vector2Parameter = Vector2(-3, -3)
+shader_parameter/Vector2Parameter = Vector2(-15, -15)
 shader_parameter/NoiseSpeed = Vector2(0, 0.5)
 shader_parameter/Noise_Strength = 8.32
 shader_parameter/MaskPower = 1.4
@@ -44,9 +44,17 @@ shader_parameter/Noise = ExtResource("9_8tiri")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hd48d"]
 gravity = Vector3(0, 0, 0)
-color = Color(1.275, 2.51, 5, 1)
+color = Color(0.658459, 1, 0.629876, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d7gf8"]
+
+[sub_resource type="Environment" id="Environment_26hdt"]
+background_mode = 1
+background_color = Color(0.157753, 0.157753, 0.157753, 1)
+glow_enabled = true
+glow_intensity = 4.65
+glow_hdr_threshold = 0.12
+glow_hdr_scale = 0.4
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_r3j32")
@@ -186,6 +194,9 @@ draw_pass_1 = SubResource("PlaneMesh_d7gf8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.04092, -0.570074)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_26hdt")
 
 [connection signal="mouse_entered" from="Node3D/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Node3D/Start" to="." method="_on_button_pressed"]
