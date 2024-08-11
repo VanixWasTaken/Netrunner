@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://chywr35uookr3"]
+
+[ext_resource type="PackedScene" uid="uid://dhypbbr4bbi5r" path="res://Assets/Mesh/PortalFrame.glb" id="1_cc2fb"]
+[ext_resource type="Material" uid="uid://cb5ry2b2c4uni" path="res://Shader/Materials/EmissionGreen.tres" id="2_mds1b"]
+
+[node name="PortalFrame2" instance=ExtResource("1_cc2fb")]
+
+[node name="PortalInFrame" parent="." index="0"]
+transform = Transform3D(3.00057, 0, 0, 0, 3.00057, 0, 0, 0, 0.0514041, -0.518226, 3.28017, -0.15865)
+
+[node name="PortalFrame" parent="." index="1"]
+transform = Transform3D(0.305735, 0, 0, 0, 0.305735, 0, 0, 0, 0.305735, 3.12598, 0.889619, -0.0825567)
+surface_material_override/1 = ExtResource("2_mds1b")

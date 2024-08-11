@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnjx303u66fv"]
+
+[ext_resource type="PackedScene" uid="uid://b2v1bnc3mqnk0" path="res://Assets/Mesh/PillarBig.glb" id="1_tf2td"]
+
+[node name="PillarBig2" instance=ExtResource("1_tf2td")]
+
+[node name="PillarBig" parent="." index="0"]
+transform = Transform3D(0.757343, 0, 0, 0, 4.24065, 0, 0, 0, 0.757343, -0.118401, -2.6642, 0.121589)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccf7r4k6iwexb"]
+
+[ext_resource type="PackedScene" uid="uid://dyjpiopwyw1hp" path="res://Assets/Mesh/FragmentCube02.glb" id="1_djl1a"]
+[ext_resource type="Material" uid="uid://cb5ry2b2c4uni" path="res://Shader/Materials/EmissionGreen.tres" id="2_os3f1"]
+
+[node name="FragmentCube022" instance=ExtResource("1_djl1a")]
+
+[node name="FragmentCube02" parent="." index="0"]
+transform = Transform3D(1.30401, 0, 0, 0, 1.30401, 0, 0, 0, 1.30401, 0, 0, 0)
+surface_material_override/0 = ExtResource("2_os3f1")

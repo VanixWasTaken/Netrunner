@@ -6,4 +6,5 @@
 [node name="FragmentCube012" instance=ExtResource("1_212nl")]
 
 [node name="FragmentCube01" parent="." index="0"]
+transform = Transform3D(2.0873, 0, 0, 0, 2.0873, 0, 0, 0, 2.0873, 0.573101, 0.575651, -0.0374651)
 surface_material_override/0 = ExtResource("2_2ld0k")

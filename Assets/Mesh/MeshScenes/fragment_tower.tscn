@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0pjws4yjjdtg"]
+
+[ext_resource type="PackedScene" uid="uid://cfpucdgs1gjok" path="res://Assets/Mesh/FragmentTower.glb" id="1_gvt1b"]
+[ext_resource type="Material" uid="uid://cb5ry2b2c4uni" path="res://Shader/Materials/EmissionGreen.tres" id="2_mbop5"]
+
+[node name="FragmentTower" instance=ExtResource("1_gvt1b")]
+
+[node name="Cube_023" parent="." index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314183, -0.126997, 0.0791597)
+surface_material_override/0 = ExtResource("2_mbop5")
+
+[node name="Cube_025" parent="." index="1"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314183, -11.356, 0.0791597)
