@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ik2y0khydwqh"]
+[gd_scene load_steps=3 format=3 uid="uid://ik2y0khydwqh"]
 
-[ext_resource type="AudioStream" uid="uid://dnog1exlwttsj" path="res://Assets/Audio/background_track1.ogg" id="1_wppfe"]
+[ext_resource type="AudioStream" uid="uid://dnog1exlwttsj" path="res://Assets/Audio/Music/background_track1.ogg" id="1_wppfe"]
+[ext_resource type="Script" path="res://Scenes and Scripts/music.gd" id="2_qku18"]
 
 [node name="Music" type="AudioStreamPlayer"]
 stream = ExtResource("1_wppfe")
 autoplay = true
+script = ExtResource("2_qku18")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
