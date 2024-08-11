@@ -2,80 +2,14 @@
 
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="1_ii8ht"]
 [ext_resource type="Script" path="res://Scenes and Scripts/credits.gd" id="1_m0gfh"]
-[ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="2_b0y28"]
+[ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="3_p7t30"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_m0gfh")
 
-[node name="Environment" type="RichTextLabel" parent="."]
-offset_left = 1074.0
-offset_top = 483.0
-offset_right = 1798.0
-offset_bottom = 560.0
-theme_override_fonts/normal_font = ExtResource("2_b0y28")
-theme_override_font_sizes/normal_font_size = 65
-text = "Environment & Lighting"
-
-[node name="Animator" type="RichTextLabel" parent="."]
-offset_left = 1151.0
-offset_top = 271.0
-offset_right = 1753.0
-offset_bottom = 348.0
-theme_override_fonts/normal_font = ExtResource("2_b0y28")
-theme_override_font_sizes/normal_font_size = 65
-text = "Animation & rigging"
-
-[node name="Character Artist" type="RichTextLabel" parent="."]
-offset_left = 210.0
-offset_top = 483.0
-offset_right = 753.0
-offset_bottom = 560.0
-theme_override_fonts/normal_font = ExtResource("2_b0y28")
-theme_override_font_sizes/normal_font_size = 65
-text = "Character Artist"
-
-[node name="Programmer" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 250.0
-offset_top = 654.0
-offset_right = 662.0
-offset_bottom = 731.0
-theme_override_fonts/normal_font = ExtResource("2_b0y28")
-theme_override_font_sizes/normal_font_size = 65
-text = "Programming"
-
-[node name="Sound Designer" type="RichTextLabel" parent="."]
-offset_left = 745.0
-offset_top = 866.0
-offset_right = 1146.0
-offset_bottom = 941.0
-theme_override_fonts/normal_font = ExtResource("2_b0y28")
-theme_override_font_sizes/normal_font_size = 65
-text = "Sound design"
-
-[node name="Game & Level Design2" type="RichTextLabel" parent="."]
-offset_left = 187.0
-offset_top = 271.0
-offset_right = 871.0
-offset_bottom = 361.0
-theme_override_fonts/normal_font = ExtResource("2_b0y28")
-theme_override_font_sizes/normal_font_size = 65
-text = "Production & UI Design"
-
-[node name="Game & Level Design" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 1151.0
-offset_top = 654.0
-offset_right = 1787.0
-offset_bottom = 731.0
-theme_override_fonts/normal_font = ExtResource("2_b0y28")
-theme_override_font_sizes/normal_font_size = 65
-text = "Game & Level Design"
-
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 284.0
 offset_top = 201.0
@@ -97,6 +31,10 @@ offset_top = 46.0
 offset_right = 360.0
 offset_bottom = 148.0
 theme_override_fonts/font = ExtResource("1_ii8ht")
-text = "BACK"
+text = "Back"
 
+[node name="HoverClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_p7t30")
+
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

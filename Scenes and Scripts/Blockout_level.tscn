@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=46 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
@@ -13,10 +13,18 @@
 [ext_resource type="PackedScene" uid="uid://ccf7r4k6iwexb" path="res://Assets/Mesh/MeshScenes/fragment_cube_02.tscn" id="11_x35g2"]
 [ext_resource type="PackedScene" uid="uid://dre766f4rnl1q" path="res://Assets/Mesh/PipeMedium01.glb" id="11_y18g1"]
 [ext_resource type="PackedScene" uid="uid://cwskx1jjybpjt" path="res://Assets/Mesh/MeshScenes/pipe_medium_022.tscn" id="12_koo8i"]
-[ext_resource type="PackedScene" uid="uid://b2v1bnc3mqnk0" path="res://Assets/Mesh/PillarBig.glb" id="13_prxxv"]
 [ext_resource type="PackedScene" uid="uid://c0pjws4yjjdtg" path="res://Assets/Mesh/MeshScenes/fragment_tower.tscn" id="14_7ihcd"]
-[ext_resource type="AudioStream" uid="uid://co03jh6nveffm" path="res://Assets/Audio/SFX/switch.wav" id="16_8suh8"]
-[ext_resource type="AudioStream" uid="uid://c274ltk5n1wik" path="res://Assets/Audio/Death_sound.wav" id="17_jgyy6"]
+[ext_resource type="PackedScene" uid="uid://cnjx303u66fv" path="res://Assets/Mesh/MeshScenes/pillar_big.tscn" id="15_xad6i"]
+[ext_resource type="PackedScene" uid="uid://4iwqknxns6jw" path="res://Assets/Mesh/MeshScenes/monitor_big.tscn" id="16_iapg7"]
+[ext_resource type="PackedScene" uid="uid://cs1qal1ylhbn6" path="res://Assets/Mesh/LeitungSeil_1.glb" id="16_ovyyf"]
+[ext_resource type="PackedScene" uid="uid://btb88xje3vb86" path="res://Assets/Mesh/LeitungSeil_2.glb" id="17_f8atw"]
+[ext_resource type="PackedScene" uid="uid://cb3vhs7fmpewc" path="res://Assets/Mesh/MetallbinderKabel.glb" id="17_scxsb"]
+[ext_resource type="Material" uid="uid://bukiu7ytt72f2" path="res://Shader/Materials/EmissionOrange.tres" id="17_y51xm"]
+[ext_resource type="PackedScene" uid="uid://t2yuwkaunilr" path="res://Assets/Mesh/HindernisMaybe.glb" id="18_1pq1i"]
+[ext_resource type="PackedScene" uid="uid://byos2hbousu4n" path="res://Assets/Mesh/MeshScenes/pipe_medium_042.tscn" id="20_5c14q"]
+[ext_resource type="PackedScene" uid="uid://ddo7u0tjctj4v" path="res://Assets/Mesh/MeshScenes/pipe_medium_062.tscn" id="21_f0en2"]
+[ext_resource type="AudioStream" uid="uid://co03jh6nveffm" path="res://Assets/Audio/SFX/switch.wav" id="24_ie332"]
+[ext_resource type="AudioStream" uid="uid://c274ltk5n1wik" path="res://Assets/Audio/Death_sound.wav" id="25_wfpra"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -307,12 +315,14 @@ size = Vector3(5, 3, 2)
 
 [node name="Box21" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["red"]]
 transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -10.2099, -104.965)
+visible = false
 material_override = SubResource("StandardMaterial3D_5thim")
 use_collision = true
 size = Vector3(5, 3, 2)
 
 [node name="Box19" type="CSGBox3D" parent="CSGBoxes/Boxes"]
 transform = Transform3D(1, 0, 0, 0, 0.930053, -0.367427, 0, 0.367427, 0.930053, -0.816992, -7.73285, -104.486)
+visible = false
 material_override = SubResource("StandardMaterial3D_if8om")
 use_collision = true
 size = Vector3(5, 3, 2)
@@ -441,13 +451,13 @@ transform = Transform3D(1.49086, 0.16533, -7.22681e-09, 0, -6.55671e-08, -1.5, -
 transform = Transform3D(0.97237, 0.0505268, 0.227912, 0, 0.976296, -0.21644, -0.233445, 0.210459, 0.949321, -8.9653, 9.83448, 4.47658)
 
 [node name="FragmentCube013" parent="Assets/Fragments" instance=ExtResource("10_6kh0x")]
-transform = Transform3D(0.525544, 0, 0.278978, 0, 0.595, 0, -0.278978, 0, 0.525544, -8.27879, 8.49693, 12.806)
+transform = Transform3D(0.525544, 0, 0.278978, 0, 0.595, 0, -0.278978, 0, 0.525544, -8.27879, 8.49693, 9.95961)
 
 [node name="FragmentCube022" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
-transform = Transform3D(1.26937, 0.859208, 0.458774, 0, 0.753619, -1.4114, -0.974018, 1.11974, 0.597886, -7.2072, -7.24746, -4.74851)
+transform = Transform3D(1.26564, 0.863482, 0.461056, 2.9028e-08, 0.753619, -1.4114, -0.978863, 1.11645, 0.596128, -7.2072, 3.47124, -75.7446)
 
 [node name="FragmentCube023" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
-transform = Transform3D(0.741923, -0.584748, 0.100596, -0.0674184, -0.243103, -0.915891, 0.589495, 0.708146, -0.231354, -7.99752, -2.65207, -15.1177)
+transform = Transform3D(0.741923, -0.584748, 0.100596, -0.0674184, -0.243103, -0.915891, 0.589495, 0.708146, -0.231354, -7.99752, -1.07912, -12.9976)
 
 [node name="FragmentCube024" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
 transform = Transform3D(0.560333, 1.41358, -0.497801, 0, -0.531458, -1.50915, -1.49868, 0.528517, -0.18612, -8.18073, -7.24746, -38.3755)
@@ -485,6 +495,45 @@ transform = Transform3D(2.73, 0, 0, 0, 2.73, 0, 0, 0, 2.73, 16.5359, -43.0368, -
 [node name="FragmentTowerBig9" parent="Assets/Fragments" instance=ExtResource("10_hq7em")]
 transform = Transform3D(2.73, 0, 0, 0, 2.73, 0, 0, 0, 2.73, 16.5359, -9.39661, -204.805)
 
+[node name="Cube_011_RLExtr_001" parent="Assets/Fragments/FragmentTowerBig9/Cube_011" index="1"]
+surface_material_override/0 = ExtResource("11_fxqcc")
+
+[node name="Cube_011_RLExtr_002" parent="Assets/Fragments/FragmentTowerBig9/Cube_011" index="2"]
+surface_material_override/0 = ExtResource("11_fxqcc")
+
+[node name="FragmentCube025" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(0.65839, 1.66096, -0.584919, -5.45925e-08, -0.624465, -1.77326, -1.76094, 0.621008, -0.218692, -12.6611, 9.83456, -51.4816)
+
+[node name="FragmentCube015" parent="Assets/Fragments" instance=ExtResource("10_6kh0x")]
+transform = Transform3D(1.32729, 0.0689689, 0.311099, 0, 1.33264, -0.29544, -0.318652, 0.287277, 1.29582, -8.38194, 19.7279, -26.0715)
+
+[node name="FragmentCube026" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(1.26564, 0.863482, 0.461056, 2.9028e-08, 0.753619, -1.4114, -0.978863, 1.11645, 0.596128, -8.15967, -5.67308, -143.273)
+
+[node name="FragmentCube02" parent="Assets/Fragments/FragmentCube026" index="0"]
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="FragmentCube027" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(1.26564, 0.863482, 0.461056, 2.9028e-08, 0.753619, -1.4114, -0.978863, 1.11645, 0.596128, 10.1098, 0.660484, -186.796)
+
+[node name="FragmentCube028" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(-0.795193, -1.40091, -1.6206, -1.73224, -0.596459, 1.36557, -1.26025, 1.7038, -0.854447, -7.07162, 7.18568, -202.515)
+
+[node name="FragmentCube029" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -9.46939, -3.28434, -127.005)
+
+[node name="FragmentCube02" parent="Assets/Fragments/FragmentCube029" index="0"]
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="FragmentCube030" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(0.343577, 0, 1.56267, 0, 1.6, 0, -1.56268, 0, 0.343576, -12.5143, -15.0113, -125.979)
+
+[node name="FragmentCube02" parent="Assets/Fragments/FragmentCube030" index="0"]
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="FragmentCube031" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 7.06326, -27.2803, -189.38)
+
 [node name="Pipes" type="Node3D" parent="Assets"]
 
 [node name="PipeMedium012" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
@@ -494,7 +543,7 @@ transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, -6.06811, 3.14544, 2
 transform = Transform3D(1.27, 0, 0, 0, 1.27, 0, 0, 0, 1.27, -6.06811, -2.91303, -15.612)
 
 [node name="PipeMedium023" parent="Assets/Pipes" instance=ExtResource("12_koo8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.89901, -1.0024, -2.23432)
+transform = Transform3D(1.115, 0, 0, 0, 1.115, 0, 0, 0, 1.115, -4.09537, 0.916982, -2.23432)
 
 [node name="PipeMedium022" parent="Assets/Pipes" instance=ExtResource("12_koo8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8376, -1.14892, 9.55512)
@@ -505,10 +554,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8376, -1.14892, 11.522)
 [node name="PipeMedium025" parent="Assets/Pipes" instance=ExtResource("12_koo8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8376, -1.14892, 13.504)
 
-[node name="Pillar" type="Node3D" parent="Assets"]
+[node name="MetallbinderKabel" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
+transform = Transform3D(1.17, 0, 0, 0, 1.17, 0, 0, 0, 1.17, 1.23753, 6.54656, -43.5533)
 
-[node name="PillarBig2" parent="Assets/Pillar" instance=ExtResource("13_prxxv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.86447, 8.56461, -10.992)
+[node name="MetallbinderKabel2" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
+transform = Transform3D(1.17, 0, 0, 0, 1.17, 0, 0, 0, 1.17, 1.23753, 9.87366, -50.8424)
+
+[node name="MetallbinderKabel3" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
+transform = Transform3D(1.17, 0, 0, 0, 1.17, 0, 0, 0, 1.17, 1.23753, -1.52338, -105.641)
+
+[node name="PipeMedium042" parent="Assets/Pipes" instance=ExtResource("20_5c14q")]
+transform = Transform3D(-4.83011e-08, 0, 1.105, 0, 1.105, 0, -1.105, 0, -4.83011e-08, 2.76696, 3.67806, -5.89018)
+
+[node name="PipeMedium043" parent="Assets/Pipes" instance=ExtResource("20_5c14q")]
+transform = Transform3D(-4.70391e-10, 1.10495, 0.0107613, 4.82988e-08, 0.0107613, -1.10495, -1.105, 0, -4.83011e-08, -14.5291, 4.51417, -9.7149)
+
+[node name="LeitungSeil_12" parent="Assets/Pipes" instance=ExtResource("16_ovyyf")]
+transform = Transform3D(1.085, 0, 0, 0, 1.085, 0, 0, 0, 1.085, -7.25446, 16.7044, -4.34427)
+
+[node name="LeitungSeil_13" parent="Assets/Pipes" instance=ExtResource("16_ovyyf")]
+transform = Transform3D(1.085, 0, 0, 0, 1.085, 0, 0, 0, 1.085, -7.25446, 15.1454, -9.53126)
+
+[node name="LeitungSeil_14" parent="Assets/Pipes" instance=ExtResource("16_ovyyf")]
+transform = Transform3D(1.085, 0, 0, 0, 1.085, 0, 0, 0, 1.085, -7.25446, 15.1454, -28.654)
+
+[node name="LeitungSeil_22" parent="Assets/Pipes" instance=ExtResource("17_f8atw")]
+transform = Transform3D(1.12, 0, 0, 0, 1.12, 0, 0, 0, 1.12, -7.44539, 16.2946, -36.6096)
+
+[node name="LeitungSeil_23" parent="Assets/Pipes" instance=ExtResource("17_f8atw")]
+transform = Transform3D(1.12, 0, 0, 0, 1.12, 0, 0, 0, 1.12, -7.44539, 13.991, -64.1909)
+
+[node name="LeitungSeil_24" parent="Assets/Pipes" instance=ExtResource("17_f8atw")]
+transform = Transform3D(1.12, 0, 0, 0, 1.12, 0, 0, 0, 1.12, -7.44539, 13.5585, -66.4356)
+
+[node name="LeitungSeil_25" parent="Assets/Pipes" instance=ExtResource("17_f8atw")]
+transform = Transform3D(1.12, 0, 0, 0, 1.12, 0, 0, 0, 1.12, -7.44539, 13.5585, -100.965)
+
+[node name="LeitungSeil_26" parent="Assets/Pipes" instance=ExtResource("17_f8atw")]
+transform = Transform3D(1.425, 0, 0, 0, 1.425, 0, 0, 0, 1.425, -7.44539, 13.5585, -109.517)
+
+[node name="LeitungSeil_27" parent="Assets/Pipes" instance=ExtResource("17_f8atw")]
+transform = Transform3D(1.12, 0, 0, 0, 1.12, 0, 0, 0, 1.12, -7.44539, 14.0599, -107.594)
+
+[node name="MetallbinderKabel4" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
+transform = Transform3D(1.17, 0, 0, 0, 1.17, 0, 0, 0, 1.17, 1.23753, -7.00864, -137.051)
+
+[node name="MetallbinderKabel5" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
+transform = Transform3D(1.48, 0, 0, 0, 1.48, 0, 0, 0, 1.48, 6.93023, -27.6121, -189.073)
+
+[node name="Pillar" type="Node3D" parent="Assets"]
 
 [node name="FragmentTower" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.07, 0, -2.05475)
@@ -516,11 +610,72 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.07, 0, -2.05475)
 [node name="FragmentTower2" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.780349, 0.22543, 1.77352)
 
+[node name="FragmentTower3" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.780349, -3.78634, -10.3769)
+
+[node name="FragmentTower4" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.780349, -1.35338, -13.5871)
+
+[node name="PillarBig2" parent="Assets/Pillar" instance=ExtResource("15_xad6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7745, 8.59818, -13.8705)
+
+[node name="PillarBig3" parent="Assets/Pillar" instance=ExtResource("15_xad6i")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.741977, 1.04511, -27.952)
+
+[node name="FragmentTower5" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.822867, -11.2882, -76.2309)
+
+[node name="FragmentTower6" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-0.00404904, 0, -0.999992, 0, 1, 0, 0.999992, 0, -0.00404904, -11.4279, -10.7789, -101.282)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower6" index="0"]
+transform = Transform3D(0.793141, 0, 6.98492e-10, 0, 0.793141, 0, -6.98492e-10, 0, 0.793141, 0.0285721, -0.126997, 0.0948439)
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="Cube_023_RLExtr_005" parent="Assets/Pillar/FragmentTower6/Cube_025" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118591, -0.0294037, 0.108544)
+
+[node name="FragmentTower7" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7373, -22.4227, -135.394)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower7" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="FragmentTower8" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6656, -24.1519, -130.591)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower8" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="Monitor" type="Node3D" parent="Assets"]
+
+[node name="MonitorBig" parent="Assets/Monitor" instance=ExtResource("16_iapg7")]
+transform = Transform3D(-1.455, 0, 0, 0, 1.455, -2.19699e-07, 0, 2.19699e-07, 1.455, 15.7927, 9.25707, -196.459)
+
+[node name="PortalFrame3" parent="Assets" instance=ExtResource("6_cx068")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -7.75183, 1.99901, 14.6032)
+
+[node name="Obstacle" type="Node3D" parent="."]
+
+[node name="HindernisMaybe2" parent="Obstacle" instance=ExtResource("18_1pq1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11181, -8.31195, -97.1948)
+
+[node name="PipeMedium042" parent="Obstacle" instance=ExtResource("20_5c14q")]
+transform = Transform3D(-4.83011e-08, 0, 1.105, 0, 1.105, 0, -1.105, 0, -4.83011e-08, -0.515152, -11.4022, -103.882)
+
+[node name="PipeMedium062" parent="Obstacle" instance=ExtResource("21_f0en2")]
+transform = Transform3D(-1.40956, 0.123941, -5.41761e-09, 0, -6.18516e-08, -1.415, -0.123941, -1.40956, 6.16139e-08, 0.249977, -7.87615, -104.222)
+
+[node name="PipeMedium043" parent="Obstacle" instance=ExtResource("20_5c14q")]
+transform = Transform3D(-6.9064e-08, 0, 1.58, 0, 1.58, 0, -1.58, 0, -6.9064e-08, 1.87403, -15.4786, -104.408)
+
 [node name="GogglesSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("16_8suh8")
+stream = ExtResource("24_ie332")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_jgyy6")
+stream = ExtResource("25_wfpra")
 volume_db = -10.0
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
@@ -531,4 +686,14 @@ volume_db = -10.0
 [editable path="Assets/shell_plattform"]
 [editable path="Assets/Fragments/FragmentTowerBig4"]
 [editable path="Assets/Fragments/FragmentTowerBig5"]
+[editable path="Assets/Fragments/FragmentTowerBig9"]
+[editable path="Assets/Fragments/FragmentCube026"]
+[editable path="Assets/Fragments/FragmentCube029"]
+[editable path="Assets/Fragments/FragmentCube030"]
 [editable path="Assets/Pillar/FragmentTower2"]
+[editable path="Assets/Pillar/FragmentTower3"]
+[editable path="Assets/Pillar/FragmentTower4"]
+[editable path="Assets/Pillar/FragmentTower5"]
+[editable path="Assets/Pillar/FragmentTower6"]
+[editable path="Assets/Pillar/FragmentTower7"]
+[editable path="Assets/Pillar/FragmentTower8"]
