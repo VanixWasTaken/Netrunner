@@ -5,6 +5,8 @@ var speed = 10.0
 var new_speed = 10.0
 var jump_velocity = 5
 var sensitivity = 0.003
+var is_moving = false
+var playing_step_sound = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 9.8
@@ -53,13 +55,31 @@ func _process(delta):
 		$ConsoleLayer/SpeedEffect.show()
 	elif speed < 20:
 		$ConsoleLayer/SpeedEffect.hide()
+	
+	if Input.is_action_pressed("forward") or Input.is_action_pressed("backward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		is_moving = true
+	else:
+		is_moving = false
+	
+	if Input.is_action_pressed("forward") or Input.is_action_pressed("backward") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		if !playing_step_sound:
+			$RunningSteps.play()
+			playing_step_sound = true
+	if !is_moving or is_jumping or is_sliding:
+		$RunningSteps.stop()
+		playing_step_sound = false
+	
+
+	
+	
 	label.text = "is_sliding = " + str(is_sliding) + " 
 			" + "speed = " + str(speed) + "
 			" + "is_jumping = " + str(is_jumping) + "
 			" + "is_on_floor = " + str(is_on_floor()) + "
 			" + "timing_frames = " + str(timing_frames) + "
 			" + "timing_frames2 = " + str(timing_frames2) + "
-			" + "max_speed = " + str(Global.global_speed) + " km/h"
+			" + "max_speed = " + str(Global.global_speed) + " km/h" + "
+			" + "is_moving = " + str(is_moving)
 
 	
 func _unhandled_input(event):
@@ -109,7 +129,8 @@ func _physics_process(delta):
 	
 	if direction == Vector3.ZERO and !currently_playing_slide_anim:
 		running_animation.play("BAKED_idle-1")
-
+	
+	
 
 	
 	if is_on_floor():

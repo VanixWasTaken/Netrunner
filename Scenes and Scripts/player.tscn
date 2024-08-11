@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=29 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://m5x7.ttf" id="2_dit42"]
 [ext_resource type="PackedScene" uid="uid://oxilb27lhdsd" path="res://Scenes and Scripts/player-v1-export-i10 (1).glb" id="3_ij4gn"]
 [ext_resource type="Shader" path="res://Shader/speed_effect.gdshader" id="4_att53"]
 [ext_resource type="AudioStream" uid="uid://dnog1exlwttsj" path="res://Assets/Audio/background_track1.ogg" id="4_ey1aa"]
+[ext_resource type="AudioStream" uid="uid://bh8v7wka7nr1e" path="res://Assets/Audio/SFX/running-1-6846.mp3" id="6_s3tcs"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
 
@@ -831,6 +832,10 @@ wait_time = 0.5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ey1aa")
+
+[node name="RunningSteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_s3tcs")
+volume_db = 15.0
 
 [connection signal="animation_finished" from="Head/Mesh/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
