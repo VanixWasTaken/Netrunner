@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk1ybyr26s304"]
+[gd_scene load_steps=11 format=3 uid="uid://bk1ybyr26s304"]
 
 [ext_resource type="PackedScene" uid="uid://cxmlnyp5gg2hn" path="res://monitor_inside.tscn" id="1_velgn"]
 
@@ -101,6 +101,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0q04v")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yosjj"]
+albedo_color = Color(0, 0.14902, 0, 1)
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_optpl"]
 viewport_path = NodePath("SubViewport")
 
@@ -116,6 +119,7 @@ albedo_texture = SubResource("ViewportTexture_optpl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0301037, -10.3124, 8.76085)
 mesh = SubResource("ArrayMesh_81n7x")
 skeleton = NodePath("")
+surface_material_override/2 = SubResource("StandardMaterial3D_yosjj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(7.13723, 0, 0, 0, 3.91711, 0, 0, 0, 1, 1.13152, 0.120674, 0.0485265)
