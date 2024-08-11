@@ -1069,9 +1069,9 @@ size = Vector2(2, 2)
 render_priority = 0
 shader = ExtResource("10_t2xgu")
 shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/distance_falloff = 2.3
+shader_parameter/distance_falloff = 3.0
 shader_parameter/smoothing_cutoff = 0.05
-shader_parameter/smoothing_max = 0.08
+shader_parameter/smoothing_max = 0.15
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_am13k")
