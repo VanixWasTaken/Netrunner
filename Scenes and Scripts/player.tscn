@@ -1,14 +1,21 @@
-[gd_scene load_steps=35 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=42 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="PackedScene" uid="uid://bakm63rc228e1" path="res://Scenes and Scripts/Mesh4.0.glb" id="2_36d33"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://Assets/Fonts/m5x7.ttf" id="3_bjfmy"]
+[ext_resource type="Material" uid="uid://bcjskat8r3tk8" path="res://Shader/Materials/EmissionRed.tres" id="3_lmrsu"]
 [ext_resource type="Shader" path="res://Shader/speed_effect.gdshader" id="4_att53"]
+[ext_resource type="Material" uid="uid://bht0r5a80krnj" path="res://Shader/Materials/Handtech.tres" id="4_nckgj"]
+[ext_resource type="Material" uid="uid://b0xa7hbk0g02r" path="res://Shader/Materials/Buttons.tres" id="5_xr410"]
+[ext_resource type="Material" uid="uid://y7isfvm6ij5u" path="res://Shader/Materials/Green.tres" id="6_4np3j"]
 [ext_resource type="AudioStream" uid="uid://bh8v7wka7nr1e" path="res://Assets/Audio/SFX/running-1-6846.mp3" id="6_s3tcs"]
 [ext_resource type="AudioStream" uid="uid://clvhgt2n3kgbv" path="res://Assets/Audio/SFX/sliding.mp3" id="7_6qler"]
+[ext_resource type="Material" uid="uid://myydapmrm125" path="res://Shader/Materials/Display.tres" id="7_m6ifw"]
 [ext_resource type="AudioStream" uid="uid://b60gon80j7cdr" path="res://Assets/Audio/wind.ogg" id="8_1io6x"]
 [ext_resource type="AudioStream" uid="uid://kmd01bfy0bx7" path="res://Assets/Audio/SFX/jump.mp3" id="8_020kn"]
+[ext_resource type="Material" uid="uid://cp82bv80aeom" path="res://Shader/Materials/Screw.tres" id="8_ngkuq"]
 [ext_resource type="AudioStream" uid="uid://dqdioh7bmqqmp" path="res://Assets/Audio/SFX/Swooshing-SoundBible.com-1214884243.mp3" id="9_iruaw"]
+[ext_resource type="Material" uid="uid://jt3rcf0svpsh" path="res://Shader/Materials/Player.tres" id="9_qtmbq"]
 [ext_resource type="Shader" path="res://Shader/Outline.gdshader" id="10_t2xgu"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5nlux"]
@@ -1191,10 +1198,169 @@ bones/68/rotation = Quaternion(0.171972, 0.000335097, 0.00416744, 0.985093)
 bones/69/rotation = Quaternion(0.212024, -0.00113352, -0.0103716, 0.977209)
 bones/70/rotation = Quaternion(-0.00756449, -0.542529, 0.0478076, 0.838642)
 
+[node name="arm-band_L" parent="Head/Mesh/game-rig/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_lmrsu")
+
+[node name="arm-band_R" parent="Head/Mesh/game-rig/Skeleton3D" index="1"]
+surface_material_override/0 = ExtResource("3_lmrsu")
+
+[node name="arm-cabelinnen_L" parent="Head/Mesh/game-rig/Skeleton3D" index="2"]
+surface_material_override/0 = ExtResource("4_nckgj")
+
+[node name="arm-cabelinnen_L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="3"]
+surface_material_override/0 = ExtResource("5_xr410")
+
+[node name="arm-cabelinnen_L_002" parent="Head/Mesh/game-rig/Skeleton3D" index="4"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="arm-cabledings" parent="Head/Mesh/game-rig/Skeleton3D" index="5"]
+surface_material_override/0 = ExtResource("4_nckgj")
+
+[node name="arm-cabledings_001" parent="Head/Mesh/game-rig/Skeleton3D" index="6"]
+surface_material_override/0 = ExtResource("5_xr410")
+
+[node name="arm-cabledings_002" parent="Head/Mesh/game-rig/Skeleton3D" index="7"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="arm-cabledings_L" parent="Head/Mesh/game-rig/Skeleton3D" index="8"]
+surface_material_override/0 = ExtResource("4_nckgj")
+
+[node name="arm-cabledings_L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="9"]
+surface_material_override/0 = ExtResource("5_xr410")
+
+[node name="arm-cabledings_L_002" parent="Head/Mesh/game-rig/Skeleton3D" index="10"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="arm-display" parent="Head/Mesh/game-rig/Skeleton3D" index="11"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="arm-display_001" parent="Head/Mesh/game-rig/Skeleton3D" index="12"]
+surface_material_override/0 = ExtResource("7_m6ifw")
+
+[node name="arm-display_002" parent="Head/Mesh/game-rig/Skeleton3D" index="13"]
+surface_material_override/0 = ExtResource("5_xr410")
+
+[node name="arm-display_003" parent="Head/Mesh/game-rig/Skeleton3D" index="14"]
+surface_material_override/0 = ExtResource("5_xr410")
+
+[node name="f-daumen-band" parent="Head/Mesh/game-rig/Skeleton3D" index="15"]
+surface_material_override/0 = ExtResource("3_lmrsu")
+
+[node name="f-daumen-screw" parent="Head/Mesh/game-rig/Skeleton3D" index="16"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-daumen-screw_001" parent="Head/Mesh/game-rig/Skeleton3D" index="17"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-daumen-screw_L" parent="Head/Mesh/game-rig/Skeleton3D" index="18"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-daumen-screw_L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="19"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-klein-band_L" parent="Head/Mesh/game-rig/Skeleton3D" index="20"]
+surface_material_override/0 = ExtResource("3_lmrsu")
+
+[node name="f-klein-screw" parent="Head/Mesh/game-rig/Skeleton3D" index="21"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-klein-screw_001" parent="Head/Mesh/game-rig/Skeleton3D" index="22"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-klein-screw_L" parent="Head/Mesh/game-rig/Skeleton3D" index="23"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-klein-screw_L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="24"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-mittel-screw" parent="Head/Mesh/game-rig/Skeleton3D" index="25"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-mittel-screw_001" parent="Head/Mesh/game-rig/Skeleton3D" index="26"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-mittel-screw_L" parent="Head/Mesh/game-rig/Skeleton3D" index="27"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-mittel-screw_L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="28"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-ring-screw" parent="Head/Mesh/game-rig/Skeleton3D" index="29"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-ring-screw_001" parent="Head/Mesh/game-rig/Skeleton3D" index="30"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-ring-screw_002L" parent="Head/Mesh/game-rig/Skeleton3D" index="31"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-ring-screw_002L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="32"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-zeige-screw" parent="Head/Mesh/game-rig/Skeleton3D" index="33"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Head/Mesh/game-rig/Skeleton3D" index="34"]
 transform = Transform3D(0.868106, 0.00884234, -0.4963, -0.0261541, 0.999267, -0.027944, 0.495689, 0.0372387, 0.867701, -0.0296192, 1.34899, 0.0442495)
 bone_name = "DEF-spine.006"
 bone_idx = 6
+
+[node name="f-zeige-screw_001" parent="Head/Mesh/game-rig/Skeleton3D" index="35"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="f-zeige-screw_L" parent="Head/Mesh/game-rig/Skeleton3D" index="36"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="f-zeige-screw_L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="37"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="hand display" parent="Head/Mesh/game-rig/Skeleton3D" index="38"]
+surface_material_override/0 = ExtResource("4_nckgj")
+
+[node name="hand display_001" parent="Head/Mesh/game-rig/Skeleton3D" index="39"]
+surface_material_override/0 = ExtResource("7_m6ifw")
+
+[node name="hand display_002" parent="Head/Mesh/game-rig/Skeleton3D" index="40"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="hand display_003" parent="Head/Mesh/game-rig/Skeleton3D" index="41"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="hand display_005" parent="Head/Mesh/game-rig/Skeleton3D" index="42"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="hand display_L" parent="Head/Mesh/game-rig/Skeleton3D" index="43"]
+surface_material_override/0 = ExtResource("8_ngkuq")
+
+[node name="hand display_L_001" parent="Head/Mesh/game-rig/Skeleton3D" index="44"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="hand display_L_002" parent="Head/Mesh/game-rig/Skeleton3D" index="45"]
+surface_material_override/0 = ExtResource("4_nckgj")
+
+[node name="hand display_L_003" parent="Head/Mesh/game-rig/Skeleton3D" index="46"]
+surface_material_override/0 = ExtResource("7_m6ifw")
+
+[node name="hand display_L_004" parent="Head/Mesh/game-rig/Skeleton3D" index="47"]
+surface_material_override/0 = ExtResource("6_4np3j")
+
+[node name="Mesh-C-pants_003" parent="Head/Mesh/game-rig/Skeleton3D" index="48"]
+surface_material_override/0 = ExtResource("9_qtmbq")
+
+[node name="Mesh-C-shin_001" parent="Head/Mesh/game-rig/Skeleton3D" index="49"]
+surface_material_override/0 = ExtResource("3_lmrsu")
+
+[node name="Mesh-C-shoes_001" parent="Head/Mesh/game-rig/Skeleton3D" index="50"]
+surface_material_override/0 = ExtResource("9_qtmbq")
+
+[node name="player-base-mesh" parent="Head/Mesh/game-rig/Skeleton3D" index="51"]
+surface_material_override/0 = ExtResource("9_qtmbq")
+
+[node name="wrist band_L" parent="Head/Mesh/game-rig/Skeleton3D" index="52"]
+surface_material_override/0 = ExtResource("3_lmrsu")
+
+[node name="wrist band_R" parent="Head/Mesh/game-rig/Skeleton3D" index="53"]
+surface_material_override/0 = ExtResource("3_lmrsu")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.464, 0)
