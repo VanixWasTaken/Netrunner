@@ -17,8 +17,8 @@ func _input(event):
 		elif level_state == "red":
 			level_state = "blue"
 		$GogglesSound.play()
-	if event.is_action_pressed("mouse_right"):
-		get_tree().reload_current_scene()
+	#if event.is_action_pressed("mouse_right"):
+		#get_tree().reload_current_scene()
 
 func _process(delta):
 	if level_state == "blue":
