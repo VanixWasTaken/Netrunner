@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5niia3no81vi"]
+[gd_scene load_steps=7 format=3 uid="uid://b5niia3no81vi"]
 
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="1_ii8ht"]
 [ext_resource type="Script" path="res://Scenes and Scripts/credits.gd" id="1_m0gfh"]
+[ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="2_b0y28"]
 [ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="3_p7t30"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_01dpy"]
+
+[sub_resource type="Theme" id="Theme_byk80"]
+RichTextLabel/colors/default_color = Color(0.439216, 1, 0.45098, 1)
+RichTextLabel/font_sizes/normal_font_size = 55
+RichTextLabel/fonts/normal_font = ExtResource("2_b0y28")
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -10,6 +18,7 @@ anchors_preset = 0
 script = ExtResource("1_m0gfh")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 284.0
 offset_top = 201.0
@@ -30,11 +39,162 @@ offset_left = 50.0
 offset_top = 46.0
 offset_right = 360.0
 offset_bottom = 148.0
-theme_override_fonts/font = ExtResource("1_ii8ht")
+theme_override_colors/font_hover_color = Color(0, 0.760784, 0, 0.788235)
+theme_override_fonts/font = ExtResource("2_b0y28")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_01dpy")
 text = "Back"
+flat = true
 
 [node name="HoverClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_p7t30")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 236.0
+offset_right = 774.0
+offset_bottom = 305.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]Production & UI-Design"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 465.0
+offset_right = 830.0
+offset_bottom = 534.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]Environment art & Lighting"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 667.0
+offset_right = 847.0
+offset_bottom = 736.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]programming & Game design"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1071.0
+offset_top = 236.0
+offset_right = 1776.0
+offset_bottom = 305.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]Skinning, Rig & animation"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 465.0
+offset_right = 1891.0
+offset_bottom = 534.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]Environment Art & Optimization"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1029.0
+offset_top = 667.0
+offset_right = 1815.0
+offset_bottom = 736.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]Game DEsign & Level design"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 834.0
+offset_right = 1239.0
+offset_bottom = 903.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]Sound design & Music"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 323.0
+offset_right = 614.0
+offset_bottom = 403.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Ayman Bouhlou"
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1215.0
+offset_top = 323.0
+offset_right = 1653.0
+offset_bottom = 383.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Alexander Kempfle"
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1215.0
+offset_top = 547.0
+offset_right = 1653.0
+offset_bottom = 607.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]MArk schneider"
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 547.0
+offset_right = 647.0
+offset_bottom = 607.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Maximilian Knopf"
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 754.0
+offset_right = 647.0
+offset_bottom = 814.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]yusuf möller"
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1215.0
+offset_top = 754.0
+offset_right = 1653.0
+offset_bottom = 814.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Paul Becker"
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 911.0
+offset_right = 1323.0
+offset_bottom = 1014.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Dilara köseoglu, lars hoffman, sebastian schweiger"
 
 [connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

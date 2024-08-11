@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvmxfp2oktjpa"]
+[gd_scene load_steps=13 format=3 uid="uid://bvmxfp2oktjpa"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/main_menu.gd" id="1_r3j32"]
+[ext_resource type="Texture2D" uid="uid://cm7lcd3up6b4o" path="res://Assets/NetRunnerTitle.png" id="2_de7pt"]
 [ext_resource type="Shader" path="res://Shader/glitch_shader.gdshader" id="2_fqcy0"]
 [ext_resource type="FontFile" uid="uid://yslg5vy8b4pd" path="res://Assets/Fonts/Cyberjunkies Italic.ttf" id="3_uiafy"]
-[ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="4_5tanw"]
+[ext_resource type="Script" path="res://Scenes and Scripts/h_slider.gd" id="5_s3i11"]
 [ext_resource type="AudioStream" uid="uid://b2d768qu06smr" path="res://Assets/Audio/SFX/sfx_hub_ui_hover_var1.mp3" id="5_wd20u"]
+[ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="6_q2e01"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_407sh"]
 shader = ExtResource("2_fqcy0")
@@ -15,12 +17,33 @@ shader_parameter/meltiness = 1.0
 default_font = ExtResource("3_uiafy")
 default_font_size = 250
 
-[node name="MainMenu" type="Node3D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bc7oy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hs3jh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ttqn6"]
+shader = ExtResource("6_q2e01")
+shader_parameter/shake_power = 0.01
+shader_parameter/shake_rate = 0.022
+shader_parameter/shake_speed = 1.6
+shader_parameter/shake_block_size = 0.06
+shader_parameter/shake_color_rate = 0.01
+
+[node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_r3j32")
 
 [node name="Node3D" type="CanvasLayer" parent="."]
 
+[node name="TextureRect" type="TextureRect" parent="Node3D"]
+offset_left = 371.0
+offset_top = 54.0
+offset_right = 2291.0
+offset_bottom = 1134.0
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("2_de7pt")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Node3D"]
+visible = false
 material = SubResource("ShaderMaterial_407sh")
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,13 +69,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.5
-offset_top = 89.0
+offset_top = 189.0
 offset_right = 163.5
-offset_bottom = 191.0
+offset_bottom = 291.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_5tanw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.760784, 0, 0.788235)
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bc7oy")
 text = "Start"
+flat = true
 
 [node name="Credits" type="Button" parent="Node3D"]
 anchors_preset = 8
@@ -61,18 +89,76 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.5
-offset_top = 229.0
+offset_top = 291.0
 offset_right = 163.5
-offset_bottom = 331.0
+offset_bottom = 393.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_5tanw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.760784, 0, 0.788235)
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hs3jh")
 text = "Credits"
+flat = true
+
+[node name="HSlider" type="HSlider" parent="Node3D"]
+offset_left = 1357.0
+offset_top = 967.0
+offset_right = 1853.0
+offset_bottom = 1038.0
+max_value = 1.0
+step = 0.01
+value = 0.61
+script = ExtResource("5_s3i11")
+
+[node name="Label" type="Label" parent="Node3D/HSlider"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = -32.0
+offset_right = 496.0
+offset_bottom = 17.0
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 45
+text = "Sound Volume"
+
+[node name="DevLevelLabel" type="Label" parent="Node3D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -51.0
+offset_right = 531.0
+offset_bottom = -18.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 20
+text = "Press \"F7\" for developer test level"
+
+[node name="EndGameLabel" type="Label" parent="Node3D"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -83.0
+offset_right = 531.0
+offset_bottom = -50.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_uiafy")
+theme_override_font_sizes/font_size = 20
+text = "Press \"ESC\" to quit game"
 
 [node name="HoverClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wd20u")
+
+[node name="RGB_Blur" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ttqn6")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
 
 [connection signal="mouse_entered" from="Node3D/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Node3D/Start" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="Node3D/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Node3D/Credits" to="." method="_on_credits_pressed"]
+[connection signal="value_changed" from="Node3D/HSlider" to="Node3D/HSlider" method="_on_value_changed"]
