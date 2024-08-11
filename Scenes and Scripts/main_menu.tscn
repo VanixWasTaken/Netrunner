@@ -44,13 +44,13 @@ shader_parameter/Noise = ExtResource("9_8tiri")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hd48d"]
 gravity = Vector3(0, 0, 0)
-color = Color(0.658459, 1, 0.629876, 1)
+color = Color(3.29, 5, 3.15, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d7gf8"]
 
 [sub_resource type="Environment" id="Environment_26hdt"]
 background_mode = 1
-background_color = Color(0.157753, 0.157753, 0.157753, 1)
+background_color = Color(0, 0.195045, 0.0984109, 1)
 glow_enabled = true
 glow_intensity = 4.65
 glow_hdr_threshold = 0.12
@@ -62,11 +62,19 @@ script = ExtResource("1_r3j32")
 [node name="Node3D" type="CanvasLayer" parent="."]
 
 [node name="TextureRect" type="TextureRect" parent="Node3D"]
-offset_left = 371.0
-offset_top = 54.0
-offset_right = 2291.0
-offset_bottom = 1134.0
-scale = Vector2(0.625, 0.625)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -370.0
+offset_top = -875.0
+offset_right = 1550.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.385, 0.385)
+size_flags_horizontal = 4
 texture = ExtResource("2_de7pt")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Node3D"]
@@ -96,9 +104,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.5
-offset_top = 189.0
+offset_top = 109.0
 offset_right = 163.5
-offset_bottom = 291.0
+offset_bottom = 211.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -116,9 +124,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.5
-offset_top = 291.0
+offset_top = 211.0
 offset_right = 163.5
-offset_bottom = 393.0
+offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
