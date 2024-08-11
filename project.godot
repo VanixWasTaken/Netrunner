@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Netrunner"
-run/main_scene="res://Scenes and Scripts/test_level.tscn"
+run/main_scene="res://Scenes and Scripts/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
