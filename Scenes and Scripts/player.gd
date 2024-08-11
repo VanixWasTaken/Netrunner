@@ -72,22 +72,24 @@ func _process(delta):
 	if is_jumping:
 		$SlidingSound.stop()
 	
-	if speed <= 14:
-		$SpeedSound.volume_db = 0
+	if speed <= 10:
+		$SpeedSound.volume_db = -20
+	elif speed <= 14:
+		$SpeedSound.volume_db = -7
 	elif speed <= 18:
-		$SpeedSound.volume_db = 3
+		$SpeedSound.volume_db = -5
 	elif speed <= 20:
-		$SpeedSound.volume_db = 6
+		$SpeedSound.volume_db = -3
 	elif speed <= 22:
-		$SpeedSound.volume_db = 9
+		$SpeedSound.volume_db = -1
 	elif speed <= 24:
-		$SpeedSound.volume_db = 10
+		$SpeedSound.volume_db = 1
 	elif speed <= 26:
-		$SpeedSound.volume_db = 11
+		$SpeedSound.volume_db = 3
 	elif speed <= 28:
-		$SpeedSound.volume_db = 12
+		$SpeedSound.volume_db = 5
 	elif speed <= 30:
-		$SpeedSound.volume_db = 13
+		$SpeedSound.volume_db = 7
 	
 	
 	
