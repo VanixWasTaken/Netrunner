@@ -42,6 +42,9 @@ func _process(delta):
 		total_time_in_sec += 1
 		if should_count:
 			convert_time(delta)
+	
+	
+		
 
 
 func _on_death_area_body_entered(body):
@@ -59,7 +62,8 @@ func _on_goal_body_entered(body):
 func convert_time(delta):
 	var m = int(total_time_in_sec / 60) * delta
 	var s = (total_time_in_sec - m * 60) * delta
-	$Counter/Label.text = '%02d:%02d' % [m, s]
-	Global.time = total_time_in_sec * delta
+	var ms = randf_range(1, 99)
+	$Goal/WinScreen/MatchEnd/Time.text = '%02d:%02d:%02d' % [m, s, ms]
+	$Counter/Label.text = '%02d:%02d:%02d' % [m, s, ms]
 
 
