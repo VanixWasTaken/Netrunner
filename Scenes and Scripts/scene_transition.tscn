@@ -281,3 +281,4 @@ color = Color(0, 0.32549, 0, 0)
 
 [node name="GlitchSound" type="AudioStreamPlayer" parent="ColorRect"]
 stream = ExtResource("5_jf67b")
+volume_db = 20.0
