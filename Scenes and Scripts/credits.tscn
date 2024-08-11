@@ -3,7 +3,9 @@
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="1_ii8ht"]
 [ext_resource type="Script" path="res://Scenes and Scripts/credits.gd" id="1_m0gfh"]
 
-[node name="Credits" type="Node2D"]
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_m0gfh")
 
 [node name="Label" type="Label" parent="."]

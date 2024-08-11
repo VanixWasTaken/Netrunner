@@ -4,8 +4,8 @@
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="2_0naf2"]
 [ext_resource type="AudioStream" uid="uid://t6g667yk0lcn" path="res://Assets/Audio/SFX/S.ogg" id="2_5jbw2"]
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_color.gdshader" id="2_sacd1"]
-[ext_resource type="AudioStream" uid="uid://c1lp3cg8ixnwj" path="res://Assets/Audio/SFX/S 2.ogg" id="3_gmchc"]
 [ext_resource type="FontFile" uid="uid://bya6ywhboi8dd" path="res://Assets/Fonts/Exima Geometric.ttf" id="3_na6b8"]
+[ext_resource type="AudioStream" uid="uid://cviwhpl544jvk" path="res://Assets/Audio/SFX/woosh.ogg" id="3_q67db"]
 
 [sub_resource type="Animation" id="Animation_vvk5m"]
 length = 0.001
@@ -164,7 +164,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.2, 8.5, 194, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 32, 194, -0.2, -155, 0.00344795, 84.5),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/2/type = "bezier"
@@ -302,9 +302,13 @@ tracks/13/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("3_gmchc")
+"stream": ExtResource("3_q67db")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_q67db")
 }],
-"times": PackedFloat32Array(0.8)
+"times": PackedFloat32Array(0.6, 1.1)
 }
 tracks/13/use_blend = true
 
@@ -352,7 +356,6 @@ metadata/_edit_horizontal_guides_ = [581.0]
 libraries = {
 "": SubResource("AnimationLibrary_8euan")
 }
-autoplay = "match_end"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_4fki3")
@@ -413,9 +416,9 @@ autowrap_mode = 2
 [node name="Time" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-offset_left = 562.0
+offset_left = 500.0
 offset_top = 605.0
-offset_right = 1230.0
+offset_right = 1254.0
 offset_bottom = 706.0
 theme_override_fonts/normal_font = ExtResource("3_na6b8")
 theme_override_font_sizes/normal_font_size = 70
@@ -438,7 +441,7 @@ text = "[center]114 km/h"
 scroll_active = false
 autowrap_mode = 2
 
-[node name="Shading" type="ColorRect" parent="."]
+[node name="RGB_Blur" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_k2xxd")
 layout_mode = 0
 offset_right = 1920.0
@@ -447,3 +450,4 @@ offset_bottom = 1080.0
 [node name="TierSound" type="AudioStreamPlayer" parent="."]
 
 [node name="Timer" type="AudioStreamPlayer" parent="."]
+volume_db = -9.355
