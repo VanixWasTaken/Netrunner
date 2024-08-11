@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=51 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
@@ -21,10 +21,15 @@
 [ext_resource type="PackedScene" uid="uid://cb3vhs7fmpewc" path="res://Assets/Mesh/MetallbinderKabel.glb" id="17_scxsb"]
 [ext_resource type="Material" uid="uid://bukiu7ytt72f2" path="res://Shader/Materials/EmissionOrange.tres" id="17_y51xm"]
 [ext_resource type="PackedScene" uid="uid://t2yuwkaunilr" path="res://Assets/Mesh/HindernisMaybe.glb" id="18_1pq1i"]
+[ext_resource type="PackedScene" uid="uid://bgiv16l3wqhe5" path="res://Assets/Mesh/PipeMedium07.glb" id="19_1l7j0"]
 [ext_resource type="PackedScene" uid="uid://byos2hbousu4n" path="res://Assets/Mesh/MeshScenes/pipe_medium_042.tscn" id="20_5c14q"]
+[ext_resource type="PackedScene" uid="uid://dlxqcylacbvjd" path="res://Assets/Mesh/PipeMedium06.glb" id="20_fxueo"]
 [ext_resource type="PackedScene" uid="uid://ddo7u0tjctj4v" path="res://Assets/Mesh/MeshScenes/pipe_medium_062.tscn" id="21_f0en2"]
+[ext_resource type="PackedScene" uid="uid://dtdworl5sxs14" path="res://Assets/Mesh/PipeMedium02.glb" id="21_lckp1"]
 [ext_resource type="AudioStream" uid="uid://co03jh6nveffm" path="res://Assets/Audio/SFX/switch.wav" id="24_ie332"]
 [ext_resource type="AudioStream" uid="uid://c274ltk5n1wik" path="res://Assets/Audio/Death_sound.wav" id="25_wfpra"]
+[ext_resource type="PackedScene" uid="uid://ck8dw4mpd1aan" path="res://Assets/Mesh/Cables01.glb" id="29_6jvkd"]
+[ext_resource type="PackedScene" uid="uid://bo371yvu05b8y" path="res://Assets/Mesh/PipeBig03.glb" id="30_kfngn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -329,6 +334,7 @@ size = Vector3(5, 3, 2)
 
 [node name="Box28" type="CSGBox3D" parent="CSGBoxes/Boxes" groups=["blue"]]
 transform = Transform3D(1, 0, 0, 0, 0.99924, 0.0389807, 0, -0.0389807, 0.99924, 1.90576, -35.5429, -122.506)
+visible = false
 material_override = SubResource("StandardMaterial3D_if8om")
 use_collision = true
 size = Vector3(19.8731, 3, 2)
@@ -454,7 +460,7 @@ transform = Transform3D(0.97237, 0.0505268, 0.227912, 0, 0.976296, -0.21644, -0.
 transform = Transform3D(0.525544, 0, 0.278978, 0, 0.595, 0, -0.278978, 0, 0.525544, -8.27879, 8.49693, 9.95961)
 
 [node name="FragmentCube022" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
-transform = Transform3D(1.26564, 0.863482, 0.461056, 2.9028e-08, 0.753619, -1.4114, -0.978863, 1.11645, 0.596128, -7.2072, 3.47124, -75.7446)
+transform = Transform3D(1.26564, 0.863482, 0.461056, 2.9028e-08, 0.753619, -1.4114, -0.978863, 1.11645, 0.596128, -7.2072, 13.6385, -75.7446)
 
 [node name="FragmentCube023" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
 transform = Transform3D(0.741923, -0.584748, 0.100596, -0.0674184, -0.243103, -0.915891, 0.589495, 0.708146, -0.231354, -7.99752, -1.07912, -12.9976)
@@ -534,6 +540,15 @@ surface_material_override/0 = ExtResource("17_y51xm")
 [node name="FragmentCube031" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
 transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 7.06326, -27.2803, -189.38)
 
+[node name="FragmentCube032" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(3.07, 0, 0, 0, -1.34194e-07, 3.07, 0, -3.07, -1.34194e-07, 3.68085, -20.7865, -100.522)
+
+[node name="FragmentTowerBig10" parent="Assets/Fragments" instance=ExtResource("10_hq7em")]
+transform = Transform3D(1.64, 0, 0, 0, 1.64, 0, 0, 0, 1.64, 71.084, -39.5317, -124.488)
+
+[node name="FragmentCube033" parent="Assets/Fragments" instance=ExtResource("11_x35g2")]
+transform = Transform3D(-0.365539, 1.29563, -0.303532, 0.807408, 0.466157, 1.01744, 1.05777, 0.091914, -0.881521, 0.561655, -17.0966, -116.159)
+
 [node name="Pipes" type="Node3D" parent="Assets"]
 
 [node name="PipeMedium012" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
@@ -602,6 +617,45 @@ transform = Transform3D(1.17, 0, 0, 0, 1.17, 0, 0, 0, 1.17, 1.23753, -7.00864, -
 [node name="MetallbinderKabel5" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
 transform = Transform3D(1.48, 0, 0, 0, 1.48, 0, 0, 0, 1.48, 6.93023, -27.6121, -189.073)
 
+[node name="MetallbinderKabel6" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
+transform = Transform3D(1.585, 0, 0, 0, 1.585, 0, 0, 0, 1.585, 9.2364, -26.2038, -152.224)
+
+[node name="PipeMedium014" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
+transform = Transform3D(-0.0236368, 0, -2.19487, 0, 2.195, 0, 2.19487, 0, -0.0236368, 1.53276, -41.7999, -113.667)
+
+[node name="PipeMedium015" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
+transform = Transform3D(-0.0236368, 0, -2.19487, 0, 2.195, 0, 2.19487, 0, -0.0236368, 24.1181, -40.6584, -113.667)
+
+[node name="PipeMedium044" parent="Assets/Pipes" instance=ExtResource("20_5c14q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0200462, -12.4092, -119.423)
+
+[node name="PipeMedium072" parent="Assets/Pipes" instance=ExtResource("19_1l7j0")]
+transform = Transform3D(0.339226, 0, -3.06629, 0, 3.085, 0, 3.06629, 0, 0.339226, -9.38218, -37.5918, -122.842)
+
+[node name="PipeMedium062" parent="Assets/Pipes" instance=ExtResource("20_fxueo")]
+transform = Transform3D(-6.9064e-08, -1.58, -6.9064e-08, 0, -6.9064e-08, 1.58, -1.58, 6.9064e-08, 3.01888e-15, 25.9804, -34.2522, -110.974)
+
+[node name="PipeMedium016" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
+transform = Transform3D(-0.0236368, 0, -2.19487, 0, 2.195, 0, 2.19487, 0, -0.0236368, 36.4494, -20.8468, -113.667)
+
+[node name="PipeMedium026" parent="Assets/Pipes" instance=ExtResource("21_lckp1")]
+transform = Transform3D(1.39, 0, 0, 0, 1.39, 0, 0, 0, 1.39, 42.8959, -43.2972, -119.698)
+
+[node name="PipeMedium027" parent="Assets/Pipes" instance=ExtResource("21_lckp1")]
+transform = Transform3D(2.485, 0, 0, 0, 2.485, 0, 0, 0, 2.485, 47.6869, -43.2972, -116.563)
+
+[node name="MetallbinderKabel7" parent="Assets/Pipes" instance=ExtResource("17_scxsb")]
+transform = Transform3D(0.170952, 0, 1.78684, 0, 1.795, 0, -1.78684, 0, 0.170952, 17.2616, -34.3115, -123.081)
+
+[node name="PipeMedium073" parent="Assets/Pipes" instance=ExtResource("19_1l7j0")]
+transform = Transform3D(-8.28331e-08, 0, 1.895, 0, 1.895, 0, -1.895, 0, -8.28331e-08, 70.0285, -37.5918, -99.3834)
+
+[node name="PipeMedium074" parent="Assets/Pipes" instance=ExtResource("19_1l7j0")]
+transform = Transform3D(0.0391968, 0, -3.08475, 0, 3.085, 0, 3.08475, 0, 0.0391968, 20.8742, -53.9654, -107.832)
+
+[node name="PipeMedium017" parent="Assets/Pipes" instance=ExtResource("11_y18g1")]
+transform = Transform3D(-0.0335438, 0, -3.11482, 0, 3.115, 0, 3.11482, 0, -0.0335438, 47.4687, -39.9674, -110.515)
+
 [node name="Pillar" type="Node3D" parent="Assets"]
 
 [node name="FragmentTower" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
@@ -636,18 +690,77 @@ surface_material_override/0 = ExtResource("17_y51xm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118591, -0.0294037, 0.108544)
 
 [node name="FragmentTower7" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7373, -22.4227, -135.394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2216, -22.4227, -135.394)
 
 [node name="Cube_023" parent="Assets/Pillar/FragmentTower7" index="0"]
 transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
 surface_material_override/0 = ExtResource("17_y51xm")
 
 [node name="FragmentTower8" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6656, -24.1519, -130.591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0876, -24.1519, -130.591)
 
 [node name="Cube_023" parent="Assets/Pillar/FragmentTower8" index="0"]
 transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
 surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="FragmentTower9" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5.9075, -35.6266, -123.449)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower9" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="FragmentTower10" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4279, -17.8701, -96.7981)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower10" index="0"]
+transform = Transform3D(0.793141, 0, 6.98492e-10, 0, 0.793141, 0, -6.98492e-10, 0, 0.793141, 0.0285721, -0.126997, 0.0948439)
+surface_material_override/0 = ExtResource("17_y51xm")
+
+[node name="Cube_023_RLExtr_005" parent="Assets/Pillar/FragmentTower10/Cube_025" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118591, -0.0294037, 0.108544)
+
+[node name="FragmentTower11" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.3388, -37.9794, -100.606)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower11" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+
+[node name="FragmentTower12" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 32.675, -44.4422, -100.606)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower12" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+
+[node name="FragmentTower13" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.0023, -46.3329, -100.606)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower13" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+
+[node name="FragmentTower14" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 46.8579, -41.3562, -100.606)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower14" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+
+[node name="FragmentTower15" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-7.27795e-08, 0, -1.665, 0, 1.665, 0, 1.665, 0, -7.27795e-08, 51.1962, -47.7192, -124.2)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower15" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+
+[node name="Cube_023_RLExtr" parent="Assets/Pillar/FragmentTower15/Cube_023" index="0"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
+
+[node name="FragmentTower16" parent="Assets/Pillar" instance=ExtResource("14_7ihcd")]
+transform = Transform3D(-5.1798e-08, 0, -1.185, 0, 1.185, 0, 1.185, 0, -5.1798e-08, 44.4012, -45.4048, -124.2)
+
+[node name="Cube_023" parent="Assets/Pillar/FragmentTower16" index="0"]
+transform = Transform3D(0.793141, 0, 0, 0, 0.793141, 0, 0, 0, 0.793141, 0.0314178, -0.126997, 0.0791626)
+
+[node name="Cube_023_RLExtr" parent="Assets/Pillar/FragmentTower16/Cube_023" index="0"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
 
 [node name="Monitor" type="Node3D" parent="Assets"]
 
@@ -660,16 +773,25 @@ transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -7.751
 [node name="Obstacle" type="Node3D" parent="."]
 
 [node name="HindernisMaybe2" parent="Obstacle" instance=ExtResource("18_1pq1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11181, -8.31195, -97.1948)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58961, -8.4167, -104.364)
 
 [node name="PipeMedium042" parent="Obstacle" instance=ExtResource("20_5c14q")]
-transform = Transform3D(-4.83011e-08, 0, 1.105, 0, 1.105, 0, -1.105, 0, -4.83011e-08, -0.515152, -11.4022, -103.882)
+transform = Transform3D(-4.83011e-08, 0, 1.105, 0, 1.105, 0, -1.105, 0, -4.83011e-08, 1.77884, -38.8628, -123.765)
 
 [node name="PipeMedium062" parent="Obstacle" instance=ExtResource("21_f0en2")]
-transform = Transform3D(-1.40956, 0.123941, -5.41761e-09, 0, -6.18516e-08, -1.415, -0.123941, -1.40956, 6.16139e-08, 0.249977, -7.87615, -104.222)
+transform = Transform3D(-1.40956, 0.123941, -5.41761e-09, 0, -6.18516e-08, -1.415, -0.123941, -1.40956, 6.16139e-08, 0.249977, -7.87615, -101.756)
 
 [node name="PipeMedium043" parent="Obstacle" instance=ExtResource("20_5c14q")]
-transform = Transform3D(-6.9064e-08, 0, 1.58, 0, 1.58, 0, -1.58, 0, -6.9064e-08, 1.87403, -15.4786, -104.408)
+transform = Transform3D(-6.9064e-08, 0, 1.58, 0, 1.58, 0, -1.58, 0, -6.9064e-08, 4.16803, -42.9392, -124.291)
+
+[node name="PortalFrame2" parent="Obstacle" instance=ExtResource("6_cx068")]
+transform = Transform3D(-1.42, 0, -2.14414e-07, 0, 1.42, 0, 2.14414e-07, 0, -1.42, -1.23545, -16.0586, -96.949)
+
+[node name="PipeMedium063" parent="Obstacle" instance=ExtResource("21_f0en2")]
+transform = Transform3D(-1.40956, 0.123941, -5.41761e-09, 0, -6.18516e-08, -1.415, -0.123941, -1.40956, 6.16139e-08, 0.249977, -7.87615, -128.945)
+
+[node name="PortalFrame3" parent="Obstacle" instance=ExtResource("6_cx068")]
+transform = Transform3D(-6.20702e-08, 0, -1.42, 0, 1.42, 0, 1.42, 0, -6.20702e-08, 26.4963, -40.9293, -111.716)
 
 [node name="GogglesSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_ie332")
@@ -677,6 +799,12 @@ stream = ExtResource("24_ie332")
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_wfpra")
 volume_db = -10.0
+
+[node name="Cables012" parent="." instance=ExtResource("29_6jvkd")]
+transform = Transform3D(0.727985, 0.0285022, 1.2072, 0.294447, 1.36287, -0.20974, -1.17108, 0.360385, 0.697699, 44.7487, -27.6401, -105.484)
+
+[node name="PipeBig032" parent="." instance=ExtResource("30_kfngn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9659, -19.4745, -93.6742)
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
@@ -697,3 +825,11 @@ volume_db = -10.0
 [editable path="Assets/Pillar/FragmentTower6"]
 [editable path="Assets/Pillar/FragmentTower7"]
 [editable path="Assets/Pillar/FragmentTower8"]
+[editable path="Assets/Pillar/FragmentTower9"]
+[editable path="Assets/Pillar/FragmentTower10"]
+[editable path="Assets/Pillar/FragmentTower11"]
+[editable path="Assets/Pillar/FragmentTower12"]
+[editable path="Assets/Pillar/FragmentTower13"]
+[editable path="Assets/Pillar/FragmentTower14"]
+[editable path="Assets/Pillar/FragmentTower15"]
+[editable path="Assets/Pillar/FragmentTower16"]
