@@ -15,16 +15,16 @@
 [ext_resource type="PackedScene" uid="uid://cwskx1jjybpjt" path="res://Assets/Mesh/MeshScenes/pipe_medium_022.tscn" id="12_koo8i"]
 [ext_resource type="PackedScene" uid="uid://c0pjws4yjjdtg" path="res://Assets/Mesh/MeshScenes/fragment_tower.tscn" id="14_7ihcd"]
 [ext_resource type="PackedScene" uid="uid://cnjx303u66fv" path="res://Assets/Mesh/MeshScenes/pillar_big.tscn" id="15_xad6i"]
-[ext_resource type="PackedScene" path="res://Assets/Mesh/MeshScenes/monitor_big.tscn" id="16_iapg7"]
+[ext_resource type="PackedScene" uid="uid://bk1ybyr26s304" path="res://Assets/Mesh/MeshScenes/monitor_big.tscn" id="16_iapg7"]
 [ext_resource type="PackedScene" uid="uid://cs1qal1ylhbn6" path="res://Assets/Mesh/LeitungSeil_1.glb" id="16_ovyyf"]
 [ext_resource type="PackedScene" uid="uid://btb88xje3vb86" path="res://Assets/Mesh/LeitungSeil_2.glb" id="17_f8atw"]
 [ext_resource type="PackedScene" uid="uid://cb3vhs7fmpewc" path="res://Assets/Mesh/MetallbinderKabel.glb" id="17_scxsb"]
-[ext_resource type="Material" path="res://Shader/Materials/EmissionOrange.tres" id="17_y51xm"]
+[ext_resource type="Material" uid="uid://bukiu7ytt72f2" path="res://Shader/Materials/EmissionOrange.tres" id="17_y51xm"]
 [ext_resource type="PackedScene" uid="uid://t2yuwkaunilr" path="res://Assets/Mesh/HindernisMaybe.glb" id="18_1pq1i"]
 [ext_resource type="PackedScene" uid="uid://bgiv16l3wqhe5" path="res://Assets/Mesh/PipeMedium07.glb" id="19_1l7j0"]
-[ext_resource type="PackedScene" path="res://Assets/Mesh/MeshScenes/pipe_medium_042.tscn" id="20_5c14q"]
+[ext_resource type="PackedScene" uid="uid://byos2hbousu4n" path="res://Assets/Mesh/MeshScenes/pipe_medium_042.tscn" id="20_5c14q"]
 [ext_resource type="PackedScene" uid="uid://dlxqcylacbvjd" path="res://Assets/Mesh/PipeMedium06.glb" id="20_fxueo"]
-[ext_resource type="PackedScene" path="res://Assets/Mesh/MeshScenes/pipe_medium_062.tscn" id="21_f0en2"]
+[ext_resource type="PackedScene" uid="uid://ddo7u0tjctj4v" path="res://Assets/Mesh/MeshScenes/pipe_medium_062.tscn" id="21_f0en2"]
 [ext_resource type="PackedScene" uid="uid://dtdworl5sxs14" path="res://Assets/Mesh/PipeMedium02.glb" id="21_lckp1"]
 [ext_resource type="AudioStream" uid="uid://co03jh6nveffm" path="res://Assets/Audio/SFX/switch.wav" id="24_ie332"]
 [ext_resource type="AudioStream" uid="uid://c274ltk5n1wik" path="res://Assets/Audio/Death_sound.wav" id="25_wfpra"]
@@ -42,9 +42,16 @@ ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 sky_material = SubResource("ProceduralSkyMaterial_5c3df")
 
 [sub_resource type="Environment" id="Environment_efjyl"]
-background_mode = 2
+background_energy_multiplier = 0.1
 sky = SubResource("Sky_x0cco")
-tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.35
+glow_strength = 0.65
+glow_bloom = 0.69
+glow_blend_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.08
+volumetric_fog_albedo = Color(0.235294, 0.27451, 0.27451, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wakjf"]
 albedo_color = Color(0.733002, 1.64848e-06, 3.85046e-07, 1)
@@ -103,13 +110,15 @@ data = PackedVector3Array(32.3687, -12.8154, 11.9284, 32.3687, -25.6309, 18.3252
 [node name="TestLevel" type="Node3D"]
 script = ExtResource("1_yrhcu")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-visible = false
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_efjyl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.725641, -0.635735, -0.263223, -0.472697, 0.182598, 0.8621, -0.500003, 0.749999, -0.43301, -2.95794, 8.47993, 0)
+light_color = Color(0.27451, 0.352941, 0.313726, 1)
+light_energy = 2.0
+light_volumetric_fog_energy = 8.0
+shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_ldh5i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42134, 6.44779, 7.95732)
@@ -963,15 +972,15 @@ transform = Transform3D(-6.20702e-08, 0, -1.42, 0, 1.42, 0, 1.42, 0, -6.20702e-0
 [node name="PipeMedium044" parent="Assets/Obstacle" instance=ExtResource("20_5c14q")]
 transform = Transform3D(-6.9064e-08, 0, 1.58, 0, 1.58, 0, -1.58, 0, -6.9064e-08, 10.8777, -37.2222, -141.07)
 
+[node name="FragmentTowerBroken" parent="Assets" instance=ExtResource("32_0edu5")]
+transform = Transform3D(-0.704165, 0, -1.44228, 0, 1.605, 0, 1.44228, 0, -0.704165, 65.3422, -66.2159, -107.166)
+
 [node name="GogglesSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_ie332")
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_wfpra")
 volume_db = -10.0
-
-[node name="FragmentTowerBroken" parent="." instance=ExtResource("32_0edu5")]
-transform = Transform3D(-0.704165, 0, -1.44228, 0, 1.605, 0, 1.44228, 0, -0.704165, 65.3422, -66.2159, -107.166)
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
