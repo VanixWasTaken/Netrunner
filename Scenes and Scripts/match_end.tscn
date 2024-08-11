@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://4insc2kscl3n"]
+[gd_scene load_steps=19 format=3 uid="uid://4insc2kscl3n"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/match_end.gd" id="1_fgeyv"]
 [ext_resource type="Shader" path="res://Scenes and Scripts/radial_blur.gdshader" id="2_0naf2"]
@@ -139,6 +139,72 @@ tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("A Tier:scale:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("A Tier:scale:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("B Tier:scale:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("B Tier:scale:y")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("C Tier:scale:x")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("C Tier:scale:y")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -311,6 +377,72 @@ tracks/13/keys = {
 "times": PackedFloat32Array(0.6, 1.1)
 }
 tracks/13/use_blend = true
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("A Tier:scale:x")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("A Tier:scale:y")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("B Tier:scale:x")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("B Tier:scale:y")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("C Tier:scale:x")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("C Tier:scale:y")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.5)
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8euan"]
 _data = {
@@ -325,10 +457,27 @@ shader = ExtResource("2_sacd1")
 shader_parameter/horizontal_influence = 1.0
 shader_parameter/vertical_influence = 0.0
 
-[sub_resource type="Theme" id="Theme_nkhyj"]
+[sub_resource type="Theme" id="Theme_748ro"]
 default_font = ExtResource("3_na6b8")
 default_font_size = 400
 RichTextLabel/colors/default_color = Color(0, 3.76471, 4.32157, 1)
+
+[sub_resource type="Theme" id="Theme_px7gq"]
+default_font = ExtResource("3_na6b8")
+default_font_size = 400
+RichTextLabel/colors/default_color = Color(1, 3.76471, 0, 1)
+
+[sub_resource type="Theme" id="Theme_k51a8"]
+default_font = ExtResource("3_na6b8")
+default_font_size = 400
+RichTextLabel/colors/default_color = Color(0.8, 0.972549, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5jd81"]
+
+[sub_resource type="Theme" id="Theme_nkhyj"]
+default_font = ExtResource("3_na6b8")
+default_font_size = 400
+RichTextLabel/colors/default_color = Color(1, 0.592157, 0.27451, 1)
 
 [sub_resource type="Environment" id="Environment_uevlj"]
 background_mode = 3
@@ -363,9 +512,10 @@ layout_mode = 1
 offset_top = 541.0
 offset_bottom = 541.0
 pivot_offset = Vector2(959, 80)
-color = Color(1.56425e-07, 0.196784, 0.121432, 0.498039)
+color = Color(0.926773, 0.636071, 0.364222, 0.447059)
 
 [node name="S Tier" type="RichTextLabel" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_0cqq4")
 layout_mode = 0
 offset_left = 116.0
@@ -374,9 +524,49 @@ offset_right = 581.0
 offset_bottom = 860.0
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(230, 290)
-theme = SubResource("Theme_nkhyj")
+theme = SubResource("Theme_748ro")
 bbcode_enabled = true
 text = "S"
+fit_content = true
+
+[node name="A Tier" type="RichTextLabel" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_0cqq4")
+layout_mode = 0
+offset_left = 64.0
+offset_top = 284.0
+offset_right = 529.0
+offset_bottom = 860.0
+pivot_offset = Vector2(230, 290)
+theme = SubResource("Theme_px7gq")
+bbcode_enabled = true
+text = "A"
+fit_content = true
+
+[node name="B Tier" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 116.0
+offset_top = 284.0
+offset_right = 581.0
+offset_bottom = 860.0
+pivot_offset = Vector2(230, 290)
+theme = SubResource("Theme_k51a8")
+bbcode_enabled = true
+text = "B"
+fit_content = true
+
+[node name="C Tier" type="RichTextLabel" parent="."]
+material = SubResource("ShaderMaterial_5jd81")
+layout_mode = 0
+offset_left = 116.0
+offset_top = 284.0
+offset_right = 581.0
+offset_bottom = 860.0
+pivot_offset = Vector2(230, 290)
+theme = SubResource("Theme_nkhyj")
+bbcode_enabled = true
+text = "C"
 fit_content = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -385,9 +575,9 @@ environment = SubResource("Environment_uevlj")
 [node name="TimeTitle" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 781.0
+offset_left = 813.0
 offset_top = 571.0
-offset_right = 977.0
+offset_right = 1009.0
 offset_bottom = 615.0
 pivot_offset = Vector2(100, 25)
 theme_override_colors/default_color = Color(1, 1, 1, 0.52549)
@@ -416,9 +606,9 @@ autowrap_mode = 2
 [node name="Time" type="RichTextLabel" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-offset_left = 500.0
+offset_left = 558.0
 offset_top = 605.0
-offset_right = 1254.0
+offset_right = 1265.0
 offset_bottom = 706.0
 theme_override_fonts/normal_font = ExtResource("3_na6b8")
 theme_override_font_sizes/normal_font_size = 70
