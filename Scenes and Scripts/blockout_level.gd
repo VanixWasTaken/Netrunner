@@ -43,7 +43,6 @@ func _process(delta):
 		if should_count:
 			convert_time(delta)
 	
-	print(total_time_in_sec / 60)
 	
 	
 	if (total_time_in_sec / 60) < 30:
