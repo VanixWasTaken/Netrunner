@@ -164,7 +164,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.203448, 17.5, 194, -0.096552, -188.5, 0.00344795, 84.5),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 32, 194, -0.2, -155, 0.00344795, 84.5),
 "times": PackedFloat32Array(0, 0.5)
 }
 tracks/2/type = "bezier"
