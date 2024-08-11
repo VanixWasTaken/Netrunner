@@ -43,25 +43,9 @@ func _process(delta):
 		if should_count:
 			convert_time(delta)
 	
-	print(total_time_in_sec / 60)
 	
 	
-	if (total_time_in_sec / 60) < 30:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "S"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
-	elif (total_time_in_sec / 60) < 40:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "A"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
-	elif (total_time_in_sec / 60) < 50:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "B"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
-	elif (total_time_in_sec / 60) >= 50:
-		$"Goal/WinScreen/MatchEnd/S Tier".text = "C"
-		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
-		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	
 
 
 
@@ -84,5 +68,22 @@ func convert_time(delta):
 	var ms = randf_range(1, 99)
 	$Goal/WinScreen/MatchEnd/Time.text = '%02d:%02d:%02d' % [m, s, ms]
 	$Counter/Label.text = '%02d:%02d:%02d' % [m, s, ms]
+	
+	if s > 30:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "S"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	elif s < 40:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "A"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	elif s < 50:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "B"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
+	elif s >= 50:
+		$"Goal/WinScreen/MatchEnd/S Tier".text = "C"
+		$"Goal/WinScreen/MatchEnd/S Tier".modulate = Color(255, 0, 0, 255)
+		$"Goal/WinScreen/MatchEnd/ColorRect".modulate = Color(0, 255, 0, 255)
 
 
