@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://byos2hbousu4n"]
+
+[ext_resource type="PackedScene" uid="uid://c6wjl1nyyue8i" path="res://Assets/Mesh/PipeMedium04.glb" id="1_cdy18"]
+
+[node name="PipeMedium042" instance=ExtResource("1_cdy18")]
+
+[node name="PipeMedium04" parent="." index="0"]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -0.657182, -3.82913, 2.43126)

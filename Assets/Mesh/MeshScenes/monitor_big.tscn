@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4iwqknxns6jw"]
+
+[ext_resource type="PackedScene" uid="uid://bikjqkrvfuvwf" path="res://Assets/Mesh/MonitorBig.glb" id="1_a0sds"]
+
+[node name="MonitorBig" instance=ExtResource("1_a0sds")]
+
+[node name="MonitprBig" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0301037, -10.3124, 8.76085)
