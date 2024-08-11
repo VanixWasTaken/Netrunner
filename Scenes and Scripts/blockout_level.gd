@@ -4,6 +4,10 @@ var level_state = "blue" # can be "blue" or "red"
 var first_movement = true
 var total_time_in_sec : int = 0
 var should_count = true
+@onready var shader = preload("res://Shader/wireframe.tres")
+var shader_changed = false
+@onready var empty_shader = preload("res://Shader/empty_shader.tres")
+@onready var rune_shader = preload("res://Shader/rune_switch.tres")
 
 func _input(event):
 	if event.is_action_pressed("mouse_left"):
@@ -26,6 +30,24 @@ func _process(delta):
 			i.use_collision = false
 		for i in get_tree().get_nodes_in_group("red"):
 			i.visible = false
+		if shader_changed == false:
+			for mesh_instance in get_tree().get_nodes_in_group("platform_blue"):
+				if mesh_instance is MeshInstance3D:
+					mesh_instance.material_override = null
+				
+			for mesh_instance in get_tree().get_nodes_in_group("platform_red"):
+				if mesh_instance is MeshInstance3D:
+					mesh_instance.material_override = rune_shader
+				
+			for mesh_instance in get_tree().get_nodes_in_group("material_switch"):
+				if mesh_instance is MeshInstance3D:
+					var material_count = mesh_instance.mesh.get_surface_count()
+					mesh_instance.material_overlay = null
+					for i in range(material_count):
+						var material = mesh_instance.mesh.surface_get_material(i)
+						if material is StandardMaterial3D:
+							material.next_pass = empty_shader
+							shader_changed = true
 	elif level_state == "red":
 		for i in get_tree().get_nodes_in_group("blue"):
 			i.use_collision = false
@@ -35,6 +57,24 @@ func _process(delta):
 			i.use_collision = true
 		for i in get_tree().get_nodes_in_group("red"):
 			i.visible = true
+		if shader_changed == true:
+			for mesh_instance in get_tree().get_nodes_in_group("platform_blue"):
+				if mesh_instance is MeshInstance3D:
+					mesh_instance.material_override = rune_shader
+				
+			for mesh_instance in get_tree().get_nodes_in_group("platform_red"):
+				if mesh_instance is MeshInstance3D:
+					mesh_instance.material_override = null
+					
+			for mesh_instance in get_tree().get_nodes_in_group("material_switch"):
+				if mesh_instance is MeshInstance3D:
+					var material_count = mesh_instance.mesh.get_surface_count()
+					mesh_instance.material_overlay = rune_shader
+					for i in range(material_count):
+						var material = mesh_instance.mesh.surface_get_material(i)
+						if material is StandardMaterial3D:
+							material.next_pass = shader
+							shader_changed = false
 	
 	if Global.global_direction != Vector3.ZERO and first_movement:
 		first_movement = false
