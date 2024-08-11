@@ -6,11 +6,23 @@
 [node name="FragmentTowerBig" instance=ExtResource("1_qm8cg")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
-[node name="Cube_011" parent="." index="0"]
+[node name="Cube_011" parent="." index="0" groups=["material_switch"]]
 transform = Transform3D(2.34453, 0, 0, 0, 2.34453, 0, 0, 0, 2.34453, -0.0604719, -6.80881, 0.128501)
 
-[node name="Cube_011_RLExtr_001" parent="Cube_011" index="1"]
+[node name="Cube_011_RLExtr" parent="Cube_011" index="0" groups=["material_switch"]]
+
+[node name="Cube_011_RLExtr_001" parent="Cube_011" index="1" groups=["material_switch"]]
 surface_material_override/0 = ExtResource("3_v67hk")
 
-[node name="Cube_011_RLExtr_002" parent="Cube_011" index="2"]
+[node name="Cube_011_RLExtr_002" parent="Cube_011" index="2" groups=["material_switch"]]
 surface_material_override/0 = ExtResource("3_v67hk")
+
+[node name="Cube_011_RLExtr_003" parent="Cube_011" index="3" groups=["material_switch"]]
+
+[node name="Cube_011_RLExtr_004" parent="Cube_011" index="4" groups=["material_switch"]]
+
+[node name="Cube_011_RLExtr_005" parent="Cube_011" index="5" groups=["material_switch"]]
+
+[node name="Cube_011_RLExtr_006" parent="Cube_011" index="6" groups=["material_switch"]]
+
+[node name="Cube_011_RLExtr_007" parent="Cube_011" index="7" groups=["material_switch"]]

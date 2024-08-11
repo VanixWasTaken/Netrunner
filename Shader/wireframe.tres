@@ -6,4 +6,4 @@
 render_priority = 0
 shader = ExtResource("1_jp46a")
 shader_parameter/outline_threshold = 1.0
-shader_parameter/outline_color = Color(0.12549, 0.568627, 0, 1)
+shader_parameter/outline_color = Color(0.156863, 0.670588, 0, 1)
