@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://djhvt6wes04c8"]
+[gd_scene load_steps=35 format=3 uid="uid://djhvt6wes04c8"]
 
 [ext_resource type="PackedScene" uid="uid://bkpdmnusfa7ap" path="res://Scenes and Scripts/player.tscn" id="1_ldh5i"]
 [ext_resource type="Script" path="res://Scenes and Scripts/blockout_level.gd" id="1_yrhcu"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dre766f4rnl1q" path="res://Assets/Mesh/PipeMedium01.glb" id="11_y18g1"]
 [ext_resource type="PackedScene" uid="uid://dtdworl5sxs14" path="res://Assets/Mesh/PipeMedium02.glb" id="12_cbo3b"]
 [ext_resource type="AudioStream" uid="uid://c274ltk5n1wik" path="res://Assets/Audio/Death_sound.wav" id="13_n6v52"]
+[ext_resource type="AudioStream" uid="uid://co03jh6nveffm" path="res://Assets/Audio/SFX/switch.wav" id="14_8omkd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5c3df"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -468,6 +469,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07735, -1.77644, 3.11562)
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_n6v52")
 volume_db = -15.0
+
+[node name="GogglesSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_8omkd")
 
 [connection signal="body_entered" from="DeathArea" to="." method="_on_death_area_body_entered"]
 [connection signal="body_entered" from="Goal" to="." method="_on_goal_body_entered"]
