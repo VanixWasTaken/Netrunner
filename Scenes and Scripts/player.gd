@@ -307,8 +307,6 @@ func _input(event):
 	if event.is_action_pressed("mouse_right"):
 		running_animation.play("BAKED_idle-1")
 	
-	if event.is_action_pressed("jump"):
-		$JumpSound.play()
 
 # checks the slide_animation
 func _on_animation_player_animation_finished(anim_name):
