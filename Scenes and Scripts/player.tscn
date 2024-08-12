@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bkpdmnusfa7ap"]
+[gd_scene load_steps=36 format=3 uid="uid://bkpdmnusfa7ap"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/player.gd" id="1_am13k"]
 [ext_resource type="PackedScene" uid="uid://b5je8oax0cj1l" path="res://Assets/Mesh/Mesh4.0.glb" id="2_jsmok"]
 [ext_resource type="FontFile" uid="uid://bc1ipdctbgo7s" path="res://Assets/Fonts/m5x7.ttf" id="3_bjfmy"]
+[ext_resource type="Material" uid="uid://bcjskat8r3tk8" path="res://Shader/Materials/EmissionRed.tres" id="3_jucjh"]
 [ext_resource type="Shader" path="res://Shader/speed_effect.gdshader" id="4_att53"]
 [ext_resource type="AudioStream" uid="uid://bh8v7wka7nr1e" path="res://Assets/Audio/SFX/running-1-6846.mp3" id="6_s3tcs"]
 [ext_resource type="AudioStream" uid="uid://clvhgt2n3kgbv" path="res://Assets/Audio/SFX/sliding.mp3" id="7_6qler"]
@@ -1184,8 +1185,11 @@ bones/68/rotation = Quaternion(0.171724, 0.00228362, 0.00382893, 0.985135)
 bones/69/rotation = Quaternion(0.211769, -0.00113109, -0.0103724, 0.977264)
 bones/70/rotation = Quaternion(-0.00746218, -0.542531, 0.0477132, 0.838646)
 
+[node name="arm-band_L" parent="Head/Mesh/game-rig/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("3_jucjh")
+
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Head/Mesh/game-rig/Skeleton3D" index="56"]
-transform = Transform3D(0.868106, 0.00884221, -0.496299, -0.0261542, 0.999267, -0.0279444, 0.495689, 0.0372391, 0.867701, -0.0296192, 1.34899, 0.0442496)
+transform = Transform3D(0.868106, 0.00884234, -0.4963, -0.0261541, 0.999267, -0.027944, 0.495689, 0.0372387, 0.867701, -0.0296192, 1.34899, 0.0442495)
 bone_name = "DEF-spine.006"
 bone_idx = 6
 
