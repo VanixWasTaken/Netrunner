@@ -138,10 +138,10 @@ text = "[center]Game DEsign & Level design"
 
 [node name="RichTextLabel7" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 635.0
-offset_top = 834.0
-offset_right = 1239.0
-offset_bottom = 903.0
+offset_left = 133.0
+offset_top = 850.0
+offset_right = 737.0
+offset_bottom = 919.0
 theme = SubResource("Theme_byk80")
 bbcode_enabled = true
 text = "[center]Sound design & Music"
@@ -156,6 +156,25 @@ theme_override_fonts/normal_font = ExtResource("2_b0y28")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
 text = "[center]Ayman Bouhlou"
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="."]
+offset_left = 1071.0
+offset_top = 850.0
+offset_right = 1776.0
+offset_bottom = 919.0
+theme = SubResource("Theme_byk80")
+bbcode_enabled = true
+text = "[center]Character artist"
+
+[node name="RichTextLabel16" type="RichTextLabel" parent="."]
+offset_left = 1215.0
+offset_top = 937.0
+offset_right = 1653.0
+offset_bottom = 997.0
+theme_override_fonts/normal_font = ExtResource("2_b0y28")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "[center]Tobias Maksem"
 
 [node name="RichTextLabel9" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -214,10 +233,10 @@ text = "[center]Paul Becker"
 
 [node name="RichTextLabel14" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 552.0
-offset_top = 911.0
-offset_right = 1323.0
-offset_bottom = 1014.0
+offset_left = 50.0
+offset_top = 927.0
+offset_right = 821.0
+offset_bottom = 1030.0
 theme_override_fonts/normal_font = ExtResource("2_b0y28")
 theme_override_font_sizes/normal_font_size = 45
 bbcode_enabled = true
