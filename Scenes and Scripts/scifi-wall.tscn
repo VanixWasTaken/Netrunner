@@ -67,7 +67,7 @@ process_material = SubResource("ParticleProcessMaterial_uadnj")
 draw_pass_1 = SubResource("PlaneMesh_3g60m")
 
 [node name="ScifiWall_Dots2" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.10406, 1.04175, 0.00231004)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.10194, 1.05729, -3.00464)
 material_override = SubResource("ShaderMaterial_scbv4")
 draw_pass_1 = SubResource("PlaneMesh_3g60m")
 
