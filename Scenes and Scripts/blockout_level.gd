@@ -110,6 +110,11 @@ func convert_time(delta):
 	var ms = randf_range(1, 99)
 	$Goal/WinScreen/MatchEnd/Time.text = '%02d:%02d:%02d' % [m, s, ms]
 	$Assets/Monitor/MonitorBig/SubViewport/ColorRect/RichTextLabel.text = '%02d:%02d:%02d' % [m, s, ms]
+	$Assets/Monitor/MonitorBig2/SubViewport/ColorRect/RichTextLabel.text = '%02d:%02d:%02d' % [m, s, ms]
+	$Assets/Monitor/MonitorBig3/SubViewport/ColorRect/RichTextLabel.text = '%02d:%02d:%02d' % [m, s, ms]
+	$Assets/Monitor/MonitorBig4/SubViewport/ColorRect/RichTextLabel.text = '%02d:%02d:%02d' % [m, s, ms]
+	$Assets/Monitor/MonitorBig5/SubViewport/ColorRect/RichTextLabel.text = '%02d:%02d:%02d' % [m, s, ms]
+	$Assets/Monitor/MonitorBig6/SubViewport/ColorRect/RichTextLabel.text = '%02d:%02d:%02d' % [m, s, ms]
 	
 	if s < 30:
 		$"Goal/WinScreen/MatchEnd/S Tier".visible = true
